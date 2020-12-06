@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from 'react';
+import { Link, BrowserRouter, Route } from 'react-router-dom';
+import Home from './containers/Home/Home.js';
+import PodcastsPage from './containers/PodcastsPage/PodcastsPage';
+import PodcastPage from './containers/PodcastPage/PodcastPage';
+import Layout from './components/Layout/Layout';
+import MenuBar from './containers/MenuBar/MenuBar';
+import SearchPage from './containers/SearchPage/SearchPage';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Layout data-test="layout">
+        <MenuBar />
+        <Route path="/" exact component={Home} />
+        <Route path="/category/:id" exact component={PodcastsPage} />
+        <Route path="/podcast/:id" exact component={PodcastPage} />
+        <Route path="/search/:id" exact component={SearchPage} />
+      </Layout>
+    </BrowserRouter>
   );
 }
 
