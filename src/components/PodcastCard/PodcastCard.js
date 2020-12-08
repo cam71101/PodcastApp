@@ -21,15 +21,6 @@ export const PodcastCard = function MusicCard({ image, artistName, artist }) {
     <Card className={cx(styles.root, shadowStyles.root)}>
       <CardMedia className={styles.media} image={image} />
       <CardContent>
-        {/* <TextInfoContent
-        // classes={textCardContentStyles}
-        // classes={className.text}
-        // overline={artistName}
-        // heading={artist}
-        // body={
-        //   'That year, collection of songs, review melodies, memories full, this is a long and warm journey'
-        // }
-        /> */}
         <Typography>{artistName}</Typography>
         <Typography>{artist}</Typography>
       </CardContent>

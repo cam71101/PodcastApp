@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link, BrowserRouter, Route } from 'react-router-dom';
+import { Link, BrowserRouter, Route, Switch } from 'react-router-dom';
 import Home from './containers/Home/Home.js';
 import PodcastsPage from './containers/PodcastsPage/PodcastsPage';
 import PodcastPage from './containers/PodcastPage/PodcastPage';
@@ -12,10 +12,12 @@ function App() {
     <BrowserRouter>
       <Layout data-test="layout">
         <MenuBar />
-        <Route path="/" exact component={Home} />
-        <Route path="/category/:id" exact component={PodcastsPage} />
-        <Route path="/podcast/:id" exact component={PodcastPage} />
-        <Route path="/search/:id" exact component={SearchPage} />
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/category/:id" exact component={PodcastsPage} />
+          <Route path="/podcast/:id" exact component={PodcastPage} />
+          <Route path="/search/:id" component={SearchPage} />
+        </Switch>
       </Layout>
     </BrowserRouter>
   );

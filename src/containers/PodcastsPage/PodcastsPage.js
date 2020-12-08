@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import useStyles from './podcastsPageStyles';
 import { connect } from 'react-redux';
 import * as actions from '../../store/actions/index';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 
 import useHttp from '../../hooks/http';
 import PodcastCard from '../../components/PodcastCard/PodcastCard';
@@ -22,12 +22,14 @@ const PodcastsPage = (props) => {
   if (data) {
     listPodcasts = data.results.map((podcast) => {
       return (
-        <PodcastCard
-          image={podcast.artworkUrl600}
-          artist={podcast.collectionName}
-          artistName={podcast.artistName}
-          data-test="component-card"
-        />
+        <Link to={'/podcast/' + podcast.collectionId}>
+          <PodcastCard
+            image={podcast.artworkUrl600}
+            artist={podcast.collectionName}
+            artistName={podcast.artistName}
+            data-test="component-card"
+          />
+        </Link>
       );
     });
   }
