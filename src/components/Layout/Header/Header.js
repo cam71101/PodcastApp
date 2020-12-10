@@ -7,8 +7,6 @@ const Header = (props) => {
   const [searchValue, setSearchValue] = React.useState('');
   const classes = useStyles();
 
-  console.log(props);
-
   const searchPodcasts = () => {
     props.history.push({
       pathname: '/search/' + searchValue,

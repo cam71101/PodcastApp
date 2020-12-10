@@ -1,67 +1,84 @@
 import React, { useEffect } from 'react';
-import { connect } from 'react-redux';
-import * as actions from '../../store/actions/index';
-import { withRouter } from 'react-router-dom';
-import axios from 'axios';
 
-import MenuBar from '../MenuBar/MenuBar';
 import useHttp from '../../hooks/http';
-import PodcastCard from '../../components/PodcastCard/PodcastCard';
 import useStyles from './podcastPageStyles';
-import PodcastsLayout from '../../components/PodcastsLayout/PodcastsLayout';
-import Axios from 'axios';
+import PodcastsTable from '../../components/PodcastsTable/PodcastsTable';
+import PodcastHeader from '../../components/PodcastHeader/PodcastHeader';
+
+import Pagination from '@material-ui/lab/Pagination';
 
 const PodcastPage = (props) => {
+  const [currentPage, setCurrentPage] = React.useState(1);
+  const [episodesPerPage, setEpisodesPerPage] = React.useState(10);
   const classes = useStyles();
-  const { isLoading, error, data, sendRequest } = useHttp();
+  const { isLoading, error, data, description, sendPodcastRequest } = useHttp();
 
   useEffect(() => {
     const term = props.location.pathname.replace('/podcast/', '');
-    // sendRequest(`https://itunes.apple.com/search?term=${term}&media=podcast`);
-    const response = unirest
-      .post('https://listen-api.listennotes.com/api/v2/podcasts')
-      .header('X-ListenAPI-Key', '8cdcd14f4279491aba4bf627524febe2')
-      .header('Content-Type', 'application/x-www-form-urlencoded')
-      .send(
-        'ids=3302bc71139541baa46ecb27dbf6071a,68faf62be97149c280ebcc25178aa731,37589a3e121e40debe4cef3d9638932a,9cf19c590ff0484d97b18b329fed0c6a'
-      )
-      .send(
-        'rsses=https://rss.art19.com/recode-decode,https://rss.art19.com/the-daily,https://www.npr.org/rss/podcast.php?id=510331,https://www.npr.org/rss/podcast.php?id=510331'
-      )
-      .send('itunes_ids=1457514703,1386234384,659155419')
-      .send('show_latest_episodes=1')
-      .send('next_episode_pub_date=1557394247000');
-    response.toJSON();
-  }, [props.location.pathname]);
+    if (props.location.search) {
+      setCurrentPage(
+        props.location.search.charAt(props.location.search.length - 1)
+      );
+    }
+    sendPodcastRequest(
+      `https://itunes.apple.com/lookup?id=${term}&country=US&media=podcast&entity=podcastEpisode&limit=1000`
+    );
+  }, []);
 
-  let listPodcasts = null;
+  let podcast = null;
+  let totalEpisodes = null;
+  let currentEpisodes;
 
   if (data) {
-    console.log(data);
-    listPodcasts = data.results.map((podcast) => {
-      return (
-        <PodcastCard
-          image={podcast.artworkUrl600}
-          artist={podcast.collectionName}
-          artistName={podcast.artistName}
-          data-test="component-card"
-        />
-      );
-    });
+    /// 10
+    const indexOfLastEpisodes = currentPage * episodesPerPage;
+    /// 0
+    const indexOfFirstEpisodes = indexOfLastEpisodes - episodesPerPage;
+    //
+    const replicateData = [...data.results];
+    replicateData.shift();
+    currentEpisodes = replicateData.slice(
+      indexOfFirstEpisodes,
+      indexOfLastEpisodes
+    );
+
+    totalEpisodes = data.results.length;
   }
 
+  if (data) {
+    const replicateData = [...data.results];
+    podcast = replicateData.shift();
+  }
+
+  const pageNumbers = [];
+
+  for (let i = 1; i <= Math.ceil(totalEpisodes / episodesPerPage); i++) {
+    pageNumbers.push(i);
+  }
+
+  const paginate = (event, pageNumber) => {
+    setCurrentPage(pageNumber);
+    props.history.push(props.match.url + '?' + pageNumber);
+  };
+
   return (
-    <React.Fragment>
-      <MenuBar />
-      <PodcastsLayout isLoading={isLoading} podcasts={listPodcasts} />
-    </React.Fragment>
+    <div className={classes.root}>
+      <PodcastHeader podcast={podcast} description={description} />
+      <PodcastsTable podcasts={currentEpisodes} isLoading={isLoading} />
+      <Pagination
+        className={classes.pages}
+        count={pageNumbers.length}
+        page={currentPage}
+        onChange={paginate}
+      />
+    </div>
   );
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    onUpdateData: (link) => dispatch(actions.updateData(link)),
-  };
-};
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//     onUpdateData: (link) => dispatch(actions.updateData(link)),
+//   };
+// };
 
-export default withRouter(connect(null, mapDispatchToProps)(PodcastPage));
+export default PodcastPage;

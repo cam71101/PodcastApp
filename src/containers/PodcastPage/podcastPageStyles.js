@@ -3,16 +3,18 @@ import { makeStyles } from '@material-ui/styles';
 const useStyles = makeStyles((theme) => ({
   root: {
     width: '100%',
-    gridRow: 2,
+    height: '70rem',
+    gridRow: 1,
     rowGap: '2rem',
     columnGap: '1rem',
-    marginBottom: '1rem',
+    marginBottom: '8rem',
     marginTop: '1rem',
-    display: 'flex',
-    flexWrap: 'wrap',
-    justifyContent: 'flex-start',
-    alignItems: 'flex-start',
-    alignContent: 'flex-start',
+    display: 'grid',
+    gridTemplateRows: '20rem max-content 2rem',
+    gridTemplateColums: '1fr',
+  },
+  pages: {
+    margin: 'auto',
   },
 }));
 export default useStyles;

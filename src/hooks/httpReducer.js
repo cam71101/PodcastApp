@@ -3,7 +3,12 @@ export const httpReducer = (curHttpState, action) => {
     case 'SEND':
       return { loading: true, error: null, data: null };
     case 'RESPONSE':
-      return { ...curHttpState, loading: false, data: action.responseData };
+      return {
+        ...curHttpState,
+        loading: false,
+        data: action.responseData,
+        description: action.description,
+      };
     case 'ERROR':
       return { loading: false, error: action.errorMessage };
     case 'CLEAR':

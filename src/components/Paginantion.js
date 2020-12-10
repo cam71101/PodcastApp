@@ -1,4 +1,5 @@
 import React from 'react';
+import Pagination from '@material-ui/lab/Pagination';
 
 // {
 //   podcastsPerPage, totalPodcasts, paginate;
@@ -7,29 +8,19 @@ import React from 'react';
 const Paginantion = (props) => {
   const pageNumbers = [];
 
-  const { podcastsPerPage, totalPodcasts, paginate } = props;
+  const { podcastsPerPage, totalPodcasts, paginate, currentPage } = props;
 
   for (let i = 1; i <= Math.ceil(totalPodcasts / podcastsPerPage); i++) {
     pageNumbers.push(i);
   }
 
-  console.log(podcastsPerPage);
-  console.log(totalPodcasts);
-
   return (
     <div>
-      <ul>
-        {pageNumbers.map((number) => (
-          <li key={number}>
-            <a
-              onClick={() => paginate(number)}
-              // href={props.location.pathname + '/' + number}
-            >
-              {number}
-            </a>
-          </li>
-        ))}
-      </ul>
+      <Pagination
+        count={pageNumbers.length}
+        page={currentPage}
+        onChange={paginate}
+      />
     </div>
   );
 };

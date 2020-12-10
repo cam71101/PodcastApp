@@ -11,23 +11,22 @@ const MenuBar = () => {
 
   const items = sideBarItems.map((item) => {
     return (
-      <ListItem key={item}>
-        {item === 'Home' ? (
-          <Link to={'/'}>
-            <Button>{item}</Button>
-          </Link>
-        ) : (
-          <Link to={'/category/' + item}>
-            <Button>{item}</Button>
-          </Link>
-        )}
+      <ListItem key={item.id}>
+        <Link to={'/category/' + item.name + '/' + item.id}>
+          <Button>{item.name}</Button>
+        </Link>
       </ListItem>
     );
   });
 
   return (
     <div className={classes.root} data-test="component-drawer">
-      <List data-test="component-list">{items}</List>
+      <ListItem>
+        <Link to={'/'}>
+          <Button data-test="component-button">Home</Button>
+        </Link>
+      </ListItem>
+      {items}
     </div>
   );
 };

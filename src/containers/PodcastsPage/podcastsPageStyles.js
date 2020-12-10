@@ -13,6 +13,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'flex-start',
     alignItems: 'flex-start',
     alignContent: 'flex-start',
+    marginBottom: '5rem',
   },
 }));
 export default useStyles;

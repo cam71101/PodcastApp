@@ -5,14 +5,24 @@ import { findByTestAttr } from '../../test/testUtils';
 
 const setup = () => shallow(<MenuBar.WrappedComponent />);
 
+global.window = { location: { pathname: null } };
+
 test('Renders without error', () => {
   const wrapper = setup();
   const component = findByTestAttr(wrapper, 'component-drawer');
   expect(component.length).toBe(1);
 });
 
-test('Render list without error', () => {
+describe('Button tests', () => {
   const wrapper = setup();
-  const listComponent = findByTestAttr(wrapper, 'component-list');
-  expect(listComponent.length).toBe(1);
+  const btn = findByTestAttr(wrapper, 'component-button');
+
+  test('Render button without error', () => {
+    expect(btn.length).toBe(1);
+  });
+
+  test('Change url when home button is clicked', () => {
+    btn.simulate('click');
+    expect(global.window.location.pathname).toEqual('/');
+  });
 });

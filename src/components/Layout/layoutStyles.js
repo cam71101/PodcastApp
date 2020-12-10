@@ -2,14 +2,13 @@ import { makeStyles } from '@material-ui/styles';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    width: '95vw',
+    width: '85vw',
     display: 'grid',
-
-    gridTemplateRows: '100px 1fr 100px',
+    gridTemplateRows: '1fr',
     // gridTemplateColumns: '10rem 90rem',
-    gridTemplateColumns: 'max-content 1fr',
-
-    border: ' 5px solid red;',
+    gridTemplateColumns: '1fr',
+    marginLeft: '14rem',
+    // border: ' 5px solid red;',
     '& body': {
       background: 'white',
       lineHeight: 1.5,

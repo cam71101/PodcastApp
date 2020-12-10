@@ -3,6 +3,7 @@ import useStyles from './podcastsPageStyles';
 import { connect } from 'react-redux';
 import * as actions from '../../store/actions/index';
 import { withRouter, Link } from 'react-router-dom';
+import axios from 'axios';
 
 import useHttp from '../../hooks/http';
 import PodcastCard from '../../components/PodcastCard/PodcastCard';
@@ -13,8 +14,11 @@ const PodcastsPage = (props) => {
   const { isLoading, error, data, sendRequest } = useHttp();
 
   useEffect(() => {
-    const term = props.location.pathname.replace('/category/', '');
-    sendRequest(`https://itunes.apple.com/search?term=${term}&media=podcast`);
+    const index = props.location.pathname.lastIndexOf('/');
+    const result = props.location.pathname.substring(index + 1);
+    sendRequest(
+      `https://itunes.apple.com/search?term=podcast&genreId=${result}&limit=50`
+    );
   }, [props.location.pathname]);
 
   let listPodcasts = null;
@@ -22,7 +26,7 @@ const PodcastsPage = (props) => {
   if (data) {
     listPodcasts = data.results.map((podcast) => {
       return (
-        <Link to={'/podcast/' + podcast.collectionId}>
+        <Link to={'/podcast/' + podcast.collectionId} key={podcast.id}>
           <PodcastCard
             image={podcast.artworkUrl600}
             artist={podcast.collectionName}

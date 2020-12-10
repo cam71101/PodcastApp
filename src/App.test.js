@@ -5,8 +5,6 @@ import { findByTestAttr } from './test/testUtils';
 
 const setup = () => shallow(<App />);
 
-// console.log(wrapper.debug());
-
 test('renders without error', () => {
   const wrapper = setup();
   const appComponent = findByTestAttr(wrapper, 'layout');
