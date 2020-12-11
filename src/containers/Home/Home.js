@@ -3,6 +3,7 @@ import useStyles from './homeStyles';
 import { connect } from 'react-redux';
 import * as actions from '../../store/actions/index';
 import { Link } from 'react-router-dom';
+import Typography from '@material-ui/core/Typography';
 
 import useHttp from '../../hooks/http';
 import PodcastCard from '../../components/PodcastCard/PodcastCard';
@@ -35,7 +36,14 @@ const Home = (props) => {
     });
   }
 
-  return <PodcastsLayout isLoading={isLoading} podcasts={listPodcasts} />;
+  return (
+    <div className={classes.root}>
+      <Typography variant="h4" className={classes.title}>
+        Popular
+      </Typography>
+      <PodcastsLayout isLoading={isLoading} podcasts={listPodcasts} />;
+    </div>
+  );
 };
 
 // const mapDispatchToProps = (dispatch) => {

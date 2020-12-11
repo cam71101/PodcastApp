@@ -31,7 +31,9 @@ export const PodcastHeader = function MusicCard({ podcast, description }) {
           <Typography variant="h6" gutterBottom>
             {podcast.artistName}
           </Typography>
-          <Typography gutterBottom>{description}</Typography>
+          <Typography variant="p" gutterBottom>
+            {description}
+          </Typography>
           <div className={styles.tag}>
             {podcast.genres.map((tag) => {
               return <Chip label={tag} />;

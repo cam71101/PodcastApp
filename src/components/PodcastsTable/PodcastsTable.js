@@ -38,11 +38,11 @@ export default function PodcastsTable({ podcasts, isLoading }) {
   // React.useEffect(() => {
   //   if (podcasts) {
   //     podcasts.map((row) => {
-  //       var minutes = Math.floor(row.trackTimeMillis / 60000);
-  //       var seconds = ((row.trackTimeMillis % 60000) / 1000).toFixed(0);
-  //       console.log(minutes + ':' + (seconds < 10 ? '0' : '') + seconds);
-  //       return (row.trackTimeMillis =
-  //         minutes + ':' + (seconds < 10 ? '0' : '') + seconds);
+  // var minutes = Math.floor(row.trackTimeMillis / 60000);
+  // var seconds = ((row.trackTimeMillis % 60000) / 1000).toFixed(0);
+  // console.log(minutes + ':' + (seconds < 10 ? '0' : '') + seconds);
+  // return (row.trackTimeMillis =
+  //   minutes + ':' + (seconds < 10 ? '0' : '') + seconds);
   //     });
   //   }
   //   return podcasts;

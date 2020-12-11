@@ -1,7 +1,7 @@
 import React from 'react';
 import theme from './theme';
 
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { HashRouter, BrowserRouter, Route, Switch } from 'react-router-dom';
 import Home from './containers/Home/Home.js';
 import PodcastsPage from './containers/PodcastsPage/PodcastsPage';
 import PodcastPage from './containers/PodcastPage/PodcastPage';
@@ -12,7 +12,7 @@ import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <MuiThemeProvider theme={theme}>
         <Layout data-test="layout">
           <Switch>
