@@ -27,6 +27,7 @@ const SearchPage = (props) => {
         props.location.search.charAt(props.location.search.length - 1)
       );
     }
+    console.log(term);
     if (!data) {
       sendRequest(
         `https://itunes.apple.com/search?term=${term}&media=podcast&limit=1000`

@@ -48,12 +48,6 @@ const PodcastPage = (props) => {
   if (data) {
     const replicateData = [...data.results];
     podcast = replicateData.shift();
-    // currentEpisodes.map((row) => {
-    //   var minutes = Math.floor(row.trackTimeMillis / 60000);
-    //   var seconds = ((row.trackTimeMillis % 60000) / 1000).toFixed(0);
-    //   return (row.trackTimeMillis =
-    //     minutes + ':' + (seconds < 10 ? '0' : '') + seconds);
-    // });
   }
 
   const pageNumbers = [];

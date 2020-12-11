@@ -26,6 +26,10 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
     border: 'none',
     outline: 'none',
+    zIndex: 1,
+  },
+  loading: {
+    zIndex: 100,
   },
 }));
 
@@ -42,9 +46,16 @@ const Player = () => {
     }
   }, [audio]);
 
+  console.log(isLoading);
+
   return (
     <div className={classes.root}>
-      {isLoading ? <CircularProgress data-test="component-loading" /> : null}
+      {isLoading ? (
+        <CircularProgress
+          data-test="component-loading"
+          className={classes.loading}
+        />
+      ) : null}
       {/* <Media>
         <div className="media">
           <div className={classes.mediaPlayer}>
@@ -74,9 +85,9 @@ const Player = () => {
       <AudioPlayer
         src={audio}
         autoPlay={autoPlay}
-        onPlay={() => setIsLoading(false)}
+        onCanPlay={() => setIsLoading(false)}
         className={classes.mediaPlayer}
-      />
+      ></AudioPlayer>
     </div>
   );
 };
