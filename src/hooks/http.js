@@ -1,6 +1,5 @@
 import React from 'react';
 import axios from 'axios';
-import moxios from 'moxios';
 
 import { httpReducer } from './httpReducer';
 
@@ -12,8 +11,8 @@ const useHttp = () => {
     description: null,
   });
 
-  const proxyurl = 'https://ancient-river-53390.herokuapp.com/';
-
+  // const proxyurl = 'https://ancient-river-53390.herokuapp.com/';
+  const proxyurl = '';
   const sendRequest = React.useCallback((url) => {
     dispathHttp({ type: 'SEND' });
     console.log('CORSS');
