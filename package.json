@@ -1,4 +1,5 @@
 {
+  "homepage": "http://cam71101}.github.io/PodcastApp",
   "name": "podcast-app",
   "version": "0.1.0",
   "private": true,
@@ -43,7 +44,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -68,6 +71,7 @@
     "check-prop-types": "^1.1.2",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.5",
+    "gh-pages": "^3.1.0",
     "jest-enzyme": "^7.1.2",
     "miragejs": "^0.1.41",
     "moxios": "^0.4.0"

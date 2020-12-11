@@ -12,10 +12,13 @@ const useHttp = () => {
     description: null,
   });
 
+  const proxyurl = 'https://ancient-river-53390.herokuapp.com/';
+
   const sendRequest = React.useCallback((url) => {
     dispathHttp({ type: 'SEND' });
+    console.log('CORSS');
     axios
-      .get(url)
+      .get(proxyurl + url)
       .then((response) => {
         dispathHttp({ type: 'RESPONSE', responseData: response.data });
       })
@@ -26,7 +29,7 @@ const useHttp = () => {
 
   const sendPodcastRequest = React.useCallback((url) => {
     dispathHttp({ type: 'SEND' });
-    axios.get(url).then((response) => {
+    axios.get(proxyurl + url).then((response) => {
       // axios
       //   .get(
       //     `https://listen-api.listennotes.com/api/v2/search?q=${response.data.results[0].collectionName}&sort_by_date=0&type=podcast&offset=0&len_min=10&len_max=30&published_after=0&only_in=title&language=English&safe_mode=0`,
@@ -42,7 +45,6 @@ const useHttp = () => {
       //   responseData: response.data,
       //   description: listen.data.results[0].description_original,
       // })
-      console.log(response.data);
       response.data.results.map((track) => {
         const minutes = Math.floor(track.trackTimeMillis / 60000);
         const seconds = ((track.trackTimeMillis % 60000) / 1000).toFixed(0);
