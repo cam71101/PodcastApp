@@ -10,6 +10,7 @@ import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import PlayCircleOutlineIcon from '@material-ui/icons/PlayCircleOutline';
+import Typography from '@material-ui/core/Typography';
 
 import useStyles from './podcastsTableStyles';
 import { AudioContext } from '../../context/audio-context';
@@ -34,15 +35,34 @@ export default function PodcastsTable({ podcasts, isLoading }) {
     setAudio(audio);
   };
 
+  // React.useEffect(() => {
+  //   if (podcasts) {
+  //     podcasts.map((row) => {
+  //       var minutes = Math.floor(row.trackTimeMillis / 60000);
+  //       var seconds = ((row.trackTimeMillis % 60000) / 1000).toFixed(0);
+  //       console.log(minutes + ':' + (seconds < 10 ? '0' : '') + seconds);
+  //       return (row.trackTimeMillis =
+  //         minutes + ':' + (seconds < 10 ? '0' : '') + seconds);
+  //     });
+  //   }
+  //   return podcasts;
+  // }, [podcasts]);
+
   return (
     <TableContainer className={classes.root} component={Paper}>
       {isLoading ? <CircularProgress data-test="component-loading" /> : null}
       <Table className={classes.table} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell>Episode title</TableCell>
-            <TableCell align="right">Released</TableCell>
-            <TableCell align="right">Duration</TableCell>
+            <TableCell>
+              <Typography variant="h6">Episode title</Typography>
+            </TableCell>
+            <TableCell align="right">
+              <Typography variant="h6">Released</Typography>
+            </TableCell>
+            <TableCell align="right">
+              <Typography variant="h6">Duration</Typography>
+            </TableCell>
             <TableCell align="right" />
           </TableRow>
         </TableHead>
@@ -68,3 +88,5 @@ export default function PodcastsTable({ podcasts, isLoading }) {
     </TableContainer>
   );
 }
+
+// new Date(SECONDS * 1000).toISOString().substr(11, 8);

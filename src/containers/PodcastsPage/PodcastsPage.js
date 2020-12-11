@@ -4,12 +4,14 @@ import { connect } from 'react-redux';
 import * as actions from '../../store/actions/index';
 import { withRouter, Link } from 'react-router-dom';
 import axios from 'axios';
+import Typography from '@material-ui/core/Typography';
 
 import useHttp from '../../hooks/http';
 import PodcastCard from '../../components/PodcastCard/PodcastCard';
 import PodcastsLayout from '../../components/PodcastsLayout/PodcastsLayout';
 
 const PodcastsPage = (props) => {
+  const [category, setCategory] = React.useState(null);
   const classes = useStyles();
   const { isLoading, error, data, sendRequest } = useHttp();
 
@@ -19,11 +21,16 @@ const PodcastsPage = (props) => {
     sendRequest(
       `https://itunes.apple.com/search?term=podcast&genreId=${result}&limit=50`
     );
+    const extractCategory = props.location.pathname.replace('/category/', '');
+    const indexCategory = extractCategory.lastIndexOf('/');
+    const cat = extractCategory.substring(0, indexCategory);
+    setCategory(cat);
   }, [props.location.pathname]);
 
   let listPodcasts = null;
 
   if (data) {
+    console.log(category);
     listPodcasts = data.results.map((podcast) => {
       return (
         <Link to={'/podcast/' + podcast.collectionId} key={podcast.id}>
@@ -38,7 +45,14 @@ const PodcastsPage = (props) => {
     });
   }
 
-  return <PodcastsLayout isLoading={isLoading} podcasts={listPodcasts} />;
+  return (
+    <div className={classes.root}>
+      <Typography variant="h4" className={classes.title}>
+        {category}
+      </Typography>
+      <PodcastsLayout isLoading={isLoading} podcasts={listPodcasts} />
+    </div>
+  );
 };
 
 // const mapDispatchToProps = (dispatch) => {

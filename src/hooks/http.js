@@ -26,7 +26,6 @@ const useHttp = () => {
 
   const sendPodcastRequest = React.useCallback((url) => {
     dispathHttp({ type: 'SEND' });
-
     axios.get(url).then((response) => {
       // axios
       //   .get(
@@ -43,6 +42,22 @@ const useHttp = () => {
       //   responseData: response.data,
       //   description: listen.data.results[0].description_original,
       // })
+      console.log(response.data);
+      response.data.results.map((track) => {
+        const minutes = Math.floor(track.trackTimeMillis / 60000);
+        const seconds = ((track.trackTimeMillis % 60000) / 1000).toFixed(0);
+        return (track.trackTimeMillis =
+          minutes + ':' + (seconds < 10 ? '0' : '') + seconds);
+      });
+
+      response.data.results.map((track) => {
+        const date = track.releaseDate.substr(0, 10);
+        const newDate = new Date(date);
+        const string = String(newDate);
+        const newData = string.substr(4, 12);
+        return (track.releaseDate = newData);
+      });
+
       dispathHttp({
         type: 'RESPONSE',
         responseData: response.data,

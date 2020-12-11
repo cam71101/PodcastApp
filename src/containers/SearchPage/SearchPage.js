@@ -15,7 +15,7 @@ import { Link } from 'react-router-dom';
 
 const SearchPage = (props) => {
   const [currentPage, setCurrentPage] = React.useState(1);
-  const [podcastsPerPage, setPodcastsPerPage] = React.useState(10);
+  const [podcastsPerPage, setPodcastsPerPage] = React.useState(25);
 
   const classes = useStyles();
   const { isLoading, error, data, sendRequest, page } = useHttp();
@@ -29,7 +29,7 @@ const SearchPage = (props) => {
     }
     if (!data) {
       sendRequest(
-        `https://itunes.apple.com/search?term=${term}&media=podcast&limit=100`
+        `https://itunes.apple.com/search?term=${term}&media=podcast&limit=1000`
       );
     }
   }, [props.location.pathname]);
@@ -72,7 +72,7 @@ const SearchPage = (props) => {
   };
 
   return (
-    <div>
+    <div className={classes.root}>
       <PodcastsLayoutPages isLoading={isLoading} podcasts={listPodcasts} />
       <Pagination
         count={pageNumbers.length}

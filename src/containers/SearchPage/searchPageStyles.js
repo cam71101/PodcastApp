@@ -3,16 +3,15 @@ import { makeStyles } from '@material-ui/styles';
 const useStyles = makeStyles((theme) => ({
   root: {
     width: '100%',
-    gridRow: 2,
+    // height: '90rem',
+    gridRow: 1,
     rowGap: '2rem',
     columnGap: '1rem',
-    marginBottom: '1rem',
-    marginTop: '1rem',
-    display: 'flex',
-    flexWrap: 'wrap',
-    justifyContent: 'flex-start',
-    alignItems: 'flex-start',
-    alignContent: 'flex-start',
+    marginBottom: '7rem',
+    marginTop: '5rem',
+    // display: 'grid',
+    // gridTemplateRows: '23rem max-content 2rem',
+    // gridTemplateColums: '1fr',
   },
 }));
 export default useStyles;

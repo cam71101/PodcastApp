@@ -2,9 +2,11 @@ import React from 'react';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
 import useStyles from './podcastsLayoutPagesStyles';
+import Typography from '@material-ui/core/Typography';
+
 import PodcastCard from '../../components/PodcastCard/PodcastCard';
 
-const PodcastsLayoutPages = ({ podcasts, isLoading }) => {
+const PodcastsLayoutPages = ({ podcasts, isLoading, title }) => {
   const classes = useStyles();
 
   // let listPodcasts = null;

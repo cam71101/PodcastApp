@@ -17,7 +17,6 @@ const Layout = (props) => {
       <Drawer {...props} />
       {props.children}
       <AudioPlayer />
-      {/* <Footer /> */}
     </div>
   );
 };

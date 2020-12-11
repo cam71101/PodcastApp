@@ -2,6 +2,7 @@ import { makeStyles } from '@material-ui/styles';
 
 const useStyles = makeStyles((theme) => ({
   root: {
+    gridRow: 1,
     width: '70%',
     display: 'grid',
     gridTemplateRows: '100px',
@@ -13,7 +14,8 @@ const useStyles = makeStyles((theme) => ({
     // gridRow: 1,
     padding: '5rem',
     margin: 'auto',
-    marginBottom: '4rem',
+    marginTop: 0,
+    // marginBottom: '4rem',
   },
   media: {
     // margin: 0,

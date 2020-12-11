@@ -7,11 +7,11 @@ const useStyles = makeStyles((theme) => ({
     rowGap: '2rem',
     columnGap: '1rem',
     marginBottom: '1rem',
-    marginTop: '7rem',
+    marginTop: '2rem',
     display: 'flex',
     flexWrap: 'wrap',
-
     marginBottom: '6rem',
+    marginLeft: '2rem',
     // justifyContent: 'flex-start',
     // alignItems: 'flex-start',
     // alignContent: 'flex-start',

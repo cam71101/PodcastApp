@@ -10,11 +10,12 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: '8rem',
     marginTop: '1rem',
     display: 'grid',
-    gridTemplateRows: '20rem max-content 2rem',
+    gridTemplateRows: '23rem max-content 2rem',
     gridTemplateColums: '1fr',
   },
   pages: {
     margin: 'auto',
+    marginBottom: '6rem',
   },
 }));
 export default useStyles;
