@@ -16,8 +16,8 @@ function App() {
       <MuiThemeProvider theme={theme}>
         <Layout data-test="layout">
           <Switch>
-            <Route path="/home" exact component={Home} />
-            <Route path="/" exact component={Home} />
+            <Route path="/home" exact component={PodcastsPage} />
+            <Route path="/" exact component={PodcastsPage} />
             {sideBarItems.map((item) => {
               if (item.name !== 'Home') {
                 return (

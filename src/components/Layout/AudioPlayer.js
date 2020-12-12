@@ -87,6 +87,7 @@ const Player = () => {
         autoPlay={autoPlay}
         onCanPlay={() => setIsLoading(false)}
         className={classes.mediaPlayer}
+        header
       ></AudioPlayer>
     </div>
   );

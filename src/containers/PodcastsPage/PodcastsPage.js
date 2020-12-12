@@ -16,33 +16,55 @@ const PodcastsPage = (props) => {
   const { isLoading, error, data, sendRequest } = useHttp();
 
   useEffect(() => {
-    const index = props.location.pathname.lastIndexOf('/');
-    const result = props.location.pathname.substring(index + 1);
-    sendRequest(
-      `https://itunes.apple.com/search?term=podcast&genreId=${result}&limit=50`
-    );
-    const extractCategory = props.location.pathname.replace('/category/', '');
-    const indexCategory = extractCategory.lastIndexOf('/');
-    const cat = extractCategory.substring(0, indexCategory);
-    setCategory(cat);
+    if (props.location.pathname.includes('category')) {
+      const index = props.location.pathname.lastIndexOf('/');
+      const result = props.location.pathname.substring(index + 1);
+
+      sendRequest(
+        `https://itunes.apple.com/search?term=podcast&genreId=${result}&limit=50`
+      );
+      const extractCategory = props.location.pathname.replace('/category/', '');
+      const indexCategory = extractCategory.lastIndexOf('/');
+      const cat = extractCategory.substring(0, indexCategory);
+      setCategory(cat);
+    } else {
+      sendRequest(
+        'https://rss.itunes.apple.com/api/v1/us/podcasts/top-podcasts/all/uk/explicit.json'
+      );
+      setCategory('Popular');
+    }
   }, [props.location.pathname]);
 
   let listPodcasts = null;
 
   if (data) {
-    console.log(category);
-    listPodcasts = data.results.map((podcast) => {
-      return (
-        <Link to={'/podcast/' + podcast.collectionId} key={podcast.id}>
-          <PodcastCard
-            image={podcast.artworkUrl600}
-            artist={podcast.collectionName}
-            artistName={podcast.artistName}
-            data-test="component-card"
-          />
-        </Link>
-      );
-    });
+    if (category !== 'Popular') {
+      listPodcasts = data.results.map((podcast) => {
+        return (
+          <Link to={'/podcast/' + podcast.collectionId} key={podcast.id}>
+            <PodcastCard
+              image={podcast.artworkUrl600}
+              artist={podcast.collectionName}
+              artistName={podcast.artistName}
+              data-test="component-card"
+            />
+          </Link>
+        );
+      });
+    } else {
+      listPodcasts = data.feed.results.map((podcast) => {
+        return (
+          <Link to={'/podcast/' + podcast.id}>
+            <PodcastCard
+              image={podcast.artworkUrl100}
+              artist={podcast.name}
+              artistName={podcast.artistName}
+              data-test="component-card"
+            />
+          </Link>
+        );
+      });
+    }
   }
 
   return (
