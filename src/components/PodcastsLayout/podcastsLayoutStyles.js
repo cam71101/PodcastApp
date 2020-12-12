@@ -12,9 +12,13 @@ const useStyles = makeStyles((theme) => ({
     flexWrap: 'wrap',
     marginBottom: '6rem',
     marginLeft: '2rem',
-    justifyContent: 'flex-start',
-    alignItems: 'flex-start',
-    alignContent: 'flex-start',
+    // justifyContent: 'flex-start',
+    // alignItems: 'flex-start',
+    // alignContent: 'flex-start',
+  },
+  loading: {
+    // position: 'absolute',
+    margin: 'auto',
   },
 }));
 export default useStyles;

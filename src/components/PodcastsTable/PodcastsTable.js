@@ -31,60 +31,49 @@ export default function PodcastsTable({ podcasts, isLoading }) {
   const classes = useStyles();
   const setAudio = React.useContext(AudioContext).setAudio;
 
-  const setAudioHandler = (audio) => {
-    setAudio(audio);
+  const setAudioHandler = (audio, image) => {
+    setAudio(audio, image);
   };
-
-  // React.useEffect(() => {
-  //   if (podcasts) {
-  //     podcasts.map((row) => {
-  // var minutes = Math.floor(row.trackTimeMillis / 60000);
-  // var seconds = ((row.trackTimeMillis % 60000) / 1000).toFixed(0);
-  // console.log(minutes + ':' + (seconds < 10 ? '0' : '') + seconds);
-  // return (row.trackTimeMillis =
-  //   minutes + ':' + (seconds < 10 ? '0' : '') + seconds);
-  //     });
-  //   }
-  //   return podcasts;
-  // }, [podcasts]);
-
   return (
     <TableContainer className={classes.root} component={Paper}>
-      {isLoading ? <CircularProgress data-test="component-loading" /> : null}
-      <Table className={classes.table} aria-label="simple table">
-        <TableHead>
-          <TableRow>
-            <TableCell>
-              <Typography variant="h6">Episode title</Typography>
-            </TableCell>
-            <TableCell align="right">
-              <Typography variant="h6">Released</Typography>
-            </TableCell>
-            <TableCell align="right">
-              <Typography variant="h6">Duration</Typography>
-            </TableCell>
-            <TableCell align="right" />
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {podcasts
-            ? podcasts.map((row) => (
-                <TableRow key={row.trackId}>
-                  <TableCell component="th" scope="row">
-                    {row.trackName}
-                  </TableCell>
-                  <TableCell align="right">{row.releaseDate}</TableCell>
-                  <TableCell align="right">{row.trackTimeMillis}</TableCell>
-                  <TableCell align="right">
-                    <Button onClick={() => setAudioHandler(row.episodeUrl)}>
-                      <PlayCircleOutlineIcon fontSize="large" />
-                    </Button>
-                  </TableCell>
-                </TableRow>
-              ))
-            : null}
-        </TableBody>
-      </Table>
+      {podcasts ? (
+        <Table className={classes.table} aria-label="simple table">
+          <TableHead>
+            <TableRow>
+              <TableCell>
+                <Typography variant="h6">Episode title</Typography>
+              </TableCell>
+              <TableCell align="right">
+                <Typography variant="h6">Released</Typography>
+              </TableCell>
+              <TableCell align="right">
+                <Typography variant="h6">Duration</Typography>
+              </TableCell>
+              <TableCell align="right" />
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {podcasts.map((row) => (
+              <TableRow key={row.trackId}>
+                <TableCell component="th" scope="row">
+                  {row.trackName}
+                </TableCell>
+                <TableCell align="right">{row.releaseDate}</TableCell>
+                <TableCell align="right">{row.trackTimeMillis}</TableCell>
+                <TableCell align="right">
+                  <Button
+                    onClick={() =>
+                      setAudioHandler(row.episodeUrl, row.artworkUrl600)
+                    }
+                  >
+                    <PlayCircleOutlineIcon fontSize="large" />
+                  </Button>
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      ) : null}
     </TableContainer>
   );
 }

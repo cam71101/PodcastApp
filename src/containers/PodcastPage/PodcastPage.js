@@ -4,6 +4,7 @@ import useHttp from '../../hooks/http';
 import useStyles from './podcastPageStyles';
 import PodcastsTable from '../../components/PodcastsTable/PodcastsTable';
 import PodcastHeader from '../../components/PodcastHeader/PodcastHeader';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 import Pagination from '@material-ui/lab/Pagination';
 
@@ -63,6 +64,12 @@ const PodcastPage = (props) => {
 
   return (
     <div className={classes.root}>
+      {isLoading ? (
+        <CircularProgress
+          data-test="component-loading"
+          className={classes.loading}
+        />
+      ) : null}
       <PodcastHeader podcast={podcast} description={description} />
       <PodcastsTable podcasts={currentEpisodes} isLoading={isLoading} />
       <Pagination

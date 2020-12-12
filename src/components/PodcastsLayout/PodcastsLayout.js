@@ -11,7 +11,12 @@ const PodcastsLayout = ({ isLoading, podcasts, title }) => {
 
   return (
     <div className={classes.root} data-test="component-home">
-      {isLoading ? <CircularProgress data-test="component-loading" /> : null}
+      {isLoading ? (
+        <CircularProgress
+          data-test="component-loading"
+          className={classes.loading}
+        />
+      ) : null}
       {podcasts}
     </div>
   );

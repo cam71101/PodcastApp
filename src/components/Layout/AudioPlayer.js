@@ -9,6 +9,7 @@ import CustomPlayPause from './CustomPlayPause';
 // import ReactAudioPlayer from 'react-audio-player';
 // const { CurrentTime, SeekBar, Duration, MuteUnmute, Volume } = controls;
 import AudioPlayer from 'react-h5-audio-player';
+import CardMedia from '@material-ui/core/CardMedia';
 
 import 'react-h5-audio-player/lib/styles.css';
 
@@ -18,9 +19,8 @@ const useStyles = makeStyles((theme) => ({
   root: {
     position: 'fixed',
     bottom: 0,
-    // border: ' 5px solid red;',
-    // height: '5rem',
     width: '85vw',
+    display: 'flex',
   },
   mediaPlayer: {
     width: '100%',
@@ -30,6 +30,13 @@ const useStyles = makeStyles((theme) => ({
   },
   loading: {
     zIndex: 100,
+    position: 'absolute',
+    left: '50%',
+    top: '50%',
+  },
+  cover: {
+    width: '6rem',
+    height: '6rem',
   },
 }));
 
@@ -37,6 +44,7 @@ const Player = () => {
   const [autoPlay, setAutoPlay] = React.useState(false);
   const [isLoading, setIsLoading] = React.useState(false);
   const audio = React.useContext(AudioContext).audio;
+  const image = React.useContext(AudioContext).image;
   const classes = useStyles();
 
   React.useEffect(() => {
@@ -46,7 +54,7 @@ const Player = () => {
     }
   }, [audio]);
 
-  console.log(isLoading);
+  console.log(image);
 
   return (
     <div className={classes.root}>
@@ -56,38 +64,13 @@ const Player = () => {
           className={classes.loading}
         />
       ) : null}
-      {/* <Media>
-        <div className="media">
-          <div className={classes.mediaPlayer}>
-            <Player
-              src={audio}
-              autoPlay={autoPlay}
-              onPlay={() => setIsLoading(false)}
-            />
-          </div>
-          <div className="media-controls">
-            <CustomPlayPause />
-            <CurrentTime />
-            <SeekBar className={classes.seekBar} />
-            <Duration />
-            <MuteUnmute />
-            <Volume />
-          </div>
-        </div>
-      </Media> */}
-      {/* <ReactAudioPlayer
-        src={audio}
-        autoPlay={autoPlay}
-        onPlay={() => setIsLoading(false)}
-        controls
-        className={classes.mediaPlayer}
-      /> */}
+      <CardMedia image={image} className={classes.cover} />
       <AudioPlayer
         src={audio}
         autoPlay={autoPlay}
         onCanPlay={() => setIsLoading(false)}
         className={classes.mediaPlayer}
-        header
+        // header="hello"
       ></AudioPlayer>
     </div>
   );
