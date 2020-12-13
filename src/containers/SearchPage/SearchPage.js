@@ -21,18 +21,19 @@ const SearchPage = (props) => {
   const { isLoading, error, data, sendRequest, page } = useHttp();
 
   useEffect(() => {
+    console.log('1st use effect...');
     const term = props.location.pathname.replace('/search/', '');
     if (props.location.search) {
       setCurrentPage(
         props.location.search.charAt(props.location.search.length - 1)
       );
     }
-    console.log(term);
-    if (!data) {
-      sendRequest(
-        `https://itunes.apple.com/search?term=${term}&media=podcast&limit=1000`
-      );
-    }
+    // if (!data) {
+
+    sendRequest(
+      `https://itunes.apple.com/search?term=${term}&media=podcast&limit=1000`
+    );
+    // }
   }, [props.location.pathname]);
 
   let listPodcasts = null;

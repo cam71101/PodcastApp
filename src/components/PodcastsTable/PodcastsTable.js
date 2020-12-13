@@ -15,25 +15,16 @@ import Typography from '@material-ui/core/Typography';
 import useStyles from './podcastsTableStyles';
 import { AudioContext } from '../../context/audio-context';
 
-function createData(name, calories, fat, carbs, protein) {
-  return { name, calories, fat, carbs, protein };
-}
-
-const rows = [
-  createData('Frozen yoghurt', 159, 6.0),
-  createData('Ice cream sandwich', 237, 9.0),
-  createData('Eclair', 262, 16.0),
-  createData('Cupcake', 305, 3.7),
-  createData('Gingerbread', 356, 16.0),
-];
-
 export default function PodcastsTable({ podcasts, isLoading }) {
   const classes = useStyles();
   const setAudio = React.useContext(AudioContext).setAudio;
 
-  const setAudioHandler = (audio, image) => {
-    setAudio(audio, image);
+  const setAudioHandler = (audio, image, trackName, artistName) => {
+    setAudio(audio, image, trackName, artistName);
   };
+
+  console.log(podcasts);
+
   return (
     <TableContainer className={classes.root} component={Paper}>
       {podcasts ? (
@@ -63,7 +54,12 @@ export default function PodcastsTable({ podcasts, isLoading }) {
                 <TableCell align="right">
                   <Button
                     onClick={() =>
-                      setAudioHandler(row.episodeUrl, row.artworkUrl600)
+                      setAudioHandler(
+                        row.episodeUrl,
+                        row.artworkUrl600,
+                        row.collectionName,
+                        row.trackName
+                      )
                     }
                   >
                     <PlayCircleOutlineIcon fontSize="large" />

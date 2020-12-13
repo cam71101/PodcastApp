@@ -5,22 +5,32 @@ export const AudioContext = React.createContext({
   image: null,
   toggleAudio: () => {},
   autoPlay: false,
+  trackName: null,
+  artistName: null,
 });
 
 export default (props) => {
   const [audio, setAudio] = React.useState(null);
   const [image, setImage] = React.useState(null);
-  const [autoPlay, setAutoPlay] = React.useState(false);
+  const [trackName, setTrackName] = React.useState(null);
+  const [artistName, setArtistkName] = React.useState(null);
 
-  const toggleAudio = (audioLink, audioImage) => {
+  const toggleAudio = (audioLink, audioImage, artistName, trackName) => {
     setAudio(audioLink);
     setImage(audioImage);
-    setAutoPlay(true);
+    setArtistkName(artistName);
+    setTrackName(trackName);
   };
 
   return (
     <AudioContext.Provider
-      value={{ audio: audio, image: image, setAudio: toggleAudio }}
+      value={{
+        audio: audio,
+        image: image,
+        setAudio: toggleAudio,
+        artistName: artistName,
+        trackName: trackName,
+      }}
     >
       {props.children}
     </AudioContext.Provider>

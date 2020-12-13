@@ -198,7 +198,7 @@ function ResponsiveDrawer(props) {
     window !== undefined ? () => window().document.body : undefined;
 
   const searchPodcasts = (e) => {
-    console.log(searchValue);
+    e.preventDefault();
     props.history.push({
       pathname: '/search/' + searchValue,
     });

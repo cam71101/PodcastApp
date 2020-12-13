@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, Route, withRouter } from 'react-router-dom';
+import Slide from '@material-ui/core/Slide';
 
 import Header from './Header/Header';
 import Footer from './Footer/Footer';
@@ -9,7 +10,6 @@ import AuthContext from '../../context/audio-context';
 import Drawer from './Drawer';
 
 const Layout = (props) => {
-  const [audio, setAudio] = React.useState();
   const classes = useStyles();
 
   return (

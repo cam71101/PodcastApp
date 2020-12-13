@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
   },
   pages: {
     margin: 'auto',
-    marginBottom: '6rem',
+    marginBottom: '9rem',
   },
   loading: {
     margin: 'auto',
