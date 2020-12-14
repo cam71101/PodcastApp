@@ -65,7 +65,7 @@ const PodcastsPage = (props) => {
   }
 
   return (
-    <div className={classes.root}>
+    <div className={classes.rootPodcastsPage}>
       <Typography variant="h4" className={classes.title}>
         {category}
       </Typography>

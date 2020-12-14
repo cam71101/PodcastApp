@@ -40,6 +40,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: '#fafafa',
     outline: 'none',
     border: 'none',
+    opacity: '50%',
   },
   nextButton: {
     position: 'absolute',
@@ -50,6 +51,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: '#fafafa',
     outline: 'none',
     border: 'none',
+    opacity: '50%',
   },
   img: {
     height: 200,

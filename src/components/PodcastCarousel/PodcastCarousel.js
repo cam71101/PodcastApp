@@ -70,7 +70,7 @@ const PodcastCarousel = ({ podcasts }) => {
       <CarouselProvider
         naturalSlideWidth={500}
         naturalSlideHeight={500}
-        totalSlides={100}
+        totalSlides={15}
         visibleSlides={visibleSlides}
         className={classes.provider}
       >
@@ -79,9 +79,7 @@ const PodcastCarousel = ({ podcasts }) => {
           <ArrowBackIosIcon />
         </ButtonBack>
         <ButtonNext className={classes.nextButton}>
-          <Button>
-            <ArrowForwardIosIcon />
-          </Button>
+          <ArrowForwardIosIcon />
         </ButtonNext>
       </CarouselProvider>
     </div>

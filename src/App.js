@@ -20,16 +20,14 @@ function App() {
             <Route path="/" exact component={Home} />
             <Route path="/popular" exact component={PodcastsPage} />
             {sideBarItems.map((item) => {
-              if (item.name !== 'Home') {
-                return (
-                  <Route
-                    path={'/category/' + item.name + '/' + item.id}
-                    exact
-                    component={PodcastsPage}
-                    key={item.id}
-                  />
-                );
-              }
+              return (
+                <Route
+                  path={'/category/' + item.name + '/' + item.id}
+                  exact
+                  component={PodcastsPage}
+                  key={item.id}
+                />
+              );
             })}
             <Route path="/podcast/:id" exact component={PodcastPage} />
             <Route path="/search/:id" component={SearchPage} />

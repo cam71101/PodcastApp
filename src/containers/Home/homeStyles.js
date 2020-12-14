@@ -8,7 +8,9 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: '2rem',
     marginTop: '6rem',
     [theme.breakpoints.down('xs')]: {
-      marginTop: '5rem',
+      marginLeft: 0,
+      justifyContent: 'center',
+      alignItems: 'center',
     },
   },
   podcasts: {

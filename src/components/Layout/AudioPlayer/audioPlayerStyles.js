@@ -4,8 +4,10 @@ const useStyles = makeStyles((theme) => ({
   root: {
     position: 'fixed',
     bottom: 0,
-    width: '85vw',
     display: 'flex',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+
     '& .rhap_header': {
       textAlign: 'center',
       fontSize: '.95rem',
@@ -16,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   mediaPlayer: {
-    width: '100%',
+    width: '75vw',
     border: 'none',
     outline: 'none',
     zIndex: 1,

@@ -4,8 +4,10 @@ import Pagination from '@material-ui/lab/Pagination';
 
 import useHttp from '../../hooks/http';
 import PodcastCard from '../../components/PodcastCard/PodcastCard';
-import PodcastsLayoutPages from '../../components/PodcastsLayoutPages/PodcastsLayoutPages';
 import useStyles from './searchPageStyles';
+import CircularProgress from '@material-ui/core/CircularProgress';
+import PodcastsLayout from '../../components/PodcastsLayout/PodcastsLayout';
+import Typography from '@material-ui/core/Typography';
 
 const SearchPage = (props) => {
   const [currentPage, setCurrentPage] = React.useState(1);
@@ -63,17 +65,29 @@ const SearchPage = (props) => {
   };
 
   return (
-    <div className={classes.root}>
-      <PodcastsLayoutPages
-        isLoading={isLoading}
-        podcasts={listPodcasts}
-        className={classes.loading}
-      />
-      <Pagination
-        count={pageNumbers.length}
-        page={currentPage}
-        onChange={paginate}
-      />
+    <div className={classes.rootSearchPage}>
+      {isLoading ? (
+        <CircularProgress
+          data-test="component-loading"
+          className={classes.loading}
+        />
+      ) : (
+        <React.Fragment>
+          <Typography variant="h4" className={classes.title}>
+            Search...
+          </Typography>
+          <Typography variant="h5" className={classes.subtitle}>
+            {props.location.pathname.replace('/search/', '')}
+          </Typography>
+          <PodcastsLayout podcasts={listPodcasts} className={classes.loading} />
+          <Pagination
+            count={pageNumbers.length}
+            page={currentPage}
+            onChange={paginate}
+            className={classes.pages}
+          />
+        </React.Fragment>
+      )}
     </div>
   );
 };

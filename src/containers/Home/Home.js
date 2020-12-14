@@ -26,8 +26,8 @@ const Home = (props) => {
     const randomElement =
       menuItems[Math.floor(Math.random() * menuItems.length)];
     homeRequest(
-      'https://rss.itunes.apple.com/api/v1/gb/podcasts/top-podcasts/all/10/explicit.json',
-      `https://itunes.apple.com/search?term=podcast&genreId=${randomElement.id}&limit=10`
+      'https://rss.itunes.apple.com/api/v1/gb/podcasts/top-podcasts/all/15/explicit.json',
+      `https://itunes.apple.com/search?term=podcast&genreId=${randomElement.id}&limit=15`
     );
     setCategory(randomElement.name);
   }, [props.location.pathname]);
@@ -35,6 +35,8 @@ const Home = (props) => {
   let listPodcasts = null;
   let categoryPodcasts = null;
   let DOM = null;
+
+  console.log(data);
 
   if (isLoading) {
     DOM = (
@@ -78,7 +80,10 @@ const Home = (props) => {
         </Typography>
         <PodcastsLayout isLoading={isLoading} podcasts={listPodcasts} />
         <Typography variant="h4" className={classes.subtitle}>
-          Explore: {category}
+          Explore:
+        </Typography>
+        <Typography variant="h5" className={classes.subtitle}>
+          {category}
         </Typography>
         <PodcastsLayout isLoading={isLoading} podcasts={categoryPodcasts} />
       </React.Fragment>

@@ -1,12 +1,13 @@
 import { makeStyles } from '@material-ui/styles';
 
 const useStyles = makeStyles((theme) => ({
-  root: {
+  rootPodcastsPage: {
     width: '100%',
     display: 'flex',
     flexDirection: 'column',
     [theme.breakpoints.down('xs')]: {
-      marginLeft: '2rem',
+      justifyContent: 'center',
+      alignItems: 'center',
     },
   },
   title: {
