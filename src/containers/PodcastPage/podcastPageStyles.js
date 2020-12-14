@@ -1,7 +1,7 @@
 import { makeStyles } from '@material-ui/styles';
 
 const useStyles = makeStyles((theme) => ({
-  root: {
+  rootPodcastPage: {
     width: '100%',
     height: '70rem',
     gridRow: 1,
@@ -10,15 +10,39 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: '8rem',
     marginTop: '1rem',
     display: 'grid',
-    gridTemplateRows: '23rem max-content 2rem',
+    gridTemplateRows: 'minmax(max-content, 200rem) max-content 2rem',
     gridTemplateColums: '1fr',
+    position: 'relative',
+    [theme.breakpoints.down('xs')]: {
+      margin: 'auto',
+      marginTop: '2rem',
+      width: '90%',
+      rowGap: 0,
+    },
   },
   pages: {
     margin: 'auto',
-    marginBottom: '9rem',
+    marginBottom: '5rem',
+    [theme.breakpoints.down('xs')]: {
+      width: '100%',
+      marginBottom: '2rem',
+    },
   },
   loading: {
+    position: 'absolute',
     margin: 'auto',
+    left: 0,
+    right: 0,
+    top: 0,
+    bottom: 0,
+  },
+  modalLoading: {
+    position: 'absolute',
+    margin: 'auto',
+    left: 0,
+    right: 0,
+    top: 0,
+    bottom: 0,
   },
 }));
 export default useStyles;

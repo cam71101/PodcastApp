@@ -1,7 +1,7 @@
 import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
 // import 'typeface-cormorant';
 
-const theme = createMuiTheme({
+let theme = createMuiTheme({
   typography: {
     fontFamily: 'Lato',
     subtitle1: {
@@ -21,6 +21,12 @@ const theme = createMuiTheme({
   },
 });
 
-// theme = responsiveFontSizes(theme);
+theme = responsiveFontSizes(theme);
+
+theme.typography.subtitle1 = {
+  [theme.breakpoints.down('xs')]: {
+    fontSize: '.7rem',
+  },
+};
 
 export default theme;

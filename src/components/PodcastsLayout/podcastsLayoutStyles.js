@@ -1,7 +1,7 @@
 import { makeStyles } from '@material-ui/styles';
 
 const useStyles = makeStyles((theme) => ({
-  root: {
+  rootPodcastsLayout: {
     width: '100%',
     gridRow: 1,
     rowGap: '2rem',
@@ -12,12 +12,12 @@ const useStyles = makeStyles((theme) => ({
     flexWrap: 'wrap',
     marginBottom: '6rem',
     marginLeft: '2rem',
-    // justifyContent: 'flex-start',
-    // alignItems: 'flex-start',
-    // alignContent: 'flex-start',
+    [theme.breakpoints.down('xs')]: {
+      marginLeft: 0,
+    },
   },
+
   loading: {
-    // position: 'absolute',
     margin: 'auto',
   },
 }));

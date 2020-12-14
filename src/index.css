@@ -207,6 +207,12 @@ p {
 .social-link:hover {
   color: var(--clr-primary-5);
 }
+
+.carousel__inner-slide {
+  display: flex;
+  flex-direction: column;
+}
+
 /*
 =============== 
 Navbar

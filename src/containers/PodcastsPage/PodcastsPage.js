@@ -1,9 +1,6 @@
 import React, { useEffect } from 'react';
 import useStyles from './podcastsPageStyles';
-import { connect } from 'react-redux';
-import * as actions from '../../store/actions/index';
-import { withRouter, Link } from 'react-router-dom';
-import axios from 'axios';
+import { Link } from 'react-router-dom';
 import Typography from '@material-ui/core/Typography';
 
 import useHttp from '../../hooks/http';
@@ -21,7 +18,7 @@ const PodcastsPage = (props) => {
       const result = props.location.pathname.substring(index + 1);
 
       sendRequest(
-        `https://itunes.apple.com/search?term=podcast&genreId=${result}&limit=50`
+        `https://itunes.apple.com/search?term=podcast&genreId=${result}&limit=50country=uk`
       );
       const extractCategory = props.location.pathname.replace('/category/', '');
       const indexCategory = extractCategory.lastIndexOf('/');
@@ -29,7 +26,7 @@ const PodcastsPage = (props) => {
       setCategory(cat);
     } else {
       sendRequest(
-        'https://rss.itunes.apple.com/api/v1/us/podcasts/top-podcasts/all/uk/explicit.json'
+        'https://rss.itunes.apple.com/api/v1/gb/podcasts/top-podcasts/all/100/explicit.json'
       );
       setCategory('Popular');
     }
@@ -54,7 +51,7 @@ const PodcastsPage = (props) => {
     } else {
       listPodcasts = data.feed.results.map((podcast) => {
         return (
-          <Link to={'/podcast/' + podcast.id}>
+          <Link to={'/podcast/' + podcast.id} key={podcast.id}>
             <PodcastCard
               image={podcast.artworkUrl100}
               artist={podcast.name}
@@ -76,13 +73,5 @@ const PodcastsPage = (props) => {
     </div>
   );
 };
-
-// const mapDispatchToProps = (dispatch) => {
-//   return {
-//     onUpdateData: (link) => dispatch(actions.updateData(link)),
-//   };
-// };
-
-// export default withRouter(connect(null, mapDispatchToProps)(PodcastsPage));
 
 export default PodcastsPage;

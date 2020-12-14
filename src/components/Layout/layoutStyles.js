@@ -1,19 +1,24 @@
 import { makeStyles } from '@material-ui/styles';
 
 const useStyles = makeStyles((theme) => ({
-  root: {
+  layoutRoot: {
     width: '85vw',
     display: 'grid',
     gridTemplateRows: '1fr',
-    // gridTemplateColumns: '10rem 90rem',
-    gridTemplateColumns: '1fr',
-    marginLeft: '14rem',
-    // border: ' 5px solid red;',
+    gridTemplateColumns: '100%',
+    marginLeft: 240,
     '& body': {
       background: 'white',
       lineHeight: 1.5,
       fontSize: '0.875rem',
       marginTop: '5rem',
+    },
+    [theme.breakpoints.down('md')]: {
+      marginLeft: '1rem',
+      width: '100vw',
+    },
+    [theme.breakpoints.down('xs')]: {
+      margin: 0,
     },
   },
 }));

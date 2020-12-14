@@ -1,14 +1,14 @@
 import React from 'react';
 import theme from './theme';
 
-import { HashRouter, BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Home from './containers/Home/Home.js';
 import PodcastsPage from './containers/PodcastsPage/PodcastsPage';
 import PodcastPage from './containers/PodcastPage/PodcastPage';
 import Layout from './components/Layout/Layout';
 import SearchPage from './containers/SearchPage/SearchPage';
 import sideBarItems from './utils/sideBarItems';
-import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import { MuiThemeProvider } from '@material-ui/core/styles';
 
 function App() {
   return (
@@ -16,8 +16,9 @@ function App() {
       <MuiThemeProvider theme={theme}>
         <Layout data-test="layout">
           <Switch>
-            <Route path="/home" exact component={PodcastsPage} />
-            <Route path="/" exact component={PodcastsPage} />
+            <Route path="/home" exact component={Home} />
+            <Route path="/" exact component={Home} />
+            <Route path="/popular" exact component={PodcastsPage} />
             {sideBarItems.map((item) => {
               if (item.name !== 'Home') {
                 return (

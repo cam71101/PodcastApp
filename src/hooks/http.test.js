@@ -37,7 +37,6 @@ test('', () => {
   const httpData = setup();
   httpData.isLoading = false;
   // httpData.sendRequest('/')
-  console.log(httpData.isLoading);
 });
 
 // describe('updateData', () => {

@@ -1,39 +1,29 @@
 import React, { useEffect } from 'react';
-import useStyles from './searchPageStyles';
-import { connect } from 'react-redux';
-import * as actions from '../../store/actions/index';
-import { withRouter, Route, Switch } from 'react-router-dom';
-import CircularProgress from '@material-ui/core/CircularProgress';
-
+import { withRouter, Link } from 'react-router-dom';
 import Pagination from '@material-ui/lab/Pagination';
 
 import useHttp from '../../hooks/http';
 import PodcastCard from '../../components/PodcastCard/PodcastCard';
 import PodcastsLayoutPages from '../../components/PodcastsLayoutPages/PodcastsLayoutPages';
-import { current } from '@reduxjs/toolkit';
-import { Link } from 'react-router-dom';
+import useStyles from './searchPageStyles';
 
 const SearchPage = (props) => {
   const [currentPage, setCurrentPage] = React.useState(1);
   const [podcastsPerPage, setPodcastsPerPage] = React.useState(25);
 
   const classes = useStyles();
-  const { isLoading, error, data, sendRequest, page } = useHttp();
+  const { isLoading, error, data, sendRequest } = useHttp();
 
   useEffect(() => {
-    console.log('1st use effect...');
     const term = props.location.pathname.replace('/search/', '');
     if (props.location.search) {
       setCurrentPage(
         props.location.search.charAt(props.location.search.length - 1)
       );
     }
-    // if (!data) {
-
     sendRequest(
       `https://itunes.apple.com/search?term=${term}&media=podcast&limit=1000`
     );
-    // }
   }, [props.location.pathname]);
 
   let listPodcasts = null;
@@ -63,7 +53,6 @@ const SearchPage = (props) => {
   }
 
   const pageNumbers = [];
-
   for (let i = 1; i <= Math.ceil(totalPodcasts / podcastsPerPage); i++) {
     pageNumbers.push(i);
   }
@@ -75,7 +64,11 @@ const SearchPage = (props) => {
 
   return (
     <div className={classes.root}>
-      <PodcastsLayoutPages isLoading={isLoading} podcasts={listPodcasts} />
+      <PodcastsLayoutPages
+        isLoading={isLoading}
+        podcasts={listPodcasts}
+        className={classes.loading}
+      />
       <Pagination
         count={pageNumbers.length}
         page={currentPage}

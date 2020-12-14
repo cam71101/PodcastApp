@@ -13,10 +13,11 @@ import ListItemText from '@material-ui/core/ListItemText';
 import MenuIcon from '@material-ui/icons/Menu';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import { makeStyles, useTheme, fade } from '@material-ui/core/styles';
+import { useTheme } from '@material-ui/core/styles';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import SearchIcon from '@material-ui/icons/Search';
 import InputBase from '@material-ui/core/InputBase';
+import HomeIcon from '@material-ui/icons/Home';
 import {
   faPalette,
   faBriefcase,
@@ -35,111 +36,25 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 
+import useStyles from './drawerStyles';
+
 const drawerWidth = 240;
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    display: 'flex',
-  },
-  drawer: {
-    [theme.breakpoints.up('sm')]: {
-      width: drawerWidth,
-      flexShrink: 0,
-    },
-  },
-  appBar: {
-    [theme.breakpoints.up('sm')]: {
-      // width: `calc(100% - ${drawerWidth}px)`,
-      marginLeft: drawerWidth,
-    },
-  },
-  menuButton: {
-    flexGrow: 1,
-    marginRight: theme.spacing(2),
-    [theme.breakpoints.up('sm')]: {
-      display: 'none',
-    },
-  },
-  // necessary for content to be below app bar
-  toolbar: theme.mixins.toolbar,
-
-  drawerPaper: {
-    width: drawerWidth,
-    zIndex: 1,
-    marginTop: '3rem',
-  },
-  content: {
-    flexGrow: 1,
-    padding: theme.spacing(3),
-  },
-  icon: {
-    // marginRight: '1.6rem',
-    minWidth: '56px',
-    flexShrink: 0,
-    display: 'inline-flex',
-    paddingRight: '1.5rem',
-  },
-  link: {
-    color: 'black',
-  },
-  title: {
-    flexGrow: 1,
-    display: 'none',
-    [theme.breakpoints.up('sm')]: {
-      display: 'block',
-    },
-  },
-  search: {
-    position: 'relative',
-    borderRadius: theme.shape.borderRadius,
-    backgroundColor: fade(theme.palette.common.white, 0.15),
-    '&:hover': {
-      backgroundColor: fade(theme.palette.common.white, 0.25),
-    },
-    marginLeft: 0,
-    width: '100%',
-    [theme.breakpoints.up('sm')]: {
-      marginLeft: theme.spacing(1),
-      width: 'auto',
-    },
-  },
-  searchIcon: {
-    padding: theme.spacing(0, 2),
-    height: '100%',
-    position: 'absolute',
-    pointerEvents: 'none',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  inputRoot: {
-    color: 'inherit',
-  },
-  inputInput: {
-    padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
-    paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
-    transition: theme.transitions.create('width'),
-    width: '100%',
-    [theme.breakpoints.up('sm')]: {
-      width: '12ch',
-      '&:focus': {
-        width: '20ch',
-      },
-    },
-  },
-}));
 
 function ResponsiveDrawer(props) {
   const [searchValue, setSearchValue] = React.useState('');
+  const [mobileOpen, setMobileOpen] = React.useState(false);
+
   const { window } = props;
 
   const classes = useStyles();
   const theme = useTheme();
-  const [mobileOpen, setMobileOpen] = React.useState(false);
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
+  };
+
+  const closeDrawer = () => {
+    setMobileOpen(false);
   };
 
   const listItems = [
@@ -167,21 +82,30 @@ function ResponsiveDrawer(props) {
       <div className={classes.toolbar} />
       <Link className={classes.link} to="/">
         <Divider />
-        <ListItem button>
+        <ListItem button onClick={closeDrawer}>
+          <ListItemIcon>
+            <HomeIcon />
+          </ListItemIcon>
+          <ListItemText primary="Home" />
+        </ListItem>
+      </Link>
+      <Link className={classes.link} to="/popular">
+        <ListItem button onClick={closeDrawer}>
           <ListItemIcon>
             <FontAwesomeIcon icon={faStar} color="grey" size="lg" />
           </ListItemIcon>
           <ListItemText primary="Popular" />
         </ListItem>
-        <Divider />
       </Link>
+      <Divider />
+
       <List>
         {listItems.map((text, index) => (
           <Link
             className={classes.link}
             to={'/category/' + text.name + '/' + text.id}
           >
-            <ListItem button key={text.name}>
+            <ListItem button key={text.name} onClick={closeDrawer}>
               <ListItemIcon>
                 <FontAwesomeIcon icon={text.icon} color="grey" size="lg" />
               </ListItemIcon>
@@ -242,8 +166,7 @@ function ResponsiveDrawer(props) {
         </Toolbar>
       </AppBar>
       <nav className={classes.drawer} aria-label="mailbox folders">
-        {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
-        <Hidden smUp implementation="css">
+        <Hidden lgUp implementation="css">
           <Drawer
             container={container}
             variant="temporary"
@@ -254,13 +177,13 @@ function ResponsiveDrawer(props) {
               paper: classes.drawerPaper,
             }}
             ModalProps={{
-              keepMounted: true, // Better open performance on mobile.
+              keepMounted: true,
             }}
           >
             {drawer}
           </Drawer>
         </Hidden>
-        <Hidden xsDown implementation="css">
+        <Hidden mdDown implementation="css">
           <Drawer
             classes={{
               paper: classes.drawerPaper,
@@ -277,10 +200,6 @@ function ResponsiveDrawer(props) {
 }
 
 ResponsiveDrawer.propTypes = {
-  /**
-   * Injected by the documentation to work in an iframe.
-   * You won't need it on your project.
-   */
   window: PropTypes.func,
 };
 

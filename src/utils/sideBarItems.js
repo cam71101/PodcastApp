@@ -15,6 +15,5 @@ export default [
   { name: 'Sports', id: 1545 },
   { name: 'Technology', id: 1318 },
   { name: 'TV and Film', id: 1309 },
-  // { name: 'True Crime', id: 1509 },
   { name: 'Video Games', id: 1509 },
 ];

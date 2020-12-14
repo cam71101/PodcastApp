@@ -5,21 +5,16 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
     display: 'flex',
     flexDirection: 'column',
-    // rowGap: '2rem',
-    // columnGap: '1rem',
-    // marginBottom: '1rem',
-    // marginTop: '1rem',
-    // display: 'flex',
-    // flexDirection: 'column',
-    // flexWrap: 'wrap',
-    // justifyContent: 'flex-start',
-    // alignItems: 'flex-start',
-    // alignContent: 'flex-start',
-    // marginBottom: '5rem',
+    [theme.breakpoints.down('xs')]: {
+      marginLeft: '2rem',
+    },
   },
   title: {
     marginLeft: '2rem',
     marginTop: '5rem',
+    [theme.breakpoints.down('xs')]: {
+      marginLeft: 0,
+    },
   },
 }));
 export default useStyles;

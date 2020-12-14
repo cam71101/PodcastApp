@@ -9,13 +9,12 @@ const useHttp = () => {
     error: null,
     data: null,
     description: null,
+    categoryData: null,
   });
 
   const proxyurl = 'https://ancient-river-53390.herokuapp.com/';
-  // const proxyurl = '';
   const sendRequest = React.useCallback((url) => {
     dispathHttp({ type: 'SEND' });
-    console.log('CORSS');
     axios
       .get(proxyurl + url)
       .then((response) => {
@@ -24,6 +23,24 @@ const useHttp = () => {
       .catch((error) => {
         dispathHttp({ type: 'ERROR', errorMessage: 'Something went wrong!' });
       });
+  }, []);
+
+  const homeRequest = React.useCallback((url, categoryUrl) => {
+    dispathHttp({ type: 'SEND' });
+    axios.get(proxyurl + url).then((response) => {
+      axios
+        .get(proxyurl + categoryUrl)
+        .then((resCat) => {
+          dispathHttp({
+            type: 'RESPONSE',
+            responseData: response.data,
+            categoryData: resCat.data,
+          });
+        })
+        .catch((error) => {
+          dispathHttp({ type: 'ERROR', errorMessage: 'Something went wrong!' });
+        });
+    });
   }, []);
 
   const sendPodcastRequest = React.useCallback((url) => {
@@ -39,18 +56,16 @@ const useHttp = () => {
       //     }
       //   )
 
-      //   .then((listen) => {
-      // dispathHttp({
-      //   type: 'RESPONSE',
-      //   responseData: response.data,
-      //   description: listen.data.results[0].description_original,
-      // })
-
       response.data.results.map((track) => {
-        const minutes = Math.floor(track.trackTimeMillis / 60000);
-        const seconds = ((track.trackTimeMillis % 60000) / 1000).toFixed(0);
-        return (track.trackTimeMillis =
-          minutes + ':' + (seconds < 10 ? '0' : '') + seconds);
+        let minutes = Math.floor((track.trackTimeMillis / (1000 * 60)) % 60);
+        let seconds = Math.floor((track.trackTimeMillis / 1000) % 60);
+        let hours = Math.floor((track.trackTimeMillis / (1000 * 60 * 60)) % 24);
+
+        hours = hours < 10 ? '0' + hours : hours;
+        minutes = minutes < 10 ? '0' + minutes : minutes;
+        seconds = seconds < 10 ? '0' + seconds : seconds;
+
+        return (track.trackTimeMillis = hours + ':' + minutes + ':' + seconds);
       });
 
       response.data.results.map((track) => {
@@ -90,6 +105,8 @@ const useHttp = () => {
     description: httpState.description,
     sendRequest: sendRequest,
     sendPodcastRequest: sendPodcastRequest,
+    categoryData: httpState.categoryData,
+    homeRequest: homeRequest,
   };
 };
 

@@ -14,5 +14,8 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'flex-start',
     alignContent: 'flex-start',
   },
+  loading: {
+    margin: 'auto',
+  },
 }));
 export default useStyles;
