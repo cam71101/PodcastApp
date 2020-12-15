@@ -1,25 +1,25 @@
 {
   "files": {
     "main.css": "/PodcastApp/static/css/main.afd7172b.chunk.css",
-    "main.js": "/PodcastApp/static/js/main.7ff3d435.chunk.js",
-    "main.js.map": "/PodcastApp/static/js/main.7ff3d435.chunk.js.map",
-    "runtime-main.js": "/PodcastApp/static/js/runtime-main.ceda2157.js",
-    "runtime-main.js.map": "/PodcastApp/static/js/runtime-main.ceda2157.js.map",
+    "main.js": "/PodcastApp/static/js/main.80a47ae8.chunk.js",
+    "main.js.map": "/PodcastApp/static/js/main.80a47ae8.chunk.js.map",
+    "runtime-main.js": "/PodcastApp/static/js/runtime-main.20710407.js",
+    "runtime-main.js.map": "/PodcastApp/static/js/runtime-main.20710407.js.map",
     "static/css/2.fcdaccbc.chunk.css": "/PodcastApp/static/css/2.fcdaccbc.chunk.css",
-    "static/js/2.4aa77c0b.chunk.js": "/PodcastApp/static/js/2.4aa77c0b.chunk.js",
-    "static/js/2.4aa77c0b.chunk.js.map": "/PodcastApp/static/js/2.4aa77c0b.chunk.js.map",
-    "static/js/3.08a480f5.chunk.js": "/PodcastApp/static/js/3.08a480f5.chunk.js",
-    "static/js/3.08a480f5.chunk.js.map": "/PodcastApp/static/js/3.08a480f5.chunk.js.map",
+    "static/js/2.bddd732f.chunk.js": "/PodcastApp/static/js/2.bddd732f.chunk.js",
+    "static/js/2.bddd732f.chunk.js.map": "/PodcastApp/static/js/2.bddd732f.chunk.js.map",
+    "static/js/3.685e3979.chunk.js": "/PodcastApp/static/js/3.685e3979.chunk.js",
+    "static/js/3.685e3979.chunk.js.map": "/PodcastApp/static/js/3.685e3979.chunk.js.map",
     "index.html": "/PodcastApp/index.html",
     "static/css/2.fcdaccbc.chunk.css.map": "/PodcastApp/static/css/2.fcdaccbc.chunk.css.map",
     "static/css/main.afd7172b.chunk.css.map": "/PodcastApp/static/css/main.afd7172b.chunk.css.map",
-    "static/js/2.4aa77c0b.chunk.js.LICENSE.txt": "/PodcastApp/static/js/2.4aa77c0b.chunk.js.LICENSE.txt"
+    "static/js/2.bddd732f.chunk.js.LICENSE.txt": "/PodcastApp/static/js/2.bddd732f.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.ceda2157.js",
+    "static/js/runtime-main.20710407.js",
     "static/css/2.fcdaccbc.chunk.css",
-    "static/js/2.4aa77c0b.chunk.js",
+    "static/js/2.bddd732f.chunk.js",
     "static/css/main.afd7172b.chunk.css",
-    "static/js/main.7ff3d435.chunk.js"
+    "static/js/main.80a47ae8.chunk.js"
   ]
 }
