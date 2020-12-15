@@ -15,7 +15,7 @@ import PodcastsLayout from '../../components/PodcastsLayout/PodcastsLayout';
 const Home = (props) => {
   const [category, setCategory] = React.useState(null);
 
-  const { isLoading, error, categoryData, data, homeRequest } = useHttp();
+  const { isLoading, categoryData, data, homeRequest } = useHttp();
 
   const classes = useStyles();
   const theme = useTheme();
@@ -30,7 +30,7 @@ const Home = (props) => {
       `https://itunes.apple.com/search?term=podcast&genreId=${randomElement.id}&limit=15`
     );
     setCategory(randomElement.name);
-  }, [props.location.pathname]);
+  }, [props.location.pathname, homeRequest]);
 
   let listPodcasts = null;
   let categoryPodcasts = null;

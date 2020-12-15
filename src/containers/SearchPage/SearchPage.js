@@ -11,7 +11,7 @@ import Typography from '@material-ui/core/Typography';
 
 const SearchPage = (props) => {
   const [currentPage, setCurrentPage] = React.useState(1);
-  const [podcastsPerPage, setPodcastsPerPage] = React.useState(25);
+  const [podcastsPerPage] = React.useState(25);
 
   const classes = useStyles();
   const { isLoading, error, data, sendRequest } = useHttp();
@@ -26,7 +26,7 @@ const SearchPage = (props) => {
     sendRequest(
       `https://itunes.apple.com/search?term=${term}&media=podcast&limit=1000`
     );
-  }, [props.location.pathname]);
+  }, [props.location.pathname, props.location.search, sendRequest]);
 
   let listPodcasts = null;
   let totalPodcasts = null;

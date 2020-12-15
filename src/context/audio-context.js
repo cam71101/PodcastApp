@@ -9,7 +9,7 @@ export const AudioContext = React.createContext({
   artistName: null,
 });
 
-export default (props) => {
+const Audio = (props) => {
   const [audio, setAudio] = React.useState(null);
   const [image, setImage] = React.useState(null);
   const [trackName, setTrackName] = React.useState(null);
@@ -36,3 +36,5 @@ export default (props) => {
     </AudioContext.Provider>
   );
 };
+
+export default Audio;

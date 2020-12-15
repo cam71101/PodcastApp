@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import useStyles from './podcastsPageStyles';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Typography from '@material-ui/core/Typography';
 
 import useHttp from '../../hooks/http';
@@ -8,14 +8,12 @@ import PodcastCard from '../../components/PodcastCard/PodcastCard';
 import PodcastsLayout from '../../components/PodcastsLayout/PodcastsLayout';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
-import { useTheme } from '@material-ui/core/styles';
 
 const PodcastsPage = (props) => {
   const [category, setCategory] = React.useState(null);
   const classes = useStyles();
-  const { isLoading, error, data, sendRequest } = useHttp();
+  const { isLoading, data, sendRequest } = useHttp();
 
-  const theme = useTheme();
   const matches = useMediaQuery('(max-width:600px)');
 
   useEffect(() => {
@@ -37,7 +35,7 @@ const PodcastsPage = (props) => {
       setCategory('Popular');
     }
     window.scrollTo(0, 0);
-  }, [props.location.pathname]);
+  }, [props.location.pathname, sendRequest]);
 
   let listPodcasts = null;
 

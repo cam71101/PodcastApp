@@ -38,8 +38,6 @@ import { Link } from 'react-router-dom';
 
 import useStyles from './drawerStyles';
 
-const drawerWidth = 240;
-
 function ResponsiveDrawer(props) {
   const [searchValue, setSearchValue] = React.useState('');
   const [mobileOpen, setMobileOpen] = React.useState(false);

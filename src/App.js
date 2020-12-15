@@ -6,7 +6,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Home from './containers/Home/Home.js';
 import PodcastsPage from './containers/PodcastsPage/PodcastsPage';
 import PodcastPage from './containers/PodcastPage/PodcastPage';
-import Layout from './components/Layout/Layout';
+import Layout from './containers/Layout/Layout';
 import SearchPage from './containers/SearchPage/SearchPage';
 import sideBarItems from './utils/sideBarItems';
 import ErrorPage from './components/ErrorPage/ErrorPage';

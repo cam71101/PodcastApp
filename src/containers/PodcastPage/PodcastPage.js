@@ -5,8 +5,6 @@ import useStyles from './podcastPageStyles';
 import PodcastsTable from '../../components/PodcastsTable/PodcastsTable';
 import PodcastHeader from '../../components/PodcastHeader/PodcastHeader';
 import CircularProgress from '@material-ui/core/CircularProgress';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
-import { useTheme } from '@material-ui/core/styles';
 
 import Pagination from '@material-ui/lab/Pagination';
 import Modal from '../../components/Modal/Modal';
@@ -41,7 +39,7 @@ function modalReducer(curState, action) {
 
 const PodcastPage = (props) => {
   const [currentPage, setCurrentPage] = React.useState(1);
-  const [episodesPerPage, setEpisodesPerPage] = React.useState(10);
+  const [episodesPerPage] = React.useState(10);
   const [modalState, setModalState] = React.useReducer(modalReducer, {
     open: false,
     trackName: null,
@@ -54,7 +52,7 @@ const PodcastPage = (props) => {
   });
 
   const classes = useStyles();
-  const { isLoading, error, data, description, sendPodcastRequest } = useHttp();
+  const { isLoading, data, description, sendPodcastRequest } = useHttp();
 
   useEffect(() => {
     const term = props.location.pathname.replace('/podcast/', '');
@@ -66,7 +64,7 @@ const PodcastPage = (props) => {
     sendPodcastRequest(
       `https://itunes.apple.com/lookup?id=${term}&country=US&media=podcast&entity=podcastEpisode&limit=1000`
     );
-  }, []);
+  }, [props.location.pathname, props.location.search, sendPodcastRequest]);
 
   let podcast = null;
   let totalEpisodes = null;

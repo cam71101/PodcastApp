@@ -6,8 +6,6 @@ import CardContent from '@material-ui/core/CardContent';
 import { useOverShadowStyles } from '@mui-treasury/styles/shadow/over';
 import useStyles from './podcastCardStyles';
 import { Typography } from '@material-ui/core';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
-import { useTheme } from '@material-ui/core/styles';
 
 export const PodcastCard = function MusicCard({
   image,

@@ -1,4 +1,4 @@
-export default [
+const list = [
   {
     name: 'Arts',
     id: 1301,
@@ -17,3 +17,5 @@ export default [
   { name: 'TV and Film', id: 1309 },
   { name: 'Video Games', id: 1509 },
 ];
+
+export default list;

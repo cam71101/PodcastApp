@@ -1,7 +1,6 @@
 import React from 'react';
 import useStyles from './podcastCarouselStyles';
 import 'pure-react-carousel/dist/react-carousel.es.css';
-import Button from '@material-ui/core/Button';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import { Link } from 'react-router-dom';

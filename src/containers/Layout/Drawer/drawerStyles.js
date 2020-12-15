@@ -1,4 +1,4 @@
-import { makeStyles, useTheme, fade } from '@material-ui/core/styles';
+import { makeStyles, fade } from '@material-ui/core/styles';
 
 const drawerWidth = 240;
 
@@ -66,7 +66,6 @@ const useStyles = makeStyles((theme) => ({
     '&:hover': {
       backgroundColor: fade(theme.palette.common.white, 0.25),
     },
-    marginLeft: 0,
     marginLeft: theme.spacing(1),
     width: 'auto',
     marginRight: '1rem',
@@ -87,7 +86,6 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(1, 1, 1, 0),
     paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
     transition: theme.transitions.create('width'),
-    width: '100%',
     width: '12ch',
     '&:focus': {
       width: '20ch',
