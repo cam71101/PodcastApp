@@ -7,15 +7,22 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'column',
     marginLeft: '2rem',
     marginTop: '6rem',
+    [theme.breakpoints.down('lg')]: {
+      marginBottom: '7rem',
+    },
     [theme.breakpoints.down('xs')]: {
       marginLeft: 0,
       justifyContent: 'center',
       alignItems: 'center',
+      marginBottom: '10rem',
     },
   },
   podcasts: {
     display: 'grid',
     gridTemplateColumns: 'repeat(3, 100%)',
+  },
+  link: {
+    textDecoration: 'none',
   },
   loading: {
     position: 'absolute',

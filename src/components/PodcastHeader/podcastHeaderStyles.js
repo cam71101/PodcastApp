@@ -11,6 +11,7 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: '1rem',
     margin: 'auto',
     marginTop: 0,
+    marginBottom: '1rem',
     [theme.breakpoints.down('md')]: {
       width: '95vw',
       paddingLeft: '.2rem',

@@ -143,7 +143,7 @@ function ResponsiveDrawer(props) {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap className={classes.title}>
-            Podcast App
+            Podcast Library
           </Typography>
 
           <div className={classes.search}>

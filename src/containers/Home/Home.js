@@ -36,7 +36,27 @@ const Home = (props) => {
   let categoryPodcasts = null;
   let DOM = null;
 
-  console.log(data);
+  const firstSection = (
+    <React.Fragment>
+      <Typography variant="h4" className={classes.title}>
+        Home
+      </Typography>
+      <Typography variant="h5" className={classes.subtitle}>
+        Top Podcasts
+      </Typography>
+    </React.Fragment>
+  );
+
+  const secondSection = (
+    <React.Fragment>
+      <Typography variant="h4" className={classes.subtitle}>
+        Explore:
+      </Typography>
+      <Typography variant="h5" className={classes.subtitle}>
+        {category}
+      </Typography>
+    </React.Fragment>
+  );
 
   if (isLoading) {
     DOM = (
@@ -48,7 +68,11 @@ const Home = (props) => {
   } else if (data && matches) {
     listPodcasts = data.feed.results.map((podcast) => {
       return (
-        <Link to={'/podcast/' + podcast.id} key={podcast.id}>
+        <Link
+          to={'/podcast/' + podcast.id}
+          key={podcast.id}
+          className={classes.link}
+        >
           <PodcastCard
             image={podcast.artworkUrl100}
             artist={podcast.name}
@@ -60,7 +84,11 @@ const Home = (props) => {
     });
     categoryPodcasts = categoryData.results.map((podcast) => {
       return (
-        <Link to={'/podcast/' + podcast.collectionId} key={podcast.id}>
+        <Link
+          to={'/podcast/' + podcast.collectionId}
+          key={podcast.id}
+          className={classes.link}
+        >
           <PodcastCard
             image={podcast.artworkUrl600}
             artist={podcast.collectionName}
@@ -72,19 +100,9 @@ const Home = (props) => {
     });
     DOM = (
       <React.Fragment>
-        <Typography variant="h4" className={classes.title}>
-          Home
-        </Typography>
-        <Typography variant="h5" className={classes.subtitle}>
-          Top Podcasts
-        </Typography>
+        {firstSection}
         <PodcastsLayout isLoading={isLoading} podcasts={listPodcasts} />
-        <Typography variant="h4" className={classes.subtitle}>
-          Explore:
-        </Typography>
-        <Typography variant="h5" className={classes.subtitle}>
-          {category}
-        </Typography>
+        {secondSection}
         <PodcastsLayout isLoading={isLoading} podcasts={categoryPodcasts} />
       </React.Fragment>
     );
@@ -92,16 +110,9 @@ const Home = (props) => {
     listPodcasts = data.feed;
     DOM = (
       <React.Fragment>
-        <Typography variant="h4" className={classes.title}>
-          Home
-        </Typography>
-        <Typography variant="h5" className={classes.subtitle}>
-          Top Podcasts
-        </Typography>
+        {firstSection}
         <PodcastCarousel podcasts={listPodcasts} />
-        <Typography variant="h5" className={classes.subtitle}>
-          Explore: {category}
-        </Typography>
+        {secondSection}
         <PodcastCarousel podcasts={categoryData} />
       </React.Fragment>
     );

@@ -22,9 +22,9 @@ export const PodcastCard = function MusicCard({ image, artistName, artist }) {
     <Card className={cx(styles.root, shadowStyles.root)}>
       <CardMedia className={styles.media} image={image} />
       <CardContent className={styles.cardContent}>
-        <Typography variant="subtitle1">{artist}</Typography>
+        <Typography variant="subtitle2">{artist}</Typography>
         {matches ? null : (
-          <Typography variant="subtitle2">{artistName}</Typography>
+          <Typography variant="subtitle1">{artistName}</Typography>
         )}
       </CardContent>
     </Card>

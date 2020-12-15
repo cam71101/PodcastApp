@@ -10,13 +10,12 @@ const useStyles = makeStyles((theme) => ({
       marginLeft: '2rem',
     },
     [theme.breakpoints.down('xs')]: {
-      width: '100%',
+      width: '90%',
       margin: 'auto',
     },
   },
   table: {
     width: '100%',
-    // minWidth: 100,
   },
   btn: {
     textTransform: 'none',

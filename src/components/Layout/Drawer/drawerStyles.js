@@ -5,9 +5,6 @@ const drawerWidth = 240;
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
-    // [theme.breakpoints.down('xs')]: {
-    //   width: '100%',
-    // },
   },
   drawer: {
     [theme.breakpoints.up('md')]: {
@@ -32,11 +29,14 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   toolbar: theme.mixins.toolbar,
-
   drawerPaper: {
     width: drawerWidth,
     zIndex: 1,
     marginTop: '3rem',
+    [theme.breakpoints.down('md')]: {
+      marginTop: 0,
+      zIndex: 1000,
+    },
   },
   content: {
     flexGrow: 1,
@@ -50,6 +50,7 @@ const useStyles = makeStyles((theme) => ({
   },
   link: {
     color: 'black',
+    textDecoration: 'none',
   },
   title: {
     flexGrow: 1,

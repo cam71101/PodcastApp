@@ -6,6 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import useHttp from '../../hooks/http';
 import PodcastCard from '../../components/PodcastCard/PodcastCard';
 import PodcastsLayout from '../../components/PodcastsLayout/PodcastsLayout';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 const PodcastsPage = (props) => {
   const [category, setCategory] = React.useState(null);
@@ -38,7 +39,11 @@ const PodcastsPage = (props) => {
     if (category !== 'Popular') {
       listPodcasts = data.results.map((podcast) => {
         return (
-          <Link to={'/podcast/' + podcast.collectionId} key={podcast.id}>
+          <Link
+            to={'/podcast/' + podcast.collectionId}
+            key={podcast.id}
+            className={classes.link}
+          >
             <PodcastCard
               image={podcast.artworkUrl600}
               artist={podcast.collectionName}
@@ -51,7 +56,11 @@ const PodcastsPage = (props) => {
     } else {
       listPodcasts = data.feed.results.map((podcast) => {
         return (
-          <Link to={'/podcast/' + podcast.id} key={podcast.id}>
+          <Link
+            to={'/podcast/' + podcast.id}
+            key={podcast.id}
+            className={classes.link}
+          >
             <PodcastCard
               image={podcast.artworkUrl100}
               artist={podcast.name}
@@ -66,10 +75,19 @@ const PodcastsPage = (props) => {
 
   return (
     <div className={classes.rootPodcastsPage}>
-      <Typography variant="h4" className={classes.title}>
-        {category}
-      </Typography>
-      <PodcastsLayout isLoading={isLoading} podcasts={listPodcasts} />
+      {isLoading ? (
+        <CircularProgress
+          data-test="component-loading"
+          className={classes.loading}
+        />
+      ) : (
+        <React.Fragment>
+          <Typography variant="h4" className={classes.title}>
+            {category}
+          </Typography>
+          <PodcastsLayout podcasts={listPodcasts} />
+        </React.Fragment>
+      )}
     </div>
   );
 };

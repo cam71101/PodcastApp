@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme) => ({
     marginTop: '2rem',
     display: 'flex',
     flexWrap: 'wrap',
-    marginLeft: '2rem',
+    marginLeft: '7rem',
     [theme.breakpoints.down('xs')]: {
       marginLeft: 0,
       justifyContent: 'center',

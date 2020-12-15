@@ -22,20 +22,23 @@ const PodcastCarousel = ({ podcasts }) => {
   const classes = useStyles();
   const theme = useTheme();
 
+  const matchesXl = useMediaQuery(theme.breakpoints.up('xl'));
   const matchesLg = useMediaQuery(theme.breakpoints.down('lg'));
   const matchesMd = useMediaQuery(theme.breakpoints.down('md'));
   const matchesSm = useMediaQuery(theme.breakpoints.down('sm'));
 
   let postcastCarousel = null;
 
-  let visibleSlides = 8;
+  let visibleSlides = 7;
 
   if (matchesSm) {
-    visibleSlides = 2;
+    visibleSlides = 3;
   } else if (matchesMd) {
     visibleSlides = 4;
   } else if (matchesLg) {
     visibleSlides = 5;
+  } else if (matchesXl) {
+    visibleSlides = 9;
   }
 
   if (podcasts) {
@@ -52,10 +55,10 @@ const PodcastCarousel = ({ podcasts }) => {
               ) : (
                 <Image src={podcast.artworkUrl100} className={classes.img} />
               )}
-              <Typography variant="subtitle1" className={classes.text}>
+              <Typography variant="subtitle2" className={classes.text}>
                 {podcast.collectionName ? podcast.collectionName : podcast.name}
               </Typography>
-              <Typography variant="subtitle2" className={classes.text}>
+              <Typography variant="subtitle1" className={classes.text}>
                 {podcast.artistName}
               </Typography>
             </div>

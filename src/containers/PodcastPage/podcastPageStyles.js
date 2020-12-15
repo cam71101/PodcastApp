@@ -5,19 +5,14 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
     height: '70rem',
     gridRow: 1,
-    rowGap: '2rem',
     columnGap: '1rem',
     marginBottom: '8rem',
-    marginTop: '1rem',
+    marginTop: '2rem',
     display: 'grid',
-    gridTemplateRows: 'minmax(max-content, 200rem) max-content 2rem',
+    gridTemplateRows: 'minmax(max-content, 20rem) min-content 2rem',
     gridTemplateColums: '1fr',
-    position: 'relative',
     [theme.breakpoints.down('xs')]: {
-      margin: 'auto',
       marginTop: '2rem',
-      width: '90%',
-      rowGap: 0,
     },
   },
   pages: {
@@ -25,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: '5rem',
     [theme.breakpoints.down('xs')]: {
       width: '100%',
-      marginBottom: '2rem',
+      marginBottom: '10rem',
     },
   },
   loading: {

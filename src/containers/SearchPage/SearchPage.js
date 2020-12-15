@@ -42,7 +42,7 @@ const SearchPage = (props) => {
 
     listPodcasts = currentPodcasts.map((podcast) => {
       return (
-        <Link to={'/podcast/' + podcast.collectionId}>
+        <Link to={'/podcast/' + podcast.collectionId} className={classes.link}>
           <PodcastCard
             image={podcast.artworkUrl600}
             artist={podcast.collectionName}
@@ -74,10 +74,10 @@ const SearchPage = (props) => {
       ) : (
         <React.Fragment>
           <Typography variant="h4" className={classes.title}>
-            Search...
+            Search results for...
           </Typography>
           <Typography variant="h5" className={classes.subtitle}>
-            {props.location.pathname.replace('/search/', '')}
+            {"'" + props.location.pathname.replace('/search/', '') + "'"}
           </Typography>
           <PodcastsLayout podcasts={listPodcasts} className={classes.loading} />
           <Pagination
