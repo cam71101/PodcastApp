@@ -7,11 +7,16 @@ import useHttp from '../../hooks/http';
 import PodcastCard from '../../components/PodcastCard/PodcastCard';
 import PodcastsLayout from '../../components/PodcastsLayout/PodcastsLayout';
 import CircularProgress from '@material-ui/core/CircularProgress';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+import { useTheme } from '@material-ui/core/styles';
 
 const PodcastsPage = (props) => {
   const [category, setCategory] = React.useState(null);
   const classes = useStyles();
   const { isLoading, error, data, sendRequest } = useHttp();
+
+  const theme = useTheme();
+  const matches = useMediaQuery('(max-width:600px)');
 
   useEffect(() => {
     if (props.location.pathname.includes('category')) {
@@ -49,6 +54,7 @@ const PodcastsPage = (props) => {
               artist={podcast.collectionName}
               artistName={podcast.artistName}
               data-test="component-card"
+              matches={matches}
             />
           </Link>
         );

@@ -9,23 +9,23 @@ import { Typography } from '@material-ui/core';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { useTheme } from '@material-ui/core/styles';
 
-export const PodcastCard = function MusicCard({ image, artistName, artist }) {
+export const PodcastCard = function MusicCard({
+  image,
+  artistName,
+  artist,
+  matches,
+}) {
   const styles = useStyles();
   const shadowStyles = useOverShadowStyles({ inactive: true });
 
-  const classes = useStyles();
-  const theme = useTheme();
-
-  const matches = useMediaQuery(theme.breakpoints.down('xs'));
+  const subtitle = <Typography variant="subtitle1">{artistName}</Typography>;
 
   return (
     <Card className={cx(styles.root, shadowStyles.root)}>
       <CardMedia className={styles.media} image={image} />
       <CardContent className={styles.cardContent}>
         <Typography variant="subtitle2">{artist}</Typography>
-        {matches ? null : (
-          <Typography variant="subtitle1">{artistName}</Typography>
-        )}
+        {subtitle}
       </CardContent>
     </Card>
   );

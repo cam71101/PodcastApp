@@ -9,6 +9,7 @@ import Layout from './components/Layout/Layout';
 import SearchPage from './containers/SearchPage/SearchPage';
 import sideBarItems from './utils/sideBarItems';
 import { MuiThemeProvider } from '@material-ui/core/styles';
+import { StylesProvider } from '@material-ui/core/styles';
 
 function App() {
   return (

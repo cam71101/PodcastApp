@@ -8,8 +8,8 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: 5,
     alignSelf: 'flex-start',
     [theme.breakpoints.down('xs')]: {
-      width: 130,
-      height: 200,
+      width: 140,
+      height: 210,
     },
   },
   media: {
@@ -18,8 +18,8 @@ const useStyles = makeStyles((theme) => ({
     width: 200,
     height: 200,
     [theme.breakpoints.down('xs')]: {
-      width: 120,
-      height: 120,
+      width: 125,
+      height: 125,
     },
   },
   cardContent: {

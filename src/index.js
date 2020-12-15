@@ -5,13 +5,16 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import './index.css';
 import AudioProvider from './context/audio-context';
+import { MuiThemeProvider } from '@material-ui/core/styles';
 
-import 'typeface-lato';
+import theme from './theme';
 
 ReactDOM.render(
-  <AudioProvider>
-    <App />
-  </AudioProvider>,
+  <MuiThemeProvider theme={theme}>
+    <AudioProvider>
+      <App />
+    </AudioProvider>
+  </MuiThemeProvider>,
   document.getElementById('root')
 );
 

@@ -1,5 +1,5 @@
 import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
-// import 'typeface-cormorant';
+import Lato from './fonts/Lato-Regular.ttf';
 
 let theme = createMuiTheme({
   typography: {
@@ -13,15 +13,15 @@ let theme = createMuiTheme({
       fontSize: '1.1rem',
     },
   },
-  breakpoints: {
-    values: {
-      xs: 0,
-      sm: 600,
-      md: 960,
-      lg: 1280,
-      xl: 2150,
-    },
-  },
+  // breakpoints: {
+  //   values: {
+  //     xs: 0,
+  //     sm: 600,
+  //     md: 960,
+  //     lg: 1280,
+  //     xl: 2150,
+  //   },
+  // },
 });
 
 theme = responsiveFontSizes(theme);

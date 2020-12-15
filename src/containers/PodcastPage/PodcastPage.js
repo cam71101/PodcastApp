@@ -5,6 +5,8 @@ import useStyles from './podcastPageStyles';
 import PodcastsTable from '../../components/PodcastsTable/PodcastsTable';
 import PodcastHeader from '../../components/PodcastHeader/PodcastHeader';
 import CircularProgress from '@material-ui/core/CircularProgress';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+import { useTheme } from '@material-ui/core/styles';
 
 import Pagination from '@material-ui/lab/Pagination';
 import Modal from '../../components/Modal/Modal';

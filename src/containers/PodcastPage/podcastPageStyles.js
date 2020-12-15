@@ -21,6 +21,8 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down('xs')]: {
       width: '100%',
       marginBottom: '10rem',
+      display: 'flex',
+      justifyContent: 'center',
     },
   },
   loading: {
