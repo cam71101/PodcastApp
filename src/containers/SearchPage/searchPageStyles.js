@@ -20,12 +20,21 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: '2rem',
     [theme.breakpoints.down('xs')]: {
       marginLeft: 0,
+      padding: '.5rem',
+      textAlign: 'center',
     },
   },
   subtitle: {
-    marginLeft: '2rem',
+    marginLeft: '4rem',
     [theme.breakpoints.down('xs')]: {
       marginLeft: 0,
+    },
+  },
+  error: {
+    margin: 'auto',
+    marginTop: '15rem',
+    [theme.breakpoints.down('xs')]: {
+      marginTop: '8rem',
     },
   },
   link: {

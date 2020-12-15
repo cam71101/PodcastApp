@@ -18,7 +18,15 @@ const useHttp = () => {
     axios
       .get(proxyurl + url)
       .then((response) => {
-        dispathHttp({ type: 'RESPONSE', responseData: response.data });
+        console.log(response.data);
+        if (response.data.results && response.data.results.length === 0) {
+          dispathHttp({
+            type: 'ERROR',
+            errorMessage: 'No results found!',
+          });
+        } else {
+          dispathHttp({ type: 'RESPONSE', responseData: response.data });
+        }
       })
       .catch((error) => {
         dispathHttp({ type: 'ERROR', errorMessage: 'Something went wrong!' });

@@ -1,5 +1,6 @@
 import React from 'react';
 import theme from './theme';
+import { MuiThemeProvider } from '@material-ui/core/styles';
 
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Home from './containers/Home/Home.js';
@@ -8,8 +9,7 @@ import PodcastPage from './containers/PodcastPage/PodcastPage';
 import Layout from './components/Layout/Layout';
 import SearchPage from './containers/SearchPage/SearchPage';
 import sideBarItems from './utils/sideBarItems';
-import { MuiThemeProvider } from '@material-ui/core/styles';
-import { StylesProvider } from '@material-ui/core/styles';
+import ErrorPage from './components/ErrorPage/ErrorPage';
 
 function App() {
   return (
@@ -32,7 +32,8 @@ function App() {
             })}
             <Route path="/podcast/:id" exact component={PodcastPage} />
             <Route path="/search/:id" component={SearchPage} />
-            <Route render={() => <h1>Not Found</h1>} />
+            {/* <Route render={() => <h1>Not Found</h1>} /> */}
+            <Route component={ErrorPage} />
           </Switch>
         </Layout>
       </MuiThemeProvider>
@@ -41,3 +42,5 @@ function App() {
 }
 
 export default App;
+
+// "homepage": "https://cam71101.github.io/PodcastApp/",

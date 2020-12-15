@@ -75,17 +75,26 @@ const SearchPage = (props) => {
         <React.Fragment>
           <Typography variant="h4" className={classes.title}>
             Search results for...
+            {'"' + props.location.pathname.replace('/search/', '') + '"'}
           </Typography>
-          <Typography variant="h5" className={classes.subtitle}>
-            {"'" + props.location.pathname.replace('/search/', '') + "'"}
-          </Typography>
-          <PodcastsLayout podcasts={listPodcasts} className={classes.loading} />
-          <Pagination
-            count={pageNumbers.length}
-            page={currentPage}
-            onChange={paginate}
-            className={classes.pages}
-          />
+          {error ? (
+            <Typography className={classes.error} variant="h5">
+              No results found!
+            </Typography>
+          ) : (
+            <React.Fragment>
+              <PodcastsLayout
+                podcasts={listPodcasts}
+                className={classes.loading}
+              />
+              <Pagination
+                count={pageNumbers.length}
+                page={currentPage}
+                onChange={paginate}
+                className={classes.pages}
+              />{' '}
+            </React.Fragment>
+          )}
         </React.Fragment>
       )}
     </div>

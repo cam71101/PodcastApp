@@ -41,6 +41,14 @@ theme.typography.subtitle2 = {
   },
 };
 
+theme.typography.h3 = {
+  fontSize: '.9rem',
+  fontWeight: 300,
+  // [theme.breakpoints.down('sm')]: {
+  //   fontSize: '.6rem',
+  // },
+};
+
 console.log(theme);
 
 export default theme;

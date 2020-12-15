@@ -41,6 +41,8 @@ const PodcastsPage = (props) => {
 
   let listPodcasts = null;
 
+  console.log(data);
+
   if (data) {
     if (category !== 'Popular') {
       listPodcasts = data.results.map((podcast) => {
