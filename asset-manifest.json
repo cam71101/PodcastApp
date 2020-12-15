@@ -1,26 +1,25 @@
 {
   "files": {
-    "main.css": "/PodcastApp/static/css/main.f39a9efc.chunk.css",
-    "main.js": "/PodcastApp/static/js/main.a313578f.chunk.js",
-    "main.js.map": "/PodcastApp/static/js/main.a313578f.chunk.js.map",
-    "runtime-main.js": "/PodcastApp/static/js/runtime-main.a20dcab2.js",
-    "runtime-main.js.map": "/PodcastApp/static/js/runtime-main.a20dcab2.js.map",
-    "static/css/2.629c0c82.chunk.css": "/PodcastApp/static/css/2.629c0c82.chunk.css",
-    "static/js/2.f675fd87.chunk.js": "/PodcastApp/static/js/2.f675fd87.chunk.js",
-    "static/js/2.f675fd87.chunk.js.map": "/PodcastApp/static/js/2.f675fd87.chunk.js.map",
-    "static/js/3.79036502.chunk.js": "/PodcastApp/static/js/3.79036502.chunk.js",
-    "static/js/3.79036502.chunk.js.map": "/PodcastApp/static/js/3.79036502.chunk.js.map",
+    "main.css": "/PodcastApp/static/css/main.afd7172b.chunk.css",
+    "main.js": "/PodcastApp/static/js/main.7ff3d435.chunk.js",
+    "main.js.map": "/PodcastApp/static/js/main.7ff3d435.chunk.js.map",
+    "runtime-main.js": "/PodcastApp/static/js/runtime-main.ceda2157.js",
+    "runtime-main.js.map": "/PodcastApp/static/js/runtime-main.ceda2157.js.map",
+    "static/css/2.fcdaccbc.chunk.css": "/PodcastApp/static/css/2.fcdaccbc.chunk.css",
+    "static/js/2.4aa77c0b.chunk.js": "/PodcastApp/static/js/2.4aa77c0b.chunk.js",
+    "static/js/2.4aa77c0b.chunk.js.map": "/PodcastApp/static/js/2.4aa77c0b.chunk.js.map",
+    "static/js/3.08a480f5.chunk.js": "/PodcastApp/static/js/3.08a480f5.chunk.js",
+    "static/js/3.08a480f5.chunk.js.map": "/PodcastApp/static/js/3.08a480f5.chunk.js.map",
     "index.html": "/PodcastApp/index.html",
-    "static/css/2.629c0c82.chunk.css.map": "/PodcastApp/static/css/2.629c0c82.chunk.css.map",
-    "static/css/main.f39a9efc.chunk.css.map": "/PodcastApp/static/css/main.f39a9efc.chunk.css.map",
-    "static/js/2.f675fd87.chunk.js.LICENSE.txt": "/PodcastApp/static/js/2.f675fd87.chunk.js.LICENSE.txt",
-    "static/media/index.css": "/PodcastApp/static/media/lato-latin-900italic.bd29000d.woff"
+    "static/css/2.fcdaccbc.chunk.css.map": "/PodcastApp/static/css/2.fcdaccbc.chunk.css.map",
+    "static/css/main.afd7172b.chunk.css.map": "/PodcastApp/static/css/main.afd7172b.chunk.css.map",
+    "static/js/2.4aa77c0b.chunk.js.LICENSE.txt": "/PodcastApp/static/js/2.4aa77c0b.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.a20dcab2.js",
-    "static/css/2.629c0c82.chunk.css",
-    "static/js/2.f675fd87.chunk.js",
-    "static/css/main.f39a9efc.chunk.css",
-    "static/js/main.a313578f.chunk.js"
+    "static/js/runtime-main.ceda2157.js",
+    "static/css/2.fcdaccbc.chunk.css",
+    "static/js/2.4aa77c0b.chunk.js",
+    "static/css/main.afd7172b.chunk.css",
+    "static/js/main.7ff3d435.chunk.js"
   ]
 }
