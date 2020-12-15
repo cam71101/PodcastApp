@@ -20,6 +20,9 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down('md')]: {
       marginLeft: 0,
     },
+    '& svg': {
+      color: theme.palette.primary.main,
+    },
   },
   mediaPlayer: {
     width: '90%',
@@ -33,18 +36,24 @@ const useStyles = makeStyles((theme) => ({
   picture: {
     width: '128px',
     height: '128px',
+    position: 'relative',
     [theme.breakpoints.down('md')]: {
       width: '128px',
       height: '128px',
     },
   },
   loading: {
+    zIndex: 100,
     position: 'absolute',
     margin: 'auto',
     left: 0,
     right: 0,
     top: 0,
     bottom: 0,
+    [theme.breakpoints.down('xs')]: {
+      bottom: 0,
+      marginBottom: 27,
+    },
   },
   cover: {
     width: '100%',

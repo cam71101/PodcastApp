@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import './index.css';
 import AudioProvider from './context/audio-context';
 import { MuiThemeProvider } from '@material-ui/core/styles';
 

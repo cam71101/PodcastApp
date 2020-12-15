@@ -72,7 +72,7 @@ export default function PodcastsTable({ podcasts, modal }) {
                     )
                   }
                 >
-                  <PlayCircleOutlineIcon fontSize="large" />
+                  <PlayCircleOutlineIcon fontSize="large" color="primary" />
                 </Button>
               </TableCell>
             </TableRow>
@@ -131,7 +131,7 @@ export default function PodcastsTable({ podcasts, modal }) {
                     )
                   }
                 >
-                  <PlayCircleOutlineIcon fontSize="large" />
+                  <PlayCircleOutlineIcon fontSize="large" color="primary" />
                 </Button>
               </TableCell>
             </TableRow>

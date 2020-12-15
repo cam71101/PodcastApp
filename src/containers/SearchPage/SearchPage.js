@@ -92,7 +92,7 @@ const SearchPage = (props) => {
                 page={currentPage}
                 onChange={paginate}
                 className={classes.pages}
-              />{' '}
+              />
             </React.Fragment>
           )}
         </React.Fragment>

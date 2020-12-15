@@ -1,6 +1,17 @@
 import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
 
 let theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: '#1ED760',
+    },
+    secondary: {
+      main: '#eeeeee',
+    },
+    text: {
+      secondary: 'white',
+    },
+  },
   typography: {
     fontFamily: 'Lato',
     subtitle2: {},

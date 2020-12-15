@@ -41,7 +41,7 @@ const Home = (props) => {
       <Typography variant="h4" className={classes.title}>
         Home
       </Typography>
-      <Typography variant="h5" className={classes.subtitle}>
+      <Typography variant="h5" className={classes.subtitle} color="primary">
         Top Podcasts
       </Typography>
     </React.Fragment>
@@ -52,7 +52,7 @@ const Home = (props) => {
       <Typography variant="h4" className={classes.subtitle}>
         Explore:
       </Typography>
-      <Typography variant="h5" className={classes.subtitle}>
+      <Typography variant="h5" className={classes.subtitle} color="primary">
         {category}
       </Typography>
     </React.Fragment>

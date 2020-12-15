@@ -35,6 +35,7 @@ import {
   faStar,
 } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
+import logo from '../../../assets/logo.png';
 
 import useStyles from './drawerStyles';
 
@@ -78,6 +79,9 @@ function ResponsiveDrawer(props) {
   const drawer = (
     <div>
       <div className={classes.toolbar} />
+      <div className={classes.logoContainer}>
+        <img src={logo} className={classes.logo} />
+      </div>
       <Link className={classes.link} to="/">
         <Divider />
         <ListItem button onClick={closeDrawer}>
@@ -96,7 +100,6 @@ function ResponsiveDrawer(props) {
         </ListItem>
       </Link>
       <Divider />
-
       <List>
         {listItems.map((text, index) => (
           <Link
@@ -130,7 +133,7 @@ function ResponsiveDrawer(props) {
     <div className={classes.root}>
       <CssBaseline />
       <AppBar position="fixed" className={classes.appBar}>
-        <Toolbar>
+        <Toolbar className={classes.toolbar}>
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -140,10 +143,11 @@ function ResponsiveDrawer(props) {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap className={classes.title}>
-            Podcast Library
-          </Typography>
-
+          <Hidden xsDown>
+            <div className={classes.logoContainer}>
+              {/* <img src={logo} className={classes.logo} /> */}
+            </div>
+          </Hidden>
           <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />

@@ -6,7 +6,6 @@ import CardMedia from '@material-ui/core/CardMedia';
 import 'react-h5-audio-player/lib/styles.css';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { useTheme } from '@material-ui/core/styles';
-
 import { AudioContext } from '../../../context/audio-context';
 import useStyles from './audioPlayerStyles';
 
@@ -29,20 +28,29 @@ const Player = () => {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down('xs'));
 
+  let progress = null;
+
+  if (isLoading) {
+    progress = (
+      <CircularProgress
+        data-test="component-loading"
+        className={classes.loading}
+      />
+    );
+  } else {
+    progress = null;
+  }
+
   return (
     <Slide direction="up" in={autoPlay} mountOnEnter unmountOnExit>
       <div className={classes.root}>
         {matches ? null : (
           <div className={classes.picture}>
-            {isLoading ? (
-              <CircularProgress
-                data-test="component-loading"
-                className={classes.loading}
-              />
-            ) : null}
+            {progress}
             <CardMedia image={image} className={classes.cover} />
           </div>
         )}
+        {matches ? progress : null}
         <AudioPlayer
           src={audio}
           autoPlay={autoPlay}

@@ -5,6 +5,7 @@ const drawerWidth = 240;
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
+    justifyContent: 'space-between',
   },
   drawer: {
     [theme.breakpoints.up('md')]: {
@@ -19,9 +20,10 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down('xs')]: {
       left: 0,
     },
+    boxShadow: 'none',
   },
   menuButton: {
-    flexGrow: 1,
+    // flexGrow: 1,
     marginRight: theme.spacing(2),
     justifyContent: 'flex-start',
     [theme.breakpoints.up('lg')]: {
@@ -29,10 +31,13 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   toolbar: theme.mixins.toolbar,
+  toolbar: {
+    justifyContent: 'space-between',
+  },
   drawerPaper: {
     width: drawerWidth,
     zIndex: 1,
-    marginTop: '3rem',
+    marginTop: '0',
     [theme.breakpoints.down('md')]: {
       marginTop: 0,
       zIndex: 1000,
@@ -66,7 +71,7 @@ const useStyles = makeStyles((theme) => ({
     '&:hover': {
       backgroundColor: fade(theme.palette.common.white, 0.25),
     },
-    marginLeft: theme.spacing(1),
+    // marginLeft: '85%',
     width: 'auto',
     marginRight: '1rem',
   },
@@ -90,6 +95,17 @@ const useStyles = makeStyles((theme) => ({
     '&:focus': {
       width: '20ch',
     },
+  },
+  logoContainer: {
+    height: '6rem',
+    width: '6rem',
+    marginBottom: '-1rem',
+    marginTop: '-1rem',
+    flexGrow: 1,
+  },
+  logo: {
+    width: '6rem',
+    height: '100%',
   },
 }));
 

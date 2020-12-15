@@ -42,5 +42,3 @@ function App() {
 }
 
 export default App;
-
-// "homepage": "https://cam71101.github.io/PodcastApp/",

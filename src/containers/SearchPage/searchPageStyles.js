@@ -48,5 +48,9 @@ const useStyles = makeStyles((theme) => ({
     left: 0,
     right: 0,
   },
+  logo: {
+    width: '10rem',
+    height: '50%',
+  },
 }));
 export default useStyles;

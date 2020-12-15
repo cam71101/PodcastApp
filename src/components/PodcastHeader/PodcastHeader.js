@@ -24,7 +24,7 @@ export const PodcastHeader = function MusicCard({ podcast, description }) {
           </Typography>
           <div className={styles.tag}>
             {podcast.genres.map((tag) => {
-              return <Chip label={tag} />;
+              return <Chip label={tag} color="primary" />;
             })}
           </div>
         </CardContent>
