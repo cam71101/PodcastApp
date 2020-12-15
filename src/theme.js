@@ -1,5 +1,4 @@
 import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
-import Lato from './fonts/Lato-Regular.ttf';
 
 let theme = createMuiTheme({
   typography: {

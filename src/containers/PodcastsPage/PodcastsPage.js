@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import useStyles from './podcastsPageStyles';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import Typography from '@material-ui/core/Typography';
 
 import useHttp from '../../hooks/http';
@@ -36,6 +36,7 @@ const PodcastsPage = (props) => {
       );
       setCategory('Popular');
     }
+    window.scrollTo(0, 0);
   }, [props.location.pathname]);
 
   let listPodcasts = null;
