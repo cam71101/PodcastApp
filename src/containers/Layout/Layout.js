@@ -5,6 +5,7 @@ import useStyles from './layoutStyles';
 import AudioPlayer from './AudioPlayer/AudioPlayer';
 import Drawer from './Drawer/Drawer';
 
+
 const Layout = (props) => {
   const classes = useStyles();
   const { pathname } = useLocation();

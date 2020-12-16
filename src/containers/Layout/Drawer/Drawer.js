@@ -145,7 +145,7 @@ function ResponsiveDrawer(props) {
           </IconButton>
           <Hidden xsDown>
             <div className={classes.logoContainer}>
-              {/* <img src={logo} className={classes.logo} /> */}
+              <img src={logo} className={classes.logo} />
             </div>
           </Hidden>
           <div className={classes.search}>
