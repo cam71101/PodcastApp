@@ -4,6 +4,7 @@ import CardContent from '@material-ui/core/CardContent';
 import useStyles from './podcastHeaderStyles';
 import { Typography } from '@material-ui/core';
 import Chip from '@material-ui/core/Chip';
+import PropTypes from 'prop-types';
 
 export const PodcastHeader = function MusicCard({ podcast, description }) {
   const styles = useStyles();
@@ -19,12 +20,10 @@ export const PodcastHeader = function MusicCard({ podcast, description }) {
           <Typography variant="h6" gutterBottom>
             {podcast.artistName}
           </Typography>
-          <Typography variant="p" gutterBottom>
-            {description}
-          </Typography>
+          <Typography gutterBottom>{description}</Typography>
           <div className={styles.tag}>
-            {podcast.genres.map((tag) => {
-              return <Chip label={tag} color="primary" />;
+            {podcast.genres.map((tag, index) => {
+              return <Chip label={tag} key={index} color="primary" />;
             })}
           </div>
         </CardContent>
@@ -34,4 +33,5 @@ export const PodcastHeader = function MusicCard({ podcast, description }) {
 
   return <div className={styles.rootPodcastHeader}>{layout}</div>;
 };
+
 export default PodcastHeader;

@@ -1,0 +1,42 @@
+{
+  "resultCount": 1,
+  "results": [
+    {
+      "wrapperType": "track",
+      "kind": "podcast",
+      "artistId": 1524874689,
+      "collectionId": 1089022756,
+      "trackId": 1089022756,
+      "id": 1524874689,
+      "artistName": "Barstool Sports",
+      "collectionName": "Pardon My Take",
+      "trackName": "Pardon My Take",
+      "collectionCensoredName": "Pardon My Take",
+      "trackCensoredName": "Pardon My Take",
+      "artistViewUrl": "https://podcasts.apple.com/us/artist/barstool-sports/1524874689?uo=4",
+      "collectionViewUrl": "https://podcasts.apple.com/us/podcast/pardon-my-take/id1089022756?uo=4",
+      "feedUrl": "https://mcsorleys.barstoolsports.com/feed/pardon-my-take",
+      "trackViewUrl": "https://podcasts.apple.com/us/podcast/pardon-my-take/id1089022756?uo=4",
+      "artworkUrl30": "https://is5-ssl.mzstatic.com/image/thumb/Podcasts124/v4/8c/74/fb/8c74fbff-7600-1e8b-984d-8b391c2d7e7b/mza_11497340420516456814.jpg/30x30bb.jpg",
+      "artworkUrl60": "https://is5-ssl.mzstatic.com/image/thumb/Podcasts124/v4/8c/74/fb/8c74fbff-7600-1e8b-984d-8b391c2d7e7b/mza_11497340420516456814.jpg/60x60bb.jpg",
+      "artworkUrl100": "https://is5-ssl.mzstatic.com/image/thumb/Podcasts124/v4/8c/74/fb/8c74fbff-7600-1e8b-984d-8b391c2d7e7b/mza_11497340420516456814.jpg/100x100bb.jpg",
+      "collectionPrice": 0.0,
+      "trackPrice": 0.0,
+      "trackRentalPrice": 0,
+      "collectionHdPrice": 0,
+      "trackHdPrice": 0,
+      "trackHdRentalPrice": 0,
+      "releaseDate": "2020-12-16T04:02:00Z",
+      "collectionExplicitness": "explicit",
+      "trackExplicitness": "explicit",
+      "trackCount": 498,
+      "country": "USA",
+      "currency": "USD",
+      "primaryGenreName": "Football",
+      "contentAdvisoryRating": "Explicit",
+      "artworkUrl600": "https://is5-ssl.mzstatic.com/image/thumb/Podcasts124/v4/8c/74/fb/8c74fbff-7600-1e8b-984d-8b391c2d7e7b/mza_11497340420516456814.jpg/600x600bb.jpg",
+      "genreIds": ["1547", "26", "1545"],
+      "genres": ["Football", "Podcasts", "Sports"]
+    }
+  ]
+}

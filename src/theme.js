@@ -60,6 +60,4 @@ theme.typography.h3 = {
   // },
 };
 
-console.log(theme);
-
 export default theme;

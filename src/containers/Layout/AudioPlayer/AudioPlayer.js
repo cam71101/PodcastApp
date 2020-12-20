@@ -33,8 +33,8 @@ const Player = () => {
   if (isLoading) {
     progress = (
       <CircularProgress
-        data-test="component-loading"
         className={classes.loading}
+        aria-label="component-loading"
       />
     );
   } else {

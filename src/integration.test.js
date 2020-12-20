@@ -1,10 +1,10 @@
-import { storeFactory } from './test/testUtils';
-import { updateData } from './store/actions/index';
+// import { storeFactory } from './test/testUtils';
+// import { updateData } from './store/actions/index';
 
 describe('guessWord acion dispatcher', () => {
-  const word = 'test';
-  let store;
-  const initialState = {};
+  // const word = 'test';
+  // let store;
+  // const initialState = {};
 
   // beforeEach(() => {
   //   store = storeFactory(initialState);

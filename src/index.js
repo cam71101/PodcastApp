@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import AudioProvider from './context/audio-context';
@@ -11,7 +11,9 @@ import theme from './theme';
 ReactDOM.render(
   <MuiThemeProvider theme={theme}>
     <AudioProvider>
-      <App />
+      <BrowserRouter basename={process.env.PUBLIC_URL}>
+        <App />
+      </BrowserRouter>
     </AudioProvider>
   </MuiThemeProvider>,
   document.getElementById('root')

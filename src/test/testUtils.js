@@ -1,15 +1,15 @@
 import checkPropTypes from 'check-prop-types';
-import { createStore, applyMiddleware } from 'redux';
+// import { createStore, applyMiddleware } from 'redux';
 
-import rootReducer from '../store/reducers/index';
-import { middlewares } from '../configureStore';
+// import rootReducer from '../store/reducers/index';
+// import { middlewares } from '../configureStore';
 
-export const storeFactory = (initialState) => {
-  const createStoreWithMiddleware = applyMiddleware(...middlewares)(
-    createStore
-  );
-  return createStoreWithMiddleware(rootReducer, initialState);
-};
+// export const storeFactory = (initialState) => {
+//   const createStoreWithMiddleware = applyMiddleware(...middlewares)(
+//     createStore
+//   );
+//   return createStoreWithMiddleware(rootReducer, initialState);
+// };
 
 export const findByTestAttr = (wrapper, val) =>
   wrapper.find(`[data-test='${val}']`);

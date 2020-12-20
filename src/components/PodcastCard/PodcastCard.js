@@ -6,26 +6,33 @@ import CardContent from '@material-ui/core/CardContent';
 import { useOverShadowStyles } from '@mui-treasury/styles/shadow/over';
 import useStyles from './podcastCardStyles';
 import { Typography } from '@material-ui/core';
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
-export const PodcastCard = function MusicCard({
-  image,
-  artistName,
-  artist,
-  matches,
-}) {
-  const styles = useStyles();
+export const PodcastCard = ({ image, artistName, artist, matches, id }) => {
+  const classes = useStyles();
   const shadowStyles = useOverShadowStyles({ inactive: true });
 
   const subtitle = <Typography variant="subtitle1">{artistName}</Typography>;
 
   return (
-    <Card className={cx(styles.root, shadowStyles.root)}>
-      <CardMedia className={styles.media} image={image} />
-      <CardContent className={styles.cardContent}>
-        <Typography variant="subtitle2">{artist}</Typography>
-        {subtitle}
-      </CardContent>
-    </Card>
+    <Link to={'/podcast/' + id} key={id} className={classes.link}>
+      <Card className={cx(classes.root, shadowStyles.root)}>
+        <CardMedia className={classes.media} image={image} />
+        <CardContent className={classes.cardContent}>
+          <Typography variant="subtitle2">{artist}</Typography>
+          {subtitle}
+        </CardContent>
+      </Card>
+    </Link>
   );
 };
+
+PodcastCard.propTypes = {
+  image: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
+  artistName: PropTypes.string.isRequired,
+  artist: PropTypes.string.isRequired,
+};
+
 export default PodcastCard;

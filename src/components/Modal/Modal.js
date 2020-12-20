@@ -8,10 +8,11 @@ import Typography from '@material-ui/core/Typography';
 import parse from 'html-react-parser';
 import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 import Button from '@material-ui/core/Button';
+import PropTypes from 'prop-types';
 
 import useStyles from './modalStyles';
 
-export default function TransitionsModal({
+const TransitionsModal = ({
   open,
   handleClose,
   trackName,
@@ -20,7 +21,7 @@ export default function TransitionsModal({
   releaseDate,
   artWork,
   trackTime,
-}) {
+}) => {
   const classes = useStyles();
 
   return (
@@ -34,7 +35,6 @@ export default function TransitionsModal({
         BackdropProps={{
           timeout: 500,
         }}
-        disablePortal
       >
         <Card className={classes.rootModal}>
           <Button className={classes.close} onClick={handleClose}>
@@ -74,4 +74,11 @@ export default function TransitionsModal({
       </Modal>
     </div>
   );
-}
+};
+
+TransitionsModal.propTypes = {
+  open: PropTypes.bool.isRequired,
+  handleClose: PropTypes.func.isRequired,
+};
+
+export default TransitionsModal;

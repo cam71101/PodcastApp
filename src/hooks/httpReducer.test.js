@@ -1,5 +1,7 @@
 import { httpReducer } from './httpReducer';
 
+test('test', () => {});
+
 test('returns object when receiving action SEND', () => {
   const newState = httpReducer(undefined, {
     type: 'SEND',
@@ -12,11 +14,13 @@ test('returns object when receiving action RESPONSE', () => {
     type: 'RESPONSE',
     responseData: {},
     description: 'string',
+    categoryData: 'string',
   });
   expect(newState).toStrictEqual({
     loading: false,
     data: {},
     description: 'string',
+    categoryData: 'string',
   });
 });
 

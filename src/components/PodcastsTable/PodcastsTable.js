@@ -1,19 +1,18 @@
 import React from 'react';
 import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
+
 import TableCell from '@material-ui/core/TableCell';
 import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import Button from '@material-ui/core/Button';
-import PlayCircleOutlineIcon from '@material-ui/icons/PlayCircleOutline';
 import Typography from '@material-ui/core/Typography';
 import { useTheme } from '@material-ui/core/styles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 
 import useStyles from './podcastsTableStyles';
 import { AudioContext } from '../../context/audio-context';
+import Row from '../../components/Row/Row';
 
 export default function PodcastsTable({ podcasts, modal }) {
   const setAudio = React.useContext(AudioContext).setAudio;
@@ -29,7 +28,7 @@ export default function PodcastsTable({ podcasts, modal }) {
 
   let table = null;
 
-  if (matches && podcasts) {
+  if (matches) {
     table = (
       <Table className={classes.table} aria-label="simple table" size="small">
         <TableHead>
@@ -39,48 +38,26 @@ export default function PodcastsTable({ podcasts, modal }) {
             </TableCell>
           </TableRow>
         </TableHead>
-        <TableBody>
-          {podcasts.map((row) => (
-            <TableRow key={row.trackId} hover>
-              <TableCell component="th" scope="row" align="left">
-                <Button
-                  className={classes.btn}
-                  onClick={() =>
-                    modal(
-                      row.trackName,
-                      row.artworkUrl600,
-                      row.collectionName,
-                      row.releaseDate,
-                      row.trackTimeMillis,
-                      row.description,
-                      row.feedUrl
-                    )
-                  }
-                >
-                  {row.trackName}
-                </Button>
-              </TableCell>
-
-              <TableCell align="right">
-                <Button
-                  onClick={() =>
-                    setAudioHandler(
-                      row.episodeUrl,
-                      row.artworkUrl600,
-                      row.collectionName,
-                      row.trackName
-                    )
-                  }
-                >
-                  <PlayCircleOutlineIcon fontSize="large" color="primary" />
-                </Button>
-              </TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
+        <Row
+          modal={modal}
+          podcasts={podcasts}
+          setAudioHandler={(
+            episodeUrl,
+            artworkUrl600,
+            collectionName,
+            trackName
+          ) =>
+            setAudioHandler(
+              episodeUrl,
+              artworkUrl600,
+              collectionName,
+              trackName
+            )
+          }
+        />
       </Table>
     );
-  } else if (podcasts) {
+  } else {
     table = (
       <Table className={classes.table} aria-label="simple table" size="small">
         <TableHead>
@@ -97,46 +74,24 @@ export default function PodcastsTable({ podcasts, modal }) {
             <TableCell align="right" />
           </TableRow>
         </TableHead>
-        <TableBody>
-          {podcasts.map((row) => (
-            <TableRow key={row.trackId} hover>
-              <TableCell component="th" scope="row">
-                <Button
-                  className={classes.btn}
-                  onClick={() =>
-                    modal(
-                      row.trackName,
-                      row.artworkUrl600,
-                      row.collectionName,
-                      row.releaseDate,
-                      row.trackTimeMillis,
-                      row.description,
-                      row.feedUrl
-                    )
-                  }
-                >
-                  {row.trackName}
-                </Button>
-              </TableCell>
-              <TableCell align="right">{row.releaseDate}</TableCell>
-              <TableCell align="right">{row.trackTimeMillis}</TableCell>
-              <TableCell align="right">
-                <Button
-                  onClick={() =>
-                    setAudioHandler(
-                      row.episodeUrl,
-                      row.artworkUrl600,
-                      row.collectionName,
-                      row.trackName
-                    )
-                  }
-                >
-                  <PlayCircleOutlineIcon fontSize="large" color="primary" />
-                </Button>
-              </TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
+        <Row
+          modal={modal}
+          podcasts={podcasts}
+          large
+          setAudioHandler={(
+            episodeUrl,
+            artworkUrl600,
+            collectionName,
+            trackName
+          ) =>
+            setAudioHandler(
+              episodeUrl,
+              artworkUrl600,
+              collectionName,
+              trackName
+            )
+          }
+        />
       </Table>
     );
   }

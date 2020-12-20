@@ -1,13 +1,14 @@
 import React, { useEffect } from 'react';
-import { withRouter, Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import Pagination from '@material-ui/lab/Pagination';
 
 import useHttp from '../../hooks/http';
 import PodcastCard from '../../components/PodcastCard/PodcastCard';
 import useStyles from './searchPageStyles';
-import CircularProgress from '@material-ui/core/CircularProgress';
 import PodcastsLayout from '../../components/PodcastsLayout/PodcastsLayout';
 import Typography from '@material-ui/core/Typography';
+
+import { withStyles } from '@material-ui/core/styles';
 
 const SearchPage = (props) => {
   const [currentPage, setCurrentPage] = React.useState(1);
@@ -40,16 +41,15 @@ const SearchPage = (props) => {
     );
     totalPodcasts = data.results.length;
 
-    listPodcasts = currentPodcasts.map((podcast) => {
+    listPodcasts = currentPodcasts.map((podcast, index) => {
       return (
-        <Link to={'/podcast/' + podcast.collectionId} className={classes.link}>
-          <PodcastCard
-            image={podcast.artworkUrl600}
-            artist={podcast.collectionName}
-            artistName={podcast.artistName}
-            data-test="component-card"
-          />
-        </Link>
+        <PodcastCard
+          image={podcast.artworkUrl600}
+          artist={podcast.collectionName}
+          artistName={podcast.artistName}
+          id={podcast.collectionId}
+          ket={podcast.collectionId}
+        />
       );
     });
   }
@@ -67,13 +67,14 @@ const SearchPage = (props) => {
   return (
     <div className={classes.rootSearchPage}>
       {isLoading ? (
-        <CircularProgress
-          data-test="component-loading"
-          className={classes.loading}
-        />
+        <PodcastsLayout podcasts={listPodcasts} isLoading={isLoading} />
       ) : (
         <React.Fragment>
-          <Typography variant="h4" className={classes.title}>
+          <Typography
+            variant="h4"
+            className={classes.title}
+            aria-label="text-search"
+          >
             Search results for...
             {'"' + props.location.pathname.replace('/search/', '') + '"'}
           </Typography>
@@ -83,10 +84,7 @@ const SearchPage = (props) => {
             </Typography>
           ) : (
             <React.Fragment>
-              <PodcastsLayout
-                podcasts={listPodcasts}
-                className={classes.loading}
-              />
+              <PodcastsLayout podcasts={listPodcasts} isLoading={isLoading} />
               <Pagination
                 count={pageNumbers.length}
                 page={currentPage}

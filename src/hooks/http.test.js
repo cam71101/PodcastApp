@@ -1,93 +1,127 @@
-import useHttp from './http';
-import moxios from 'moxios';
-import React from 'react';
-import { render, cleanup } from '@testing-library/react';
-import { mount } from 'enzyme';
-
 // Takes props and makes a render prop out of it. Can render Test and children is
 // going to be called with whatever useHttp comes back from.
 // Will create returnVal, render HTTP, which will async call our children prop with whatever
 // is returned from usedHttp and will assign return val to whatever is returned from useHttp
 //
 
-const Http = ({ children, ...rest }) => children(useHttp(rest));
+import React from 'react';
+import 'whatwg-fetch';
+import { render, act, waitFor, cleanup } from '@testing-library/react';
+import useHttp from './http';
+import axios from 'axios';
+import response from '../__mocks__/search-football-response.json';
 
-function setup(props) {
-  let returnVal = {};
-  render(
-    <Http {...props}>
-      {(val) => {
-        Object.assign(returnVal, val);
-        return null;
-      }}
-    </Http>
-  );
+function setup(...args) {
+  const returnVal = {};
+
+  function TestComponent() {
+    Object.assign(returnVal, useHttp(...args));
+    return null;
+  }
+
+  render(<TestComponent />);
   return returnVal;
 }
 
 afterEach(cleanup);
 
-// const mockDispatchHttp = jest.fn()
+describe('useApi sendRequest', () => {
+  test('should catch error', async () => {
+    axios.get = jest.fn(() =>
+      Promise.resolve({
+        json: () => Promise.reject(),
+      })
+    );
 
-// const setup = () => {
-//   // return mount(<UseHttp />);
-// };
+    const httpData = setup();
+    expect(httpData.isLoading).toBe(false);
+    expect(httpData.data).toBe(null);
+    expect(httpData.error).toBe(null);
+    expect(httpData.description).toBe(null);
+    expect(httpData.categoryData).toBe(null);
 
-test('', () => {
-  const httpData = setup();
-  httpData.isLoading = false;
-  // httpData.sendRequest('/')
+    await act(async () => {
+      httpData.sendRequest('www.test.com');
+    });
+
+    expect(httpData.error).toBe('Something went wrong!');
+  });
+
+  test('should return data with  successful response', async () => {
+    axios.get = jest.fn(() => Promise.resolve({ data: 'data.response' }));
+
+    const httpData = setup();
+    expect(httpData.isLoading).toBe(false);
+    expect(httpData.data).toBe(null);
+    expect(httpData.error).toBe(null);
+    expect(httpData.description).toBe(null);
+    expect(httpData.categoryData).toBe(null);
+
+    await act(async () => {
+      httpData.sendRequest('www.test.com');
+    });
+
+    expect(httpData.data).toBe('data.response');
+    expect(httpData.categoryData).toBe(null);
+  });
 });
 
-// describe('updateData', () => {
-//   beforeEach(() => {
-//     moxios.install();
-//   });
-//   afterEach(() => {
-//     moxios.uninstall();
-//   });
+describe('useApi homeRequest', () => {
+  test('should return data with  successful response', async () => {
+    axios.get = jest.fn(() => Promise.resolve({ data: 'data.response' }));
 
-// test('returns an action with type `UPDATE_DATA`', () => {
-//   const wrapper = setup();
-//   const data = 'test';
-// const mockDispatchHttp = jest.fn();
-// React.useState = jest.fn(() => ["", mockSetCurrentGuess])
+    const httpData = setup();
+    expect(httpData.isLoading).toBe(false);
+    expect(httpData.data).toBe(null);
+    expect(httpData.error).toBe(null);
+    expect(httpData.description).toBe(null);
+    expect(httpData.categoryData).toBe(null);
 
-// const store = storeFactory();
+    await act(async () => {
+      httpData.homeRequest('www.test.com');
+    });
 
-// const { result } = renderHook(() => useReducer(reducer, initialState));
+    expect(httpData.data).toBe('data.response');
+    expect(httpData.categoryData).toBe('data.response');
+  });
+});
 
-// moxios.wait(() => {
-//   const request = moxios.requests.mostRecent();
-//   request.respondWith({
-//     status: 200,
-//     response: data,
-//   });
-// });
+describe('useApi sendPodcastRequest', () => {
+  test('should catch error', async () => {
+    axios.get = jest.fn(() =>
+      Promise.resolve({
+        json: () => Promise.reject(),
+      })
+    );
 
-// const { sendRequest } = useHttp();
+    const httpData = setup();
+    expect(httpData.isLoading).toBe(false);
+    expect(httpData.data).toBe(null);
+    expect(httpData.error).toBe(null);
+    expect(httpData.description).toBe(null);
+    expect(httpData.categoryData).toBe(null);
 
-// const mockDispatchHttp = jest.fn();
+    await act(async () => {
+      httpData.sendPodcastRequest('www.test.com');
+    });
 
-// await getSecretWord(mockDispatchHttp)
+    expect(httpData.error).toBe('Something went wrong!');
+  });
 
-// return dispatchHttp()).then(() => {
-//   const newState = store.getState();
-//   expect(newState.data).toBe(data);
-// });
+  test('should return data with  successful response', async () => {
+    axios.get = jest.fn(() => Promise.resolve({ data: response }));
 
-// const action = updateData('test');
-// expect(action).toStrictEqual({ type: actionTypes.UPDATE_DATA });
-// expect(action).toEqual({
-//   // type: actionTypes.UPDATE_DATA,
-//   data: null,
-// });
-// const actionTypes = {
-//   UPDATE_DATA: 'UPDATE_DATA',
-// };
-// expect(action).toEqual({
-//   type: actionTypes.UPDATE_DATA,
-//   link: 'https://itunes.apple.com/',
-// });
-//   });
-// });
+    const httpData = setup();
+    expect(httpData.isLoading).toBe(false);
+    expect(httpData.data).toBe(null);
+    expect(httpData.error).toBe(null);
+    expect(httpData.description).toBe(null);
+    expect(httpData.categoryData).toBe(null);
+
+    await act(async () => {
+      httpData.sendPodcastRequest('www.test.com');
+    });
+
+    expect(httpData.data).toBe(response);
+  });
+});

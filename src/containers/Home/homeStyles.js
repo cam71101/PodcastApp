@@ -1,4 +1,4 @@
-import { makeStyles } from '@material-ui/styles';
+import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
   rootHome: {
@@ -20,17 +20,6 @@ const useStyles = makeStyles((theme) => ({
   podcasts: {
     display: 'grid',
     gridTemplateColumns: 'repeat(3, 100%)',
-  },
-  link: {
-    textDecoration: 'none',
-  },
-  loading: {
-    position: 'absolute',
-    margin: 'auto',
-    top: 0,
-    bottom: 0,
-    left: 0,
-    right: 0,
   },
 }));
 export default useStyles;

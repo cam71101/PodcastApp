@@ -152,30 +152,8 @@ const PodcastPage = (props) => {
     });
   };
 
-  return (
-    <div className={classes.rootPodcastPage}>
-      {modalState.modalLoading ? (
-        <CircularProgress
-          data-test="component-loading"
-          className={classes.modalLoading}
-        />
-      ) : null}
-      <Modal
-        open={modalState.open}
-        handleClose={handleClose}
-        trackName={modalState.trackName}
-        artistName={modalState.artistName}
-        artWork={modalState.artWork}
-        releaseDate={modalState.releaseDate}
-        trackTime={modalState.trackTime}
-        description={modalState.description}
-      />
-      {isLoading ? (
-        <CircularProgress
-          data-test="component-loading"
-          className={classes.loading}
-        />
-      ) : null}
+  const DOM = (
+    <React.Fragment>
       <PodcastHeader podcast={podcast} description={description} />
       <PodcastsTable
         podcasts={currentEpisodes}
@@ -206,6 +184,36 @@ const PodcastPage = (props) => {
         page={currentPage}
         onChange={paginate}
       />
+    </React.Fragment>
+  );
+
+  return (
+    <div className={classes.rootPodcastPage}>
+      {modalState.modalLoading ? (
+        <CircularProgress
+          aria-label="loading-spinner"
+          className={classes.modalLoading}
+        />
+      ) : null}
+      <Modal
+        open={modalState.open}
+        handleClose={handleClose}
+        trackName={modalState.trackName}
+        artistName={modalState.artistName}
+        artWork={modalState.artWork}
+        releaseDate={modalState.releaseDate}
+        trackTime={modalState.trackTime}
+        description={modalState.description}
+      />
+
+      {isLoading ? (
+        <CircularProgress
+          className={classes.loading}
+          aria-label="loading-spinner"
+        />
+      ) : (
+        DOM
+      )}
     </div>
   );
 };

@@ -1,10 +1,11 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import useStyles from './homeStyles';
 import Typography from '@material-ui/core/Typography';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { useTheme } from '@material-ui/core/styles';
-import { Link } from 'react-router-dom';
+
+import { withStyles } from '@material-ui/core/styles';
 
 import useHttp from '../../hooks/http';
 import PodcastCarousel from '../../components/PodcastCarousel/PodcastCarousel';
@@ -12,7 +13,7 @@ import menuItems from '../../utils/sideBarItems';
 import PodcastCard from '../../components/PodcastCard/PodcastCard';
 import PodcastsLayout from '../../components/PodcastsLayout/PodcastsLayout';
 
-const Home = (props) => {
+const Home = () => {
   const [category, setCategory] = React.useState(null);
 
   const { isLoading, categoryData, data, homeRequest } = useHttp();
@@ -22,7 +23,7 @@ const Home = (props) => {
 
   const matches = useMediaQuery(theme.breakpoints.down('xs'));
 
-  useEffect(() => {
+  React.useEffect(() => {
     const randomElement =
       menuItems[Math.floor(Math.random() * menuItems.length)];
     homeRequest(
@@ -30,11 +31,11 @@ const Home = (props) => {
       `https://itunes.apple.com/search?term=podcast&genreId=${randomElement.id}&limit=15`
     );
     setCategory(randomElement.name);
-  }, [props.location.pathname, homeRequest]);
+  }, [homeRequest]);
 
   let listPodcasts = null;
   let categoryPodcasts = null;
-  let DOM = null;
+  let DOM = <PodcastsLayout isLoading={isLoading} podcasts={listPodcasts} />;
 
   const firstSection = (
     <React.Fragment>
@@ -58,44 +59,25 @@ const Home = (props) => {
     </React.Fragment>
   );
 
-  if (isLoading) {
-    DOM = (
-      <CircularProgress
-        data-test="component-loading"
-        className={classes.loading}
-      />
-    );
-  } else if (data && matches) {
+  if (data && matches) {
     listPodcasts = data.feed.results.map((podcast) => {
       return (
-        <Link
-          to={'/podcast/' + podcast.id}
+        <PodcastCard
+          image={podcast.artworkUrl100}
+          artist={podcast.name}
+          artistName={podcast.artistName}
+          id={podcast.id}
           key={podcast.id}
-          className={classes.link}
-        >
-          <PodcastCard
-            image={podcast.artworkUrl100}
-            artist={podcast.name}
-            artistName={podcast.artistName}
-            data-test="component-card"
-          />
-        </Link>
+        />
       );
     });
     categoryPodcasts = categoryData.results.map((podcast) => {
       return (
-        <Link
-          to={'/podcast/' + podcast.collectionId}
-          key={podcast.id}
-          className={classes.link}
-        >
-          <PodcastCard
-            image={podcast.artworkUrl600}
-            artist={podcast.collectionName}
-            artistName={podcast.artistName}
-            data-test="component-card"
-          />
-        </Link>
+        <PodcastCard
+          image={podcast.artworkUrl600}
+          artist={podcast.collectionName}
+          artistName={podcast.artistName}
+        />
       );
     });
     DOM = (
@@ -120,5 +102,7 @@ const Home = (props) => {
 
   return <div className={classes.rootHome}>{DOM}</div>;
 };
+
+// export default withStyles(useStyles)(Home);
 
 export default Home;

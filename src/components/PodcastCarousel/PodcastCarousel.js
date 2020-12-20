@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import Typography from '@material-ui/core/Typography';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { useTheme } from '@material-ui/core/styles';
+import PropTypes from 'prop-types';
 
 import {
   CarouselProvider,
@@ -46,7 +47,7 @@ const PodcastCarousel = ({ podcasts }) => {
       podcast.id ? (id = podcast.id) : (id = podcast.collectionId);
 
       return (
-        <Link to={'/podcast/' + id} className={classes.text}>
+        <Link to={'/podcast/' + id} className={classes.text} key={index}>
           <Slide index={index} className={classes.slideComponent}>
             <div className={classes.slide}>
               {podcast.artworkUrl600 ? (
@@ -86,6 +87,10 @@ const PodcastCarousel = ({ podcasts }) => {
       </CarouselProvider>
     </div>
   );
+};
+
+PodcastCarousel.propTypes = {
+  podcasts: PropTypes.object.isRequired,
 };
 
 export default PodcastCarousel;

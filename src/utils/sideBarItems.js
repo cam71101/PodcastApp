@@ -2,7 +2,6 @@ const list = [
   {
     name: 'Arts',
     id: 1301,
-    icon: 'faPalette',
   },
   { name: 'Business', id: 1321 },
   { name: 'Comedy', id: 1303 },

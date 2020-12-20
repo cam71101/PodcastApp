@@ -1,4 +1,4 @@
-import { makeStyles } from '@material-ui/styles';
+import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -24,6 +24,9 @@ const useStyles = makeStyles((theme) => ({
   },
   cardContent: {
     padding: 4,
+  },
+  link: {
+    textDecoration: 'none',
   },
 }));
 
