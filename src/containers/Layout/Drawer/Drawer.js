@@ -15,8 +15,6 @@ function ResponsiveDrawer(props) {
   const [searchValue, setSearchValue] = React.useState('');
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
-  // const { window } = props;
-
   const classes = useStyles();
   const theme = useTheme();
 
@@ -27,9 +25,6 @@ function ResponsiveDrawer(props) {
   const closeDrawer = () => {
     setMobileOpen(false);
   };
-
-  // const container =
-  //   window !== undefined ? () => window().document.body : undefined;
 
   const searchPodcasts = (e) => {
     e.preventDefault();
@@ -51,7 +46,6 @@ function ResponsiveDrawer(props) {
       <nav className={classes.drawer} aria-label="mailbox folders">
         <Hidden lgUp implementation="css">
           <Drawer
-            // container={container}
             variant="temporary"
             anchor={theme.direction === 'rtl' ? 'right' : 'left'}
             open={mobileOpen}
@@ -85,7 +79,5 @@ function ResponsiveDrawer(props) {
 ResponsiveDrawer.propTypes = {
   window: PropTypes.func,
 };
-
-// export default withStyles(useStyles)(ResponsiveDrawer);
 
 export default ResponsiveDrawer;

@@ -4,7 +4,6 @@ import CardContent from '@material-ui/core/CardContent';
 import useStyles from './podcastHeaderStyles';
 import { Typography } from '@material-ui/core';
 import Chip from '@material-ui/core/Chip';
-import PropTypes from 'prop-types';
 
 export const PodcastHeader = function MusicCard({ podcast, description }) {
   const styles = useStyles();

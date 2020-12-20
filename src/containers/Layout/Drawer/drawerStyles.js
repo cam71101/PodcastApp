@@ -22,27 +22,6 @@ const useStyles = makeStyles((theme) => ({
       zIndex: 1000,
     },
   },
-  content: {
-    flexGrow: 1,
-    padding: theme.spacing(3),
-  },
-  icon: {
-    minWidth: '56px',
-    flexShrink: 0,
-    display: 'inline-flex',
-    paddingRight: '1.5rem',
-  },
-  link: {
-    color: 'black',
-    textDecoration: 'none',
-  },
-  title: {
-    flexGrow: 1,
-    display: 'none',
-    [theme.breakpoints.up('lg')]: {
-      display: 'block',
-    },
-  },
   logo: {
     width: '6rem',
     height: '100%',

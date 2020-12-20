@@ -24,33 +24,12 @@ const useStyles = makeStyles((theme) => ({
       textAlign: 'center',
     },
   },
-  subtitle: {
-    marginLeft: '4rem',
-    [theme.breakpoints.down('xs')]: {
-      marginLeft: 0,
-    },
-  },
   error: {
     margin: 'auto',
     marginTop: '15rem',
     [theme.breakpoints.down('xs')]: {
       marginTop: '8rem',
     },
-  },
-  link: {
-    textDecoration: 'none',
-  },
-  loading: {
-    position: 'absolute',
-    margin: 'auto',
-    top: 0,
-    bottom: 0,
-    left: 0,
-    right: 0,
-  },
-  logo: {
-    width: '10rem',
-    height: '50%',
   },
 }));
 export default useStyles;

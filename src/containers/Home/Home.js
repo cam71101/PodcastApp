@@ -1,11 +1,8 @@
 import React from 'react';
 import useStyles from './homeStyles';
 import Typography from '@material-ui/core/Typography';
-import CircularProgress from '@material-ui/core/CircularProgress';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { useTheme } from '@material-ui/core/styles';
-
-import { withStyles } from '@material-ui/core/styles';
 
 import useHttp from '../../hooks/http';
 import PodcastCarousel from '../../components/PodcastCarousel/PodcastCarousel';
@@ -102,7 +99,5 @@ const Home = () => {
 
   return <div className={classes.rootHome}>{DOM}</div>;
 };
-
-// export default withStyles(useStyles)(Home);
 
 export default Home;

@@ -8,8 +8,6 @@ import useStyles from './searchPageStyles';
 import PodcastsLayout from '../../components/PodcastsLayout/PodcastsLayout';
 import Typography from '@material-ui/core/Typography';
 
-import { withStyles } from '@material-ui/core/styles';
-
 const SearchPage = (props) => {
   const [currentPage, setCurrentPage] = React.useState(1);
   const [podcastsPerPage] = React.useState(25);
@@ -59,7 +57,7 @@ const SearchPage = (props) => {
     pageNumbers.push(i);
   }
 
-  const paginate = (event, pageNumber) => {
+  const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
     props.history.push(props.match.url + '?' + pageNumber);
   };

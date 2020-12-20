@@ -1,8 +1,5 @@
 import React from 'react';
-import { createMemoryHistory } from 'history';
-import { Router } from 'react-router-dom';
-import { render, fireEvent, screen, waitFor } from '@testing-library/react';
-import { checkProps } from '../../test/testUtils';
+import { render, fireEvent, screen } from '@testing-library/react';
 
 import Row from './Row';
 import response from '../../__mocks__/dave-podcasts.response.json';
@@ -11,7 +8,7 @@ const modal = jest.fn();
 const setAudioHandler = jest.fn();
 const leftClick = { button: 0 };
 
-function setup(history) {
+function setup() {
   const table = document.createElement('table');
   return render(
     <Row
@@ -27,7 +24,6 @@ function setup(history) {
 
 test('renders component', async () => {
   setup();
-
   const row = screen.getByRole('rowgroup');
   expect(row).toBeDefined();
 });

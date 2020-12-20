@@ -2,7 +2,6 @@ import React from 'react';
 import { createMemoryHistory } from 'history';
 import { Router } from 'react-router-dom';
 import { render, screen } from '@testing-library/react';
-import { checkProps } from '../../test/testUtils';
 
 import response from '../../__mocks__/search-football-response.json';
 import PodcastHeader from './PodcastHeader';
