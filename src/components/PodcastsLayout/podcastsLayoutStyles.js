@@ -2,7 +2,7 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
   rootPodcastsLayout: {
-    width: '100%',
+    width: '90',
     gridRow: 1,
     rowGap: '2rem',
     columnGap: '1rem',
