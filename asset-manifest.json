@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.js": "/PodcastApp/static/js/main.a0392250.chunk.js",
-    "main.js.map": "/PodcastApp/static/js/main.a0392250.chunk.js.map",
-    "runtime-main.js": "/PodcastApp/static/js/runtime-main.ceda2157.js",
-    "runtime-main.js.map": "/PodcastApp/static/js/runtime-main.ceda2157.js.map",
-    "static/css/2.fcdaccbc.chunk.css": "/PodcastApp/static/css/2.fcdaccbc.chunk.css",
-    "static/js/2.2214226c.chunk.js": "/PodcastApp/static/js/2.2214226c.chunk.js",
-    "static/js/2.2214226c.chunk.js.map": "/PodcastApp/static/js/2.2214226c.chunk.js.map",
-    "static/js/3.08a480f5.chunk.js": "/PodcastApp/static/js/3.08a480f5.chunk.js",
-    "static/js/3.08a480f5.chunk.js.map": "/PodcastApp/static/js/3.08a480f5.chunk.js.map",
+    "main.js": "/PodcastApp/static/js/main.67c51480.chunk.js",
+    "main.js.map": "/PodcastApp/static/js/main.67c51480.chunk.js.map",
+    "runtime-main.js": "/PodcastApp/static/js/runtime-main.20710407.js",
+    "runtime-main.js.map": "/PodcastApp/static/js/runtime-main.20710407.js.map",
+    "static/css/2.762d45e8.chunk.css": "/PodcastApp/static/css/2.762d45e8.chunk.css",
+    "static/js/2.a6f8d183.chunk.js": "/PodcastApp/static/js/2.a6f8d183.chunk.js",
+    "static/js/2.a6f8d183.chunk.js.map": "/PodcastApp/static/js/2.a6f8d183.chunk.js.map",
+    "static/js/3.685e3979.chunk.js": "/PodcastApp/static/js/3.685e3979.chunk.js",
+    "static/js/3.685e3979.chunk.js.map": "/PodcastApp/static/js/3.685e3979.chunk.js.map",
     "index.html": "/PodcastApp/index.html",
-    "static/css/2.fcdaccbc.chunk.css.map": "/PodcastApp/static/css/2.fcdaccbc.chunk.css.map",
-    "static/js/2.2214226c.chunk.js.LICENSE.txt": "/PodcastApp/static/js/2.2214226c.chunk.js.LICENSE.txt"
+    "static/css/2.762d45e8.chunk.css.map": "/PodcastApp/static/css/2.762d45e8.chunk.css.map",
+    "static/js/2.a6f8d183.chunk.js.LICENSE.txt": "/PodcastApp/static/js/2.a6f8d183.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.ceda2157.js",
-    "static/css/2.fcdaccbc.chunk.css",
-    "static/js/2.2214226c.chunk.js",
-    "static/js/main.a0392250.chunk.js"
+    "static/js/runtime-main.20710407.js",
+    "static/css/2.762d45e8.chunk.css",
+    "static/js/2.a6f8d183.chunk.js",
+    "static/js/main.67c51480.chunk.js"
   ]
 }
