@@ -11,9 +11,14 @@
 <img src="https://img.shields.io/twitter/follow/d_fisherWebDev?style=social" />
 </a>
 <img src="https://img.shields.io/badge/react-17.0.1-green" />
-
 </p>
 
+<p align="center">
+<img src="https://img.shields.io/badge/react-17.0.1-green" />
+</p>
+<p align="center">
+<img src="https://res.cloudinary.com/dndp8567v/image/upload/v1608116331/PodcastApp_adeb2f3e15.gif" />
+</p>
 ## Available Scripts
 
 In the project directory, you can run:
