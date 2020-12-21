@@ -24,6 +24,9 @@
 
 ## Responsive
 
+<p align="center">
+<img src=https://res.cloudinary.com/dndp8567v/image/upload/v1608584032/PodcastAppResponsive_748224099a.gif />
+</p>
 ## Main Features
 
 ## Project setup
