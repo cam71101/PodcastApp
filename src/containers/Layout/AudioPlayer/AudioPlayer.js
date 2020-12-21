@@ -8,6 +8,8 @@ import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { useTheme } from '@material-ui/core/styles';
 import { AudioContext } from '../../../context/audio-context';
 import useStyles from './audioPlayerStyles';
+import HighlightOffIcon from '@material-ui/icons/HighlightOff';
+import Button from '@material-ui/core/Button';
 
 const Player = () => {
   const [autoPlay, setAutoPlay] = React.useState(false);
@@ -44,21 +46,35 @@ const Player = () => {
   return (
     <Slide direction="up" in={autoPlay} mountOnEnter unmountOnExit>
       <div className={classes.root}>
-        {matches ? null : (
-          <div className={classes.picture}>
-            {progress}
-            <CardMedia image={image} className={classes.cover} />
-          </div>
-        )}
-        {matches ? progress : null}
-        <AudioPlayer
-          src={audio}
-          autoPlay={autoPlay}
-          onCanPlay={() => setIsLoading(false)}
-          className={classes.mediaPlayer}
-          header={trackName}
-          footer={artistName}
-        />
+        <div className={classes.container}>
+          {matches ? null : (
+            <div className={classes.picture}>
+              {progress}
+              <CardMedia image={image} className={classes.cover} />
+            </div>
+          )}
+          {matches ? progress : null}
+          <AudioPlayer
+            src={audio}
+            autoPlay={autoPlay}
+            onCanPlay={() => setIsLoading(false)}
+            className={classes.mediaPlayer}
+            header={trackName}
+            footer={artistName}
+          />
+          <Button
+            className={classes.closeButton}
+            onClick={() => setAutoPlay(false)}
+            // edge="end"
+            disableFocusRipple
+            size="small"
+          >
+            <HighlightOffIcon
+              fontSize="small"
+              className={classes.closeButtonMargin}
+            />
+          </Button>
+        </div>
       </div>
     </Slide>
   );

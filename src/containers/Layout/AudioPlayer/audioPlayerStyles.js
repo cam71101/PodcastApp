@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     '& .rhap_header': {
       textAlign: 'center',
-      fontSize: '.95rem',
+      fontSize: '.8rem',
     },
     '& .rhap_footer': {
       textAlign: 'center',
@@ -58,6 +58,33 @@ const useStyles = makeStyles((theme) => ({
   cover: {
     width: '100%',
     height: '100%',
+  },
+  container: {
+    display: 'flex',
+    width: '100%',
+    position: 'relative',
+  },
+  closeButton: {
+    position: 'absolute',
+    bottom: 100,
+    right: '3%',
+    zIndex: 30000,
+    [theme.breakpoints.up('xl')]: {
+      right: '5%',
+    },
+    [theme.breakpoints.down('md')]: {
+      right: 0,
+    },
+    [theme.breakpoints.down('xs')]: {
+      bottom: 100,
+    },
+    padding: 0,
+    margin: 0,
+    minWidth: 0,
+  },
+  closeButtonMargin: {
+    padding: 0,
+    margin: 0,
   },
 }));
 
