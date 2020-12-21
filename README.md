@@ -1,5 +1,6 @@
 <p align="center">
-![logo](https://res.cloudinary.com/dndp8567v/image/upload/v1608550706/logo_5bf0481a86.png)
+  <img src="https://res.cloudinary.com/dndp8567v/image/upload/v1608550706/logo_5bf0481a86.png"
+       >
 </p>
 
 ![shield](https://img.shields.io/badge/madeby-cam71101-green)
