@@ -32,7 +32,7 @@ Rather than use Redux for handling API requests I used a custom hook for http re
 
 To control the audio track I used context. This was so I wouldn't have to pass down props all the way to the audio player container. The context file is <a href="https://github.com/cam71101/PodcastApp/blob/f6d09907bc2a1a214175486806292889b728a746/src/context/audio-context.js#L1-L40"> here </a>.
 
-Along with using the APIs I also had to fetch the RSS feeds for the podcast pages to gather more information about each episode. However, the RSS feed is only called when the user clicks on the episode to find more information. You can find the code <a href="https://github.com/cam71101/PodcastApp/blob/09d576b13032d1b0621e00025cd1e947721df08d/src/containers/PodcastPage/PodcastPage.js#L104-L147"> here</a>.
+Along with using the APIs I also had to fetch the RSS feeds for the podcast pages to gather more information about each episode. However, the RSS feed is only called when the user clicks on the episode to find more information. Again, using useReducer rather than having mutiple useState hooks. You can find the code <a href="https://github.com/cam71101/PodcastApp/blob/09d576b13032d1b0621e00025cd1e947721df08d/src/containers/PodcastPage/PodcastPage.js#L104-L147"> here</a>.
 
 I focused heavily on unit testing when making this application, using a mixture of Jest/Enzyme and the React Testing Library. I prefer using the React Testing Library as I find it easier to use and very lightweight.
 
@@ -45,7 +45,6 @@ I focused heavily on unit testing when making this application, using a mixture 
 ## Main Features
 
 - Audio player (courtesy of https://www.npmjs.com/package/react-h5-audio-player)
-- Responsive Design
 - Podcast charts
 - Search
 - Categories

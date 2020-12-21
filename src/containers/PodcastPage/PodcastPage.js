@@ -32,6 +32,12 @@ function modalReducer(curState, action) {
       return {
         open: false,
       };
+    case 'ERROR': {
+      return {
+        open: true,
+        description: 'An error has occured',
+      };
+    }
     default:
       throw new Error();
   }
@@ -135,13 +141,7 @@ const PodcastPage = (props) => {
       })
       .catch((error) => {
         setModalState({
-          type: 'OPEN_MODAL',
-          trackName: trackName,
-          artWork: artWork,
-          artistName: artistName,
-          releaseDate: releaseDate,
-          trackTime: trackTime,
-          description: description,
+          type: 'ERROR',
         });
       });
   };
