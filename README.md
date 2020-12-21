@@ -22,12 +22,19 @@
 <img src="https://res.cloudinary.com/dndp8567v/image/upload/v1608116331/PodcastApp_adeb2f3e15.gif" />
 </p>
 
-## Responsive
+## Responsive Design
 
 <p align="center">
 <img src="https://res.cloudinary.com/dndp8567v/image/upload/v1608584482/PodcastAppResponsiveLowRes_9084851fc7.gif" />
 </p>
+
 ## Main Features
+
+- Audio player (courtesy of https://www.npmjs.com/package/react-h5-audio-player)
+- Responsive Design
+- Podcast charts
+- Search
+- Categories
 
 ## Project setup
 
