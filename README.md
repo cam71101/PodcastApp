@@ -11,7 +11,7 @@
 </p>
 
 <p align="center">
-  <img src="https://res.cloudinary.com/dndp8567v/image/upload/v1608550706/logo_5bf0481a86.png">
+  <img src="https://res.cloudinary.com/dndp8567v/image/upload/v1608566331/logo_cropped_ab3eb6bdd5.png">
 </p>
 
 <h2 align="center"><a  href="https://cam71101.github.io/PodcastApp/">Live Demo</a></h2>
@@ -21,6 +21,8 @@
 <p align="center">
 <img src="https://res.cloudinary.com/dndp8567v/image/upload/v1608116331/PodcastApp_adeb2f3e15.gif" />
 </p>
+
+## Main Features
 
 ## Project setup
 
