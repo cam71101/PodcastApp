@@ -4,6 +4,12 @@
 
 ![shield](https://img.shields.io/github/languages/top/cam71101/podcastapp)
 
+![shield](https://img.shields.io/github/last-commit/cam71101/podcastapp)
+
+![shield](https://img.shields.io/twitter/follow/d_fisherWebDev?style=social)
+
+![shield](https://img.shields.io/badge/react-17.0.1-green)
+
 ## Available Scripts
 
 In the project directory, you can run:
