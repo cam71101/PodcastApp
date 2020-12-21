@@ -1,23 +1,14 @@
 <p align="center">
-  <img src="https://res.cloudinary.com/dndp8567v/image/upload/v1608550706/logo_5bf0481a86.png"
-       >
+  <img src="https://res.cloudinary.com/dndp8567v/image/upload/v1608550706/logo_5bf0481a86.png">
 </p>
 
 <p align="center">
 
 <img src="https://img.shields.io/badge/madeby-cam71101-green" />
-
-</p>
-
-![shield](https://img.shields.io/badge/madeby-cam71101-green)
-
-![shield](https://img.shields.io/github/languages/top/cam71101/podcastapp)
-
-![shield](https://img.shields.io/github/last-commit/cam71101/podcastapp)
-
-![shield](https://img.shields.io/twitter/follow/d_fisherWebDev?style=social)
-
-![shield](https://img.shields.io/badge/react-17.0.1-green)
+<img src="https://img.shields.io/github/languages/top/cam71101/podcastapp" />
+<img src="https://img.shields.io/github/last-commit/cam71101/podcastapp" />
+<img src="https://img.shields.io/twitter/follow/d_fisherWebDev?style=social" />
+<img src="https://img.shields.io/badge/react-17.0.1-green" />
 
 </p>
 
