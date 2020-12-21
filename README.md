@@ -1,8 +1,6 @@
-# PodApp
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
 ![logo](https://res.cloudinary.com/dndp8567v/image/upload/v1608550706/logo_5bf0481a86.png)
+
+![shield](https://img.shields.io/badge/madeby-cam71101-green)
 
 ## Available Scripts
 
