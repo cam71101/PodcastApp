@@ -11,16 +11,18 @@
 </p>
 
 <p align="center">
-<img src="https://res.cloudinary.com/dndp8567v/image/upload/v1608116331/PodcastApp_adeb2f3e15.gif" />
-</p>
-
-<p align="center">
   <img src="https://res.cloudinary.com/dndp8567v/image/upload/v1608550706/logo_5bf0481a86.png">
 </p>
 
-## Available Scripts
-
 <h2 align="center"><a  href="https://cam71101.github.io/PodcastApp/">Live Demo</a></h2>
+
+## Description
+
+<p align="center">
+<img src="https://res.cloudinary.com/dndp8567v/image/upload/v1608116331/PodcastApp_adeb2f3e15.gif" />
+</p>
+
+## Available Scripts
 
 In the project directory, you can run:
 
