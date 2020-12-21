@@ -23,6 +23,7 @@ function ResponsiveDrawer(props) {
   };
 
   const closeDrawer = () => {
+    console.log('close');
     setMobileOpen(false);
   };
 
@@ -57,7 +58,7 @@ function ResponsiveDrawer(props) {
               keepMounted: true,
             }}
           >
-            <DrawerLinks logo={logo} />
+            <DrawerLinks logo={logo} closeDrawer={closeDrawer} />
           </Drawer>
         </Hidden>
         <Hidden mdDown implementation="css">

@@ -22,6 +22,8 @@
 <img src="https://res.cloudinary.com/dndp8567v/image/upload/v1608116331/PodcastApp_adeb2f3e15.gif" />
 </p>
 
+## Responsive
+
 ## Main Features
 
 ## Project setup
