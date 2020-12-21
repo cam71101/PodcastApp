@@ -7,7 +7,9 @@
 <img src="https://img.shields.io/badge/madeby-cam71101-green" />
 <img src="https://img.shields.io/github/languages/top/cam71101/podcastapp" />
 <img src="https://img.shields.io/github/last-commit/cam71101/podcastapp" />
+<a href="https://twitter.com/d_fisherWebDev" alt="twitter">
 <img src="https://img.shields.io/twitter/follow/d_fisherWebDev?style=social" />
+</a>
 <img src="https://img.shields.io/badge/react-17.0.1-green" />
 
 </p>
