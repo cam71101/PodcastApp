@@ -1,7 +1,4 @@
-<p align="center">
-  <img src="https://res.cloudinary.com/dndp8567v/image/upload/v1608550706/logo_5bf0481a86.png">
-</p>
-
+<h1 align="center">PodApp</h1>
 <p align="center">
 
 <img src="https://img.shields.io/badge/madeby-cam71101-green" />
@@ -17,9 +14,13 @@
 <img src="https://res.cloudinary.com/dndp8567v/image/upload/v1608116331/PodcastApp_adeb2f3e15.gif" />
 </p>
 
+<p align="center">
+  <img src="https://res.cloudinary.com/dndp8567v/image/upload/v1608550706/logo_5bf0481a86.png">
+</p>
+
 ## Available Scripts
 
-[Live Demo](https://cam71101.github.io/PodcastApp/)
+<h2 align="center"><a  href="https://cam71101.github.io/PodcastApp/">Live Demo</a></h2>
 
 In the project directory, you can run:
 
