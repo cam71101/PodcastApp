@@ -3,6 +3,12 @@
        >
 </p>
 
+<p align="center">
+
+<img src="https://img.shields.io/badge/madeby-cam71101-green" />
+
+</p>
+
 ![shield](https://img.shields.io/badge/madeby-cam71101-green)
 
 ![shield](https://img.shields.io/github/languages/top/cam71101/podcastapp)
@@ -12,6 +18,8 @@
 ![shield](https://img.shields.io/twitter/follow/d_fisherWebDev?style=social)
 
 ![shield](https://img.shields.io/badge/react-17.0.1-green)
+
+</p>
 
 ## Available Scripts
 
