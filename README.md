@@ -2,6 +2,8 @@
 
 ![shield](https://img.shields.io/badge/madeby-cam71101-green)
 
+![shield](https://img.shields.io/github/languages/top/cam71101/podcastapp)
+
 ## Available Scripts
 
 In the project directory, you can run:
