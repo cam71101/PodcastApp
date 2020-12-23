@@ -1,9 +1,6 @@
-import { makeStyles, fade } from '@material-ui/core/styles';
-
-const drawerWidth = 240;
+import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
-  toolbar: theme.mixins.toolbar,
   toolbar: {
     justifyContent: 'space-between',
   },

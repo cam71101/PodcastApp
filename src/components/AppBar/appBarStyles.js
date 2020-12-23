@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
     },
     boxShadow: 'none',
   },
-  toolbar: theme.mixins.toolbar,
+
   toolbar: {
     justifyContent: 'space-between',
   },

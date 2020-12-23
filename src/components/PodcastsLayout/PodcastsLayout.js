@@ -1,7 +1,6 @@
 import React from 'react';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
 
 import useStyles from './podcastsLayoutStyles';
 
@@ -26,7 +25,5 @@ PodcastsLayout.propTypes = {
   isLoading: PropTypes.bool.isRequired,
   podcasts: PropTypes.array,
 };
-
-// export default withStyles(useStyles)(PodcastsLayout);
 
 export default PodcastsLayout;

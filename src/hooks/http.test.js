@@ -1,9 +1,3 @@
-// Takes props and makes a render prop out of it. Can render Test and children is
-// going to be called with whatever useHttp comes back from.
-// Will create returnVal, render HTTP, which will async call our children prop with whatever
-// is returned from usedHttp and will assign return val to whatever is returned from useHttp
-//
-
 import React from 'react';
 import 'whatwg-fetch';
 import { render, act, waitFor, cleanup } from '@testing-library/react';

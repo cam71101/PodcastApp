@@ -1,6 +1,5 @@
 import React from 'react';
 import { withRouter, useLocation } from 'react-router-dom';
-import { withStyles } from '@material-ui/core/styles';
 
 import useStyles from './layoutStyles';
 import AudioPlayer from './AudioPlayer/AudioPlayer';
@@ -15,7 +14,7 @@ const Layout = (props) => {
   }, [pathname]);
 
   return (
-    <div className={classes.layoutRoot} role="root">
+    <div className={classes.layoutRoot}>
       <Drawer {...props} />
       {props.children}
       <AudioPlayer />

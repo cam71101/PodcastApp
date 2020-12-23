@@ -65,7 +65,6 @@ const Player = () => {
           <Button
             className={classes.closeButton}
             onClick={() => setAutoPlay(false)}
-            // edge="end"
             disableFocusRipple
             size="small"
           >

@@ -52,7 +52,7 @@ const DrawerLinks = ({ closeDrawer, logo }) => {
     <div>
       <div className={classes.toolbar} />
       <div className={classes.logoContainer}>
-        <img src={logo} className={classes.logo} />
+        <img src={logo} className={classes.logo} alt="logo" />
       </div>
       <Link className={classes.link} to="/">
         <Divider />

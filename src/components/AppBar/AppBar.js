@@ -31,7 +31,7 @@ const TopBar = ({
         </IconButton>
         <Hidden xsDown>
           <div className={classes.logoContainer}>
-            <img src={logo} className={classes.logo} />
+            <img src={logo} className={classes.logo} alt="logo" />
           </div>
         </Hidden>
         <Search
