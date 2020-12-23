@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.js": "/PodcastApp/static/js/main.f0f8ed24.chunk.js",
-    "main.js.map": "/PodcastApp/static/js/main.f0f8ed24.chunk.js.map",
+    "main.js": "/PodcastApp/static/js/main.c23d0b93.chunk.js",
+    "main.js.map": "/PodcastApp/static/js/main.c23d0b93.chunk.js.map",
     "runtime-main.js": "/PodcastApp/static/js/runtime-main.20710407.js",
     "runtime-main.js.map": "/PodcastApp/static/js/runtime-main.20710407.js.map",
     "static/css/2.762d45e8.chunk.css": "/PodcastApp/static/css/2.762d45e8.chunk.css",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.20710407.js",
     "static/css/2.762d45e8.chunk.css",
     "static/js/2.a4053dd0.chunk.js",
-    "static/js/main.f0f8ed24.chunk.js"
+    "static/js/main.c23d0b93.chunk.js"
   ]
 }
