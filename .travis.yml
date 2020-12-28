@@ -5,12 +5,12 @@ services:
   - docker
 
 before_install:
-  - docker build -f Dockerfile.prod -t sample:prod .
+  - docker build -t podcast-app_sample-prod -f Dockerfile.dev .
 
 script:
-  - docker run -it --rm -p 1337:80 sample:prod npm run test
+  - docker run -e CI=true podcast-app_sample-prod npm run test
 
 after_success:
-  - docker build -f Dockerfile.prod -t sample:prod .
+  - docker build -t podcast-app_sample-prod .
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-  - docker push indreklasn/my-react-docker-app
+  - docker push podcast-app_sample-prod
