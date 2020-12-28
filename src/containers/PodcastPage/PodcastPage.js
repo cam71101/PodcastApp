@@ -16,6 +16,7 @@ function modalReducer(curState, action) {
     case 'SEND':
       return {
         modalLoading: true,
+        open: false,
       };
     case 'OPEN_MODAL':
       return {
@@ -35,7 +36,13 @@ function modalReducer(curState, action) {
     case 'ERROR': {
       return {
         open: true,
-        description: 'An error has occured',
+        trackName: action.trackName,
+        artWork: action.artWork,
+        artistName: action.artistName,
+        releaseDate: action.releaseDate,
+        trackTime: action.trackTime,
+        description: action.description,
+        modalLoading: false,
       };
     }
     default:
@@ -142,6 +149,12 @@ const PodcastPage = (props) => {
       .catch((error) => {
         setModalState({
           type: 'ERROR',
+          trackName: trackName,
+          artWork: artWork,
+          artistName: artistName,
+          releaseDate: releaseDate,
+          trackTime: trackTime,
+          description: 'No description available',
         });
       });
   };

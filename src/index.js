@@ -11,7 +11,7 @@ import theme from './theme';
 ReactDOM.render(
   <MuiThemeProvider theme={theme}>
     <AudioProvider>
-      <HashRouter basename={process.env.PUBLIC_URL}>
+      <HashRouter>
         <App />
       </HashRouter>
     </AudioProvider>

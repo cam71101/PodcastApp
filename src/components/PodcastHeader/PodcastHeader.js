@@ -4,8 +4,13 @@ import CardContent from '@material-ui/core/CardContent';
 import useStyles from './podcastHeaderStyles';
 import { Typography } from '@material-ui/core';
 import Chip from '@material-ui/core/Chip';
+import parse from 'react-html-parser';
 
-export const PodcastHeader = function MusicCard({ podcast, description }) {
+export const PodcastHeader = function MusicCard({
+  podcast,
+  description,
+  title,
+}) {
   const styles = useStyles();
 
   let layout = null;

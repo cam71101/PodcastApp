@@ -96,7 +96,10 @@ const useHttp = () => {
               return (track.releaseDate = newData);
             });
 
+            console.log(listen.data.results[0]);
+
             let description = 'Description is not available';
+            let title = null;
 
             if (listen.data.results.length !== 0) {
               description = listen.data.results[0].description_original;
@@ -106,6 +109,7 @@ const useHttp = () => {
               type: 'RESPONSE',
               responseData: response.data,
               description: description,
+              title: title,
             });
           });
       })

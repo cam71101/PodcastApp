@@ -30,7 +30,6 @@ export const PodcastCard = ({ image, artistName, artist, matches, id }) => {
 
 PodcastCard.propTypes = {
   image: PropTypes.string.isRequired,
-  id: PropTypes.number.isRequired,
   artistName: PropTypes.string.isRequired,
   artist: PropTypes.string.isRequired,
 };

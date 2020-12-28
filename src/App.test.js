@@ -1,16 +1,6 @@
 import React from 'react';
 import App from './App';
-import { shallow } from 'enzyme';
-import { findByTestAttr } from './test/testUtils';
-import {
-  render,
-  fireEvent,
-  screen,
-  act,
-  getByRole,
-} from '@testing-library/react';
-import { MemoryRouter } from 'react-router-dom';
-import userEvent from '@testing-library/user-event';
+import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import fetchMock from 'jest-fetch-mock';
 import mockResponse from './__mocks__/search-football-response.json';
