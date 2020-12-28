@@ -10,7 +10,7 @@
 <img src="https://img.shields.io/twitter/follow/d_fisherWebDev?style=social" />
 </a>
 <img src="https://img.shields.io/badge/react-17.0.1-green" />
-<img sec="https://travis-ci.com/cam71101/PodcastApp.svg?branch=main">
+<img src="https://travis-ci.com/cam71101/PodcastApp.svg?branch=main">
 </p>
 
 <h2 align="center"><a  href="https://cam71101.github.io/PodcastApp/">Live Demo</a></h2>
