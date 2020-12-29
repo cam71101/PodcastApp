@@ -50,6 +50,16 @@ I also focused heavily on unit testing when making this application, using a mix
 - Search
 - Categories
 
+## Future Features
+
+- Authentication
+- Subscription to Podcasts
+- Links to download podcasts
+- Listening history
+- Listening feed
+- Recommendation list
+- Profile page
+
 ## Project setup
 
 ### Docker Container
