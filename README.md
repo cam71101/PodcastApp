@@ -52,7 +52,7 @@ I also focused heavily on unit testing when making this application, using a mix
 
 ## Project setup
 
-#### Docker Container
+### Docker Container
 
 In order to run this container you'll need docker installed.
 
@@ -80,7 +80,7 @@ docker run -it --rm -p 1337:80 podcast-app_sample-prod
 
 View http://localhost:1337/ in browser.
 
-#### NPM
+### NPM
 
 ```
 npm install
@@ -88,7 +88,7 @@ npm start
 
 ```
 
-### Tests
+#### Tests
 
 ```
 npm test
