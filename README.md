@@ -52,13 +52,43 @@ I also focused heavily on unit testing when making this application, using a mix
 
 ## Project setup
 
+#### Docker Container
+
+In order to run this container you'll need docker installed.
+
+- [Windows](https://docs.docker.com/windows/started)
+- [OS X](https://docs.docker.com/mac/started/)
+- [Linux](https://docs.docker.com/linux/started/)
+
+#### Docker Build
+
+```
+docker build -t podcast-app_sample-prod -f Dockerfile .
+```
+
+#### Docker Test
+
+```
+docker run -e CI=true podcast-app_sample-prod npm run test
+```
+
+#### Docker Run
+
+```
+docker run -it --rm -p 1337:80 podcast-app_sample-prod
+```
+
+View http://localhost:1337/ in browser.
+
+#### NPM
+
 ```
 npm install
 npm start
 
 ```
 
-## Tests
+### Tests
 
 ```
 npm test
