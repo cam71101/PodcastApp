@@ -2,7 +2,7 @@ version: '3.7'
 
 services:
   sample-prod:
-    container_name: sample-prod
+    container_name: PodApp
     build:
       context: .
       dockerfile: Dockerfile.prod

@@ -23,7 +23,6 @@ function ResponsiveDrawer(props) {
   };
 
   const closeDrawer = () => {
-    console.log('close');
     setMobileOpen(false);
   };
 

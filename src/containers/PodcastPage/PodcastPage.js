@@ -125,13 +125,6 @@ const PodcastPage = (props) => {
   ) => {
     setModalState({ type: 'SEND' });
 
-    // fetch(proxyurl + feedUrl + '?format=xml')
-    //   .then((response) => response.text())
-    //   .then((str) => new window.DOMParser().parseFromString(str, 'text/xml'))
-    //   .then((data) => console.log(data));
-
-    console.log(feedUrl);
-
     if (!feedUrl.includes('?format=xml')) {
       feedUrl = feedUrl + '?format=xml';
     }

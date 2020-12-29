@@ -26,8 +26,6 @@ const TransitionsModal = (props) => {
     trackTime,
   } = props;
 
-  console.log(description);
-
   return (
     <div>
       <Modal

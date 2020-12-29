@@ -96,8 +96,6 @@ const useHttp = () => {
               return (track.releaseDate = newData);
             });
 
-            console.log(listen.data.results[0]);
-
             let description = 'Description is not available';
             let title = null;
 
