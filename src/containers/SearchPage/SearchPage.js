@@ -39,28 +39,31 @@ const SearchPage = (props) => {
     );
     totalPodcasts = data.results.length;
 
-    listPodcasts = currentPodcasts.map((podcast, index) => {
+    listPodcasts = currentPodcasts.map((podcast) => {
       return (
         <PodcastCard
           image={podcast.artworkUrl600}
           artist={podcast.collectionName}
           artistName={podcast.artistName}
           id={podcast.collectionId}
-          ket={podcast.collectionId}
+          key={podcast.collectionId}
         />
       );
     });
   }
 
   const pageNumbers = [];
+
   for (let i = 1; i <= Math.ceil(totalPodcasts / podcastsPerPage); i++) {
     pageNumbers.push(i);
   }
 
-  const paginate = (pageNumber) => {
+  const paginate = (event, pageNumber) => {
     setCurrentPage(pageNumber);
     props.history.push(props.match.url + '?' + pageNumber);
   };
+
+  console.log(currentPage);
 
   return (
     <div className={classes.rootSearchPage}>

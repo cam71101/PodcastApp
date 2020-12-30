@@ -84,6 +84,8 @@ const PodcastPage = (props) => {
   let currentEpisodes = null;
 
   if (data) {
+    console.log(typeof currentPage);
+
     const indexOfLastEpisodes = currentPage * episodesPerPage;
     const indexOfFirstEpisodes = indexOfLastEpisodes - episodesPerPage;
     const replicateData = [...data.results];
@@ -168,6 +170,9 @@ const PodcastPage = (props) => {
       type: 'CLOSE_MODAL',
     });
   };
+
+  // console.log(typeof pageNumbers.length);
+  // console.log(typeof currentPage);
 
   const DOM = (
     <React.Fragment>
