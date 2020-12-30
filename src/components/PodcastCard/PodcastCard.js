@@ -16,7 +16,7 @@ export const PodcastCard = ({ image, artistName, artist, matches, id }) => {
   const subtitle = <Typography variant="subtitle1">{artistName}</Typography>;
 
   return (
-    <Link to={'/podcast/' + id} key={id} className={classes.link}>
+    <Link to={'/podcast/' + id + '?' + 1} key={id} className={classes.link}>
       <Card className={cx(classes.root, shadowStyles.root)}>
         <CardMedia className={classes.media} image={image} />
         <CardContent className={classes.cardContent}>

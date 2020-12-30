@@ -8,6 +8,7 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 
 import Pagination from '@material-ui/lab/Pagination';
 import Modal from '../../components/Modal/Modal';
+import ErrorPage from '../../components/ErrorPage/ErrorPage';
 
 let parser = new RSSParser();
 
@@ -69,23 +70,22 @@ const PodcastPage = (props) => {
 
   useEffect(() => {
     const term = props.location.pathname.replace('/podcast/', '');
-    if (props.location.search) {
-      setCurrentPage(
-        props.location.search.charAt(props.location.search.length - 1)
-      );
-    }
     sendPodcastRequest(
       `https://itunes.apple.com/lookup?id=${term}&country=US&media=podcast&entity=podcastEpisode&limit=1000`
     );
-  }, [props.location.pathname, props.location.search, sendPodcastRequest]);
+  }, [props.location.pathname, sendPodcastRequest]);
+
+  useEffect(() => {
+    if (props.location.search) {
+      setCurrentPage(parseInt(props.location.search.split('?')[1]));
+    }
+  }, [props.location.search]);
 
   let podcast = null;
   let totalEpisodes = null;
   let currentEpisodes = null;
 
   if (data) {
-    console.log(typeof currentPage);
-
     const indexOfLastEpisodes = currentPage * episodesPerPage;
     const indexOfFirstEpisodes = indexOfLastEpisodes - episodesPerPage;
     const replicateData = [...data.results];
@@ -109,8 +109,13 @@ const PodcastPage = (props) => {
     pageNumbers.push(i);
   }
 
+  let pageCount = props.location.search.split('?')[1];
+
+  if (pageNumbers.length > 0) {
+    pageCount = pageNumbers.length - 1;
+  }
+
   const paginate = (event, pageNumber) => {
-    setCurrentPage(pageNumber);
     props.history.push(props.match.url + '?' + pageNumber);
   };
 
@@ -171,9 +176,6 @@ const PodcastPage = (props) => {
     });
   };
 
-  // console.log(typeof pageNumbers.length);
-  // console.log(typeof currentPage);
-
   const DOM = (
     <React.Fragment>
       <PodcastHeader podcast={podcast} description={description} />
@@ -202,14 +204,14 @@ const PodcastPage = (props) => {
       />
       <Pagination
         className={classes.pages}
-        count={pageNumbers.length}
+        count={pageCount}
         page={currentPage}
         onChange={paginate}
       />
     </React.Fragment>
   );
 
-  return (
+  let podcastPage = (
     <div className={classes.rootPodcastPage}>
       {modalState.modalLoading ? (
         <CircularProgress
@@ -238,6 +240,12 @@ const PodcastPage = (props) => {
       )}
     </div>
   );
+
+  if (props.location.search.split('?')[1] > pageCount) {
+    podcastPage = <ErrorPage />;
+  }
+
+  return <React.Fragment>{podcastPage}</React.Fragment>;
 };
 
 export default PodcastPage;

@@ -47,7 +47,11 @@ const PodcastCarousel = ({ podcasts }) => {
       podcast.id ? (id = podcast.id) : (id = podcast.collectionId);
 
       return (
-        <Link to={'/podcast/' + id} className={classes.text} key={index}>
+        <Link
+          to={'/podcast/' + id + '?' + 1}
+          className={classes.text}
+          key={index}
+        >
           <Slide index={index} className={classes.slideComponent}>
             <div className={classes.slide}>
               {podcast.artworkUrl600 ? (

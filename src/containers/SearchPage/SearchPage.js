@@ -19,7 +19,7 @@ const SearchPage = (props) => {
     const term = props.location.pathname.replace('/search/', '');
     if (props.location.search) {
       setCurrentPage(
-        props.location.search.charAt(props.location.search.length - 1)
+        parseInt(props.location.search.charAt(props.location.search.length - 1))
       );
     }
     sendRequest(

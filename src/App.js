@@ -28,7 +28,6 @@ function App() {
         })}
         <Route path="/podcast/:id" exact component={PodcastPage} />
         <Route path="/search/:id" component={SearchPage} />
-        {/* <Route render={() => <h1>Not Found</h1>} /> */}
         <Route component={ErrorPage} />
       </Switch>
     </Layout>
