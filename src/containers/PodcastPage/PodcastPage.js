@@ -88,6 +88,7 @@ const PodcastPage = (props) => {
   if (data) {
     const indexOfLastEpisodes = currentPage * episodesPerPage;
     const indexOfFirstEpisodes = indexOfLastEpisodes - episodesPerPage;
+    console.log(data);
     const replicateData = [...data.results];
     replicateData.shift();
     currentEpisodes = replicateData.slice(
@@ -112,7 +113,7 @@ const PodcastPage = (props) => {
   let pageCount = props.location.search.split('?')[1];
 
   if (pageNumbers.length > 0) {
-    pageCount = pageNumbers.length - 1;
+    pageCount = pageNumbers.length;
   }
 
   const paginate = (event, pageNumber) => {

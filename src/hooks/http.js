@@ -1,7 +1,10 @@
 import React from 'react';
 import axios from 'axios';
+import RSSParser from 'rss-parser';
 
 import { httpReducer } from './httpReducer';
+
+let parser = new RSSParser();
 
 const useHttp = () => {
   const [httpState, dispathHttp] = React.useReducer(httpReducer, {
@@ -61,16 +64,13 @@ const useHttp = () => {
     axios
       .get(proxyurl + url)
       .then((response) => {
-        axios
-          .get(
-            `https://listen-api.listennotes.com/api/v2/search?q=${response.data.results[0].collectionName}&sort_by_date=0&type=podcast&offset=0&len_min=10&len_max=30&published_after=0&only_in=title&language=English&safe_mode=0`,
-            {
-              headers: {
-                'X-ListenAPI-Key': '8cdcd14f4279491aba4bf627524febe2',
-              },
-            }
-          )
-          .then((listen) => {
+        let feedUrl = response.data.results[0].feedUrl;
+        if (!feedUrl.includes('?format=xml')) {
+          feedUrl = feedUrl + '?format=xml';
+        }
+        parser
+          .parseURL(proxyurl + feedUrl)
+          .then((feed) => {
             response.data.results.map((track) => {
               let minutes = Math.floor(
                 (track.trackTimeMillis / (1000 * 60)) % 60
@@ -96,18 +96,21 @@ const useHttp = () => {
               return (track.releaseDate = newData);
             });
 
-            let description = 'Description is not available';
             let title = null;
-
-            if (listen.data.results.length !== 0) {
-              description = listen.data.results[0].description_original;
-            }
 
             dispathHttp({
               type: 'RESPONSE',
-              responseData: response.data,
-              description: description,
+              // responseData: response.data,
+              responseData: feed.items,
+              description: feed.description,
               title: title,
+            });
+          })
+          .catch((error) => {
+            dispathHttp({
+              type: 'ERROR',
+              errorMessage: 'RSS!',
+              description: 'not available',
             });
           });
       })
