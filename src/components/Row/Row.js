@@ -7,31 +7,29 @@ import TableBody from '@material-ui/core/TableBody';
 
 import useStyles from './rowStyles';
 
-const Row = ({ podcasts, large, setAudioHandler, modal }) => {
+const Row = ({ podcasts, large, setAudioHandler, modal, podcast }) => {
   const classes = useStyles();
-
   return (
     <TableBody>
       {podcasts
         ? !large
-          ? podcasts.map((row) => (
-              <TableRow key={row.trackId} hover>
+          ? podcasts.map((row, index) => (
+              <TableRow key={index} hover>
                 <TableCell component="th" scope="row" align="left">
                   <Button
                     className={classes.btn}
                     onClick={() =>
                       modal(
-                        row.trackName,
-                        row.artworkUrl600,
-                        row.collectionName,
-                        row.releaseDate,
-                        row.trackTimeMillis,
-                        row.description,
-                        row.feedUrl
+                        row.title,
+                        podcast.image.url,
+                        podcast.title,
+                        row.pubDate,
+                        row.itunes.duration,
+                        row.content
                       )
                     }
                   >
-                    {row.trackName}
+                    {row.title}
                   </Button>
                 </TableCell>
                 <TableCell align="right">
@@ -39,9 +37,9 @@ const Row = ({ podcasts, large, setAudioHandler, modal }) => {
                     onClick={() =>
                       setAudioHandler(
                         row.episodeUrl,
-                        row.artworkUrl600,
-                        row.collectionName,
-                        row.trackName
+                        podcast.image.url,
+                        podcast.title,
+                        row.title
                       )
                     }
                     aria-label={row.trackId}
@@ -51,36 +49,35 @@ const Row = ({ podcasts, large, setAudioHandler, modal }) => {
                 </TableCell>
               </TableRow>
             ))
-          : podcasts.map((row) => (
-              <TableRow key={row.trackId} hover>
+          : podcasts.map((row, index) => (
+              <TableRow key={index} hover>
                 <TableCell component="th" scope="row">
                   <Button
                     className={classes.btn}
                     onClick={() =>
                       modal(
-                        row.trackName,
-                        row.artworkUrl600,
-                        row.collectionName,
-                        row.releaseDate,
-                        row.trackTimeMillis,
-                        row.description,
-                        row.feedUrl
+                        row.title,
+                        podcast.image.url,
+                        podcast.title,
+                        row.pubDate,
+                        row.itunes.duration,
+                        row.content
                       )
                     }
                   >
-                    {row.trackName}
+                    {row.title}
                   </Button>
                 </TableCell>
-                <TableCell align="right">{row.releaseDate}</TableCell>
-                <TableCell align="right">{row.trackTimeMillis}</TableCell>
+                <TableCell align="right">{row.pubDate}</TableCell>
+                <TableCell align="right">{row.itunes.duration}</TableCell>
                 <TableCell align="right">
                   <Button
                     onClick={() =>
                       setAudioHandler(
-                        row.episodeUrl,
-                        row.artworkUrl600,
-                        row.collectionName,
-                        row.trackName
+                        row.enclosure.url,
+                        podcast.image.url,
+                        podcast.title,
+                        row.title
                       )
                     }
                     aria-label={row.trackId}

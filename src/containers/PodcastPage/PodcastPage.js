@@ -66,7 +66,7 @@ const PodcastPage = (props) => {
   });
 
   const classes = useStyles();
-  const { isLoading, data, description, sendPodcastRequest } = useHttp();
+  const { isLoading, data, sendPodcastRequest, genres } = useHttp();
 
   useEffect(() => {
     const term = props.location.pathname.replace('/podcast/', '');
@@ -88,25 +88,22 @@ const PodcastPage = (props) => {
   if (data) {
     const indexOfLastEpisodes = currentPage * episodesPerPage;
     const indexOfFirstEpisodes = indexOfLastEpisodes - episodesPerPage;
-    console.log(data);
-    const replicateData = [...data.results];
-    replicateData.shift();
+    const replicateData = [...data.items];
     currentEpisodes = replicateData.slice(
       indexOfFirstEpisodes,
       indexOfLastEpisodes
     );
 
-    totalEpisodes = data.results.length;
+    totalEpisodes = data.items.length;
   }
 
   if (data) {
-    const replicateData = [...data.results];
-    podcast = replicateData.shift();
+    podcast = { ...data };
   }
 
   const pageNumbers = [];
 
-  for (let i = 2; i <= Math.ceil(totalEpisodes / episodesPerPage); i++) {
+  for (let i = 1; i <= Math.ceil(totalEpisodes / episodesPerPage); i++) {
     pageNumbers.push(i);
   }
 
@@ -120,55 +117,23 @@ const PodcastPage = (props) => {
     props.history.push(props.match.url + '?' + pageNumber);
   };
 
-  const proxyurl = 'https://ancient-river-53390.herokuapp.com/';
-
   const handleModal = (
     trackName,
     artWork,
     artistName,
     releaseDate,
     trackTime,
-    description,
-    feedUrl
+    description
   ) => {
-    setModalState({ type: 'SEND' });
-
-    if (!feedUrl.includes('?format=xml')) {
-      feedUrl = feedUrl + '?format=xml';
-    }
-    parser
-      .parseURL(proxyurl + feedUrl)
-      .then((feed) => {
-        const titleMatch = feed.items.filter((podcast) => {
-          return podcast.title === trackName;
-        });
-        let finalDescription;
-        if (titleMatch.length === 1) {
-          finalDescription = titleMatch[0].content;
-        } else {
-          finalDescription = description;
-        }
-        setModalState({
-          type: 'OPEN_MODAL',
-          trackName: trackName,
-          artWork: artWork,
-          artistName: artistName,
-          releaseDate: releaseDate,
-          trackTime: trackTime,
-          description: finalDescription,
-        });
-      })
-      .catch((error) => {
-        setModalState({
-          type: 'ERROR',
-          trackName: trackName,
-          artWork: artWork,
-          artistName: artistName,
-          releaseDate: releaseDate,
-          trackTime: trackTime,
-          description: 'No description available',
-        });
-      });
+    setModalState({
+      type: 'OPEN_MODAL',
+      trackName: trackName,
+      artWork: artWork,
+      artistName: artistName,
+      releaseDate: releaseDate,
+      trackTime: trackTime,
+      description: description,
+    });
   };
 
   const handleClose = () => {
@@ -179,9 +144,10 @@ const PodcastPage = (props) => {
 
   const DOM = (
     <React.Fragment>
-      <PodcastHeader podcast={podcast} description={description} />
+      <PodcastHeader podcast={podcast} genres={genres} />
       <PodcastsTable
         podcasts={currentEpisodes}
+        podcast={podcast}
         isLoading={isLoading}
         modal={(
           trackName,

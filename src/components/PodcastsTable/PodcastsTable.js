@@ -14,7 +14,7 @@ import useStyles from './podcastsTableStyles';
 import { AudioContext } from '../../context/audio-context';
 import Row from '../../components/Row/Row';
 
-export default function PodcastsTable({ podcasts, modal }) {
+export default function PodcastsTable({ podcasts, modal, podcast }) {
   const setAudio = React.useContext(AudioContext).setAudio;
 
   const setAudioHandler = (audio, image, trackName, artistName) => {
@@ -41,6 +41,7 @@ export default function PodcastsTable({ podcasts, modal }) {
         <Row
           modal={modal}
           podcasts={podcasts}
+          podcast={podcast}
           setAudioHandler={(
             episodeUrl,
             artworkUrl600,
@@ -77,6 +78,7 @@ export default function PodcastsTable({ podcasts, modal }) {
         <Row
           modal={modal}
           podcasts={podcasts}
+          podcast={podcast}
           large
           setAudioHandler={(
             episodeUrl,

@@ -16,6 +16,7 @@
     "@wojtekmaj/enzyme-adapter-react-17": "^0.3.2",
     "axios": "^0.21.0",
     "clsx": "^1.1.1",
+    "get-audio-duration": "^2.0.3",
     "history": "^5.0.0",
     "jest-fetch-mock": "^3.0.3",
     "prop-types": "^15.7.2",

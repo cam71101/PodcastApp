@@ -9,6 +9,7 @@ export const httpReducer = (curHttpState, action) => {
         data: action.responseData,
         description: action.description,
         categoryData: action.categoryData,
+        genres: action.genres,
       };
     case 'ERROR':
       return { loading: false, error: action.errorMessage };

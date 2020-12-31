@@ -63,8 +63,6 @@ const SearchPage = (props) => {
     props.history.push(props.match.url + '?' + pageNumber);
   };
 
-  console.log(currentPage);
-
   return (
     <div className={classes.rootSearchPage}>
       {isLoading ? (

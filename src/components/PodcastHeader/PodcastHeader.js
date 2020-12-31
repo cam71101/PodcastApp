@@ -6,29 +6,23 @@ import { Typography } from '@material-ui/core';
 import Chip from '@material-ui/core/Chip';
 import parse from 'react-html-parser';
 
-export const PodcastHeader = function MusicCard({
-  podcast,
-  description,
-  title,
-}) {
+export const PodcastHeader = function MusicCard({ podcast, genres }) {
   const styles = useStyles();
-
-  console.log(description);
 
   let layout = null;
 
   if (podcast) {
     layout = (
       <React.Fragment>
-        <CardMedia className={styles.media} image={podcast.artworkUrl600} />
+        <CardMedia className={styles.media} image={podcast.image.url} />
         <CardContent className={styles.cardContent}>
-          <Typography variant="h4">{podcast.collectionName}</Typography>
+          <Typography variant="h4">{podcast.title}</Typography>
           <Typography variant="h6" gutterBottom>
-            {podcast.artistName}
+            {podcast.itunes.author}
           </Typography>
-          <Typography gutterBottom>{parse(description)}</Typography>
+          <Typography gutterBottom>{parse(podcast.description)}</Typography>
           <div className={styles.tag}>
-            {podcast.genres.map((tag, index) => {
+            {genres.map((tag, index) => {
               return <Chip label={tag} key={index} color="primary" />;
             })}
           </div>
