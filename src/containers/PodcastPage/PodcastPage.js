@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import RSSParser from 'rss-parser';
 import useHttp from '../../hooks/http';
 import useStyles from './podcastPageStyles';
 import PodcastsTable from '../../components/PodcastsTable/PodcastsTable';
@@ -9,8 +8,6 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import Pagination from '@material-ui/lab/Pagination';
 import Modal from '../../components/Modal/Modal';
 import ErrorPage from '../../components/ErrorPage/ErrorPage';
-
-let parser = new RSSParser();
 
 function modalReducer(curState, action) {
   switch (action.type) {

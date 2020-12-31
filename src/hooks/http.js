@@ -93,19 +93,7 @@ const useHttp = () => {
 
             array.shift();
 
-            // feed.items = feed.items.splice(0, response.data.results.length);
-
-            // let length = array.length;
-
-            // if (feed.items.length < array.length) {
-            //   length = feed.items.length;
-            // }
-
-            // for (let i = 0; i < length; i++) {
-            //   feed.items[i].itunes.duration = array[i].trackTimeMillis;
-            // }
-
-            feed.items.map((track) => {
+            feed.items.forEach((track) => {
               if (track.itunes.duration) {
                 if (!track.itunes.duration.includes(':')) {
                   let totalSeconds = track.itunes.duration;
@@ -158,53 +146,6 @@ const useHttp = () => {
                 }
               }
             });
-
-            // feed.items = feed.items.splice(0, response.data.results.length);
-
-            // let length = array.length;
-
-            // if (feed.items.length < array.length) {
-            //   length = feed.items.length;
-            // }
-
-            // for (let i = 0; i < length; i++) {
-            //   feed.items[i].itunes.duration = array[i].trackTimeMillis;
-            // }
-
-            // feed.items.map((track) => {
-            //   const insertCharacter = (track, position) => {
-            //     return [
-            //       track.slice(0, position),
-            //       ':',
-            //       track.slice(position),
-            //     ].join('');
-            //   };
-            //   if (track.itunes.duration.length === 4) {
-            //     return (track.itunes.duration =
-            //       '00:' + insertCharacter(track.itunes.duration, 2));
-            //   } else if (
-            //     track.itunes.duration.length === 3 &&
-            //     track.itunes.duration.includes(':')
-            //   ) {
-            //     return (track.itunes.duration =
-            //       '00:0' + insertCharacter(track.itunes.duration, 2));
-            //   } else if (
-            //     track.itunes.duration.length === 5 &&
-            //     track.itunes.duration.includes(':')
-            //   ) {
-            //     return (track.itunes.duration = '00:' + track.itunes.duration);
-            //   } else if (
-            //     track.itunes.duration.length === 5 &&
-            //     !track.itunes.duration.includes(':')
-            //   ) {
-            //     track.itunes.duration =
-            //       '0' + +insertCharacter(track.itunes.duration, 3);
-            //     return (track.itunes.duration = insertCharacter(
-            //       track.itunes.duration,
-            //       2
-            //     ));
-            //   }
-            // });
 
             feed.items.map((track) => {
               const date = track.pubDate.substr(0, 17);
