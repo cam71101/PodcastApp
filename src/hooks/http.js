@@ -11,7 +11,6 @@ const useHttp = () => {
     loading: false,
     error: null,
     data: null,
-    description: null,
     categoryData: null,
     genres: [],
   });
@@ -32,7 +31,6 @@ const useHttp = () => {
           dispathHttp({
             type: 'RESPONSE',
             responseData: response.data,
-            description: null,
             categoryData: null,
           });
         }
@@ -173,8 +171,6 @@ const useHttp = () => {
             //   feed.items[i].itunes.duration = array[i].trackTimeMillis;
             // }
 
-            // console.log(feed.items);
-
             // feed.items.map((track) => {
             //   const insertCharacter = (track, position) => {
             //     return [
@@ -225,7 +221,6 @@ const useHttp = () => {
             dispathHttp({
               type: 'ERROR',
               errorMessage: 'RSS!',
-              description: 'not available',
             });
           });
       })

@@ -107,7 +107,7 @@ const PodcastPage = (props) => {
     pageNumbers.push(i);
   }
 
-  let pageCount = props.location.search.split('?')[1];
+  let pageCount = parseInt(props.location.search.split('?')[1]);
 
   if (pageNumbers.length > 0) {
     pageCount = pageNumbers.length;

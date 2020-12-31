@@ -13,14 +13,14 @@ test('returns object when receiving action RESPONSE', () => {
   const newState = httpReducer(undefined, {
     type: 'RESPONSE',
     responseData: {},
-    description: 'string',
-    categoryData: 'string',
+    categoryData: [],
+    genres: [],
   });
   expect(newState).toStrictEqual({
     loading: false,
     data: {},
-    description: 'string',
-    categoryData: 'string',
+    categoryData: [],
+    genres: [],
   });
 });
 

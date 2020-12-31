@@ -11,6 +11,7 @@ test('Renders without error', async () => {
   const props = {
     location: {
       pathname: '/podcast/1508985962',
+      search: '?1',
     },
   };
 

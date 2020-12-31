@@ -7,7 +7,6 @@ export const httpReducer = (curHttpState, action) => {
         ...curHttpState,
         loading: false,
         data: action.responseData,
-        description: action.description,
         categoryData: action.categoryData,
         genres: action.genres,
       };

@@ -36,7 +36,7 @@ describe('Testing carousel', () => {
     const leftClick = { button: 0 };
     fireEvent.click(link, leftClick);
 
-    expect(history.push).toHaveBeenCalledWith('/podcast/' + podcast.id);
+    expect(history.push).toHaveBeenCalledWith('/podcast/' + podcast.id + '?1');
   });
 
   test('does not throw warning with expected props', () => {

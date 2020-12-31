@@ -2,7 +2,7 @@ import React from 'react';
 import { render, fireEvent, screen } from '@testing-library/react';
 
 import Row from './Row';
-import response from '../../__mocks__/dave-podcasts.response.json';
+import feed from '../../__mocks__/louis-podcast.response.json';
 
 const modal = jest.fn();
 const setAudioHandler = jest.fn();
@@ -12,9 +12,10 @@ function setup() {
   const table = document.createElement('table');
   return render(
     <Row
-      podcasts={response.results}
+      podcasts={feed.items}
       modal={modal}
       setAudioHandler={setAudioHandler}
+      podcast={feed}
     />,
     {
       container: document.body.appendChild(table),
@@ -31,7 +32,7 @@ test('renders component', async () => {
 test('Modal button works', () => {
   setup();
   const button = screen.getByRole('button', {
-    name: 'My Mother Wants Me to File for Bankruptcy!',
+    name: '3. Helena Bonham Carter',
   });
 
   fireEvent.click(button, leftClick);
@@ -41,7 +42,7 @@ test('Modal button works', () => {
 test('Play button works', () => {
   setup();
   const button = screen.getByRole('button', {
-    name: '1000502755838',
+    name: '9',
   });
 
   fireEvent.click(button, leftClick);

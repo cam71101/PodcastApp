@@ -42,7 +42,7 @@ const Row = ({ podcasts, large, setAudioHandler, modal, podcast }) => {
                         row.title
                       )
                     }
-                    aria-label={row.trackId}
+                    aria-label={index}
                   >
                     <PlayCircleOutlineIcon fontSize="large" color="primary" />
                   </Button>
@@ -80,7 +80,7 @@ const Row = ({ podcasts, large, setAudioHandler, modal, podcast }) => {
                         row.title
                       )
                     }
-                    aria-label={row.trackId}
+                    aria-label={index}
                   >
                     <PlayCircleOutlineIcon fontSize="large" color="primary" />
                   </Button>

@@ -43,8 +43,6 @@ const Player = () => {
     progress = null;
   }
 
-  console.log(trackName);
-
   return (
     <Slide direction="up" in={autoPlay} mountOnEnter unmountOnExit>
       <div className={classes.root}>

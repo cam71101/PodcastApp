@@ -3,7 +3,7 @@ import { createMemoryHistory } from 'history';
 import { Router } from 'react-router-dom';
 import { render, screen } from '@testing-library/react';
 
-import response from '../../__mocks__/dave-podcasts.response.json';
+import feed from '../../__mocks__/louis-podcast.response.json';
 import PodcastsTable from './PodcastsTable';
 
 const modal = jest.fn();
@@ -13,7 +13,7 @@ history.push = jest.fn();
 function setup(history) {
   return render(
     <Router history={history}>
-      <PodcastsTable podcasts={response.results} modal={modal} />
+      <PodcastsTable podcasts={feed.items} modal={modal} />
     </Router>
   );
 }
