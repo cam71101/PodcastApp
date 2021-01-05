@@ -167,7 +167,7 @@ const useHttp = () => {
           .catch((error) => {
             dispathHttp({
               type: 'ERROR',
-              errorMessage: 'RSS!',
+              errorMessage: 'RSS! ' + error,
             });
           });
       })

@@ -38,7 +38,9 @@ describe('useApi sendRequest', () => {
       httpData.sendRequest('www.test.com');
     });
 
-    expect(httpData.error).toBe('Something went wrong!');
+    expect(httpData.error).toBe(
+      "Something went wrong! TypeError: Cannot read property 'results' of undefined"
+    );
   });
 
   test('should return data with  successful response', async () => {
@@ -61,7 +63,7 @@ describe('useApi sendRequest', () => {
 });
 
 describe('useApi homeRequest', () => {
-  test('should return data with  successful response', async () => {
+  test('should return data with successful response', async () => {
     axios.get = jest.fn(() => Promise.resolve({ data: 'data.response' }));
 
     const httpData = setup();
@@ -99,23 +101,8 @@ describe('useApi sendPodcastRequest', () => {
       httpData.sendPodcastRequest('www.test.com');
     });
 
-    expect(httpData.error).toBe('Something went wrong!');
+    expect(httpData.error).toBe(
+      "Something went wrong! TypeError: Cannot read property 'results' of undefined"
+    );
   });
-
-  // test('should return data with  successful response', async () => {
-  //   axios.get = jest.fn(() => Promise.resolve({ data: response }));
-
-  //   const httpData = setup();
-  //   expect(httpData.isLoading).toBe(false);
-  //   expect(httpData.data).toBe(null);
-  //   expect(httpData.error).toBe(null);
-  //   expect(httpData.categoryData).toBe(null);
-  //   expect(httpData.genres).toStrictEqual([]);
-
-  //   await act(async () => {
-  //     httpData.sendPodcastRequest('www.test.com');
-  //   });
-
-  //   expect(httpData.data).toBe(response);
-  // });
 });
