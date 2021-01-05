@@ -29,11 +29,12 @@ const useStyles = makeStyles((theme) => ({
   },
   provider: {
     width: '100%',
+    height: '13rem',
     position: 'relative',
+    marginBottom: '8rem',
   },
   backButton: {
     position: 'absolute',
-    margin: 'auto',
     left: 0,
     top: 0,
     bottom: 0,
@@ -58,6 +59,7 @@ const useStyles = makeStyles((theme) => ({
     width: 200,
   },
   slide: {
+    height: '100%',
     marginLeft: '1.5rem',
     textDecoration: 'none',
     width: '14rem',

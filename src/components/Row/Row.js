@@ -36,7 +36,7 @@ const Row = ({ podcasts, large, setAudioHandler, modal, podcast }) => {
                   <Button
                     onClick={() =>
                       setAudioHandler(
-                        row.episodeUrl,
+                        row.enclosure.url,
                         podcast.image.url,
                         podcast.title,
                         row.title

@@ -14,7 +14,7 @@ export const PodcastHeader = function MusicCard({ podcast, genres }) {
   if (podcast) {
     layout = (
       <React.Fragment>
-        <CardMedia className={styles.media} image={podcast.image.url} />
+        <CardMedia className={styles.media} image={podcast.itunes.image} />
         <CardContent className={styles.cardContent}>
           <Typography variant="h4">{podcast.title}</Typography>
           <Typography variant="h6" gutterBottom>
