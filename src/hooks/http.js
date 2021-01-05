@@ -172,7 +172,10 @@ const useHttp = () => {
           });
       })
       .catch((error) => {
-        dispathHttp({ type: 'ERROR', errorMessage: 'Something went wrong!' });
+        dispathHttp({
+          type: 'ERROR',
+          errorMessage: 'Something went wrong! ' + error,
+        });
       });
   }, []);
 

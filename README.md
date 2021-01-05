@@ -29,7 +29,7 @@ I've written a few blog posts about the making of the app <a  href="https://d-fi
 
 This project was built with React and Material UI.
 
-In my previous project, I used Redux and Middleware to handle state management and HTTP requests. I wanted to learn more about custom hooks, and I felt that this project did not need Redux, so I used a custom HTTP hook to handle API requests. The hook was made with a reducer and is used throughout most of my containers. The hook can be found <a href="https://github.com/cam71101/PodcastApp/blob/f6d09907bc2a1a214175486806292889b728a746/src/hooks/http.js#L1-L165">here</a>.
+In my previous project, I used Redux and Middleware to handle state management and HTTP requests. I wanted to learn more about custom hooks, and I felt that this project did not need Redux, so I used a custom HTTP hook to handle API requests. The hook was made with a reducer and is used throughout most of my containers. The hook can be found <a href="https://github.com/cam71101/PodcastApp/blob/0e1afdeac7519d021d372b40f204b2c2fc752cd5/src/hooks/http.js#L1-L191">here</a>.
 
 To control the state of the audio track, I used context. This was so I wouldn't have to pass down props to the audio player container. The context file is <a href="https://github.com/cam71101/PodcastApp/blob/f6d09907bc2a1a214175486806292889b728a746/src/context/audio-context.js#L1-L40"> here </a>.
 
