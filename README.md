@@ -21,6 +21,8 @@
 <img src="https://res.cloudinary.com/dndp8567v/image/upload/v1608116331/PodcastApp_adeb2f3e15.gif" />
 </p>
 
+<h2 align="center"><a  href="https://d-fisher.com/podapp">CLICK HERE FOR FULL PROJECT BREAKDOWN</a></h2>
+
 PodApp is inspired by my love for Podcasts! It's an application to discover and listen to podcasts in the web browser. The user can browse different categories or search for a podcast. The application pulls images and data from the <a  href="https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-service-search-api/">ITunes API</a> and <a  href="https://www.listennotes.com/api/">Listen Notes API.</a>
 
 I've written a few blog posts about the making of the app <a  href="https://d-fisher.com/blogs">here</a>.

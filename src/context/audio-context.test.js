@@ -1,27 +1,13 @@
 import React from 'react';
-import {
-  render,
-  screen,
-  waitFor,
-  waitForElementToBeRemoved,
-  cleanup,
-} from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 
 import { AudioContext } from './audio-context';
 import AudioPlayer from '../containers/Layout/AudioPlayer/AudioPlayer';
 
-window.HTMLMediaElement.prototype.load = () => {
-  /* do nothing */
-};
-window.HTMLMediaElement.prototype.play = () => {
-  /* do nothing */
-};
-window.HTMLMediaElement.prototype.pause = () => {
-  /* do nothing */
-};
-window.HTMLMediaElement.prototype.addTextTrack = () => {
-  /* do nothing */
-};
+window.HTMLMediaElement.prototype.load = () => {};
+window.HTMLMediaElement.prototype.play = () => {};
+window.HTMLMediaElement.prototype.pause = () => {};
+window.HTMLMediaElement.prototype.addTextTrack = () => {};
 
 test('UserGreeter salutes an anonymous user', () => {
   const toggleAudio = jest.fn();
