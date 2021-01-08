@@ -23,11 +23,57 @@
 
 <h2 align="center"><a  href="https://d-fisher.com/podapp">CLICK HERE FOR FULL PROJECT BREAKDOWN</a></h2>
 
-PodApp is inspired by my love for Podcasts! It's an application to discover and listen to podcasts in the web browser. The user can browse different categories or search for a podcast. The application pulls images and data from the <a  href="https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-service-search-api/">ITunes API</a> and <a  href="https://www.listennotes.com/api/">Listen Notes API.</a>
+PodApp is inspired by my love for Podcasts! It's an application to discover and listen to podcasts in the web browser. The user can browse different categories or search for a podcast. The application pulls images and data from the <a  href="https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-service-search-api/">ITunes API</a>.
 
 I've written a few blog posts about the making of the app <a  href="https://d-fisher.com/blogs">here</a>.
 
+## Tecnologies Used
+
+- React & Javascript
+- Material UI
+- Docker
+- Git & Github
+
 ## Technical details
+
+```javascript
+const useHttp = () => {
+  const [httpState, dispathHttp] = React.useReducer(httpReducer, {
+    loading: false,
+    error: null,
+    data: null,
+    categoryData: null,
+    genres: [],
+  });
+
+  const proxyurl = 'https://ancient-river-53390.herokuapp.com/';
+
+  const sendRequest = React.useCallback((url) => {
+    dispathHttp({ type: 'SEND' });
+    axios
+      .get(proxyurl + url)
+      .then((response) => {
+        if (response.data.results && response.data.results.length === 0) {
+          dispathHttp({
+            type: 'ERROR',
+            errorMessage: 'No results found!',
+          });
+        } else {
+          dispathHttp({
+            type: 'RESPONSE',
+            responseData: response.data,
+            categoryData: null,
+          });
+        }
+      })
+      .catch((error) => {
+        dispathHttp({
+          type: 'ERROR',
+          errorMessage: 'Something went wrong! ' + error,
+        });
+      });
+  }, []);
+```
 
 This project was built with React and Material UI.
 
