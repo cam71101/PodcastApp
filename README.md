@@ -32,7 +32,16 @@ I've written a few blog posts about the making of the app <a  href="https://d-fi
 - React & Javascript
 - Material UI
 - Docker
+- Jest/Enzyme
+- React Testing Library
 - Git & Github
+
+## Main Features
+
+- Audio player
+- Podcast charts
+- Search podcasts
+- Genre catergories
 
 ## Technical details
 
@@ -145,28 +154,11 @@ test('should catch error', async () => {
 });
 ```
 
-This project was built with React and Material UI.
-
-In my previous project, I used Redux and Middleware to handle state management and HTTP requests. I wanted to learn more about custom hooks, and I felt that this project did not need Redux, so I used a custom HTTP hook to handle API requests. The hook was made with a reducer and is used throughout most of my containers. The hook can be found <a href="https://github.com/cam71101/PodcastApp/blob/0e1afdeac7519d021d372b40f204b2c2fc752cd5/src/hooks/http.js#L1-L191">here</a>.
-
-To control the state of the audio track, I used context. This was so I wouldn't have to pass down props to the audio player container. The context file is <a href="https://github.com/cam71101/PodcastApp/blob/f6d09907bc2a1a214175486806292889b728a746/src/context/audio-context.js#L1-L40"> here </a>.
-
-I also had to fetch the RSS feeds for the podcast pages to gather more information about each episode along with fetching data from the APIs. However, the RSS feed is only called when the user clicks on the episode to display more information. I also used useReducer to handle state management. You can find the code <a href="https://github.com/cam71101/PodcastApp/blob/616db3f7df881b692d26d380dcbabd7123072a9b/src/containers/PodcastPage/PodcastPage.js#L119-L147"> here</a>.
-
-I also focused heavily on unit testing when making this application, using a mixture of Jest/Enzyme and the React Testing Library.
-
 ## Responsive Design
 
 <p align="center">
 <img src="https://res.cloudinary.com/dndp8567v/image/upload/v1608584482/PodcastAppResponsiveLowRes_9084851fc7.gif" />
 </p>
-
-## Main Features
-
-- Audio player (courtesy of https://www.npmjs.com/package/react-h5-audio-player)
-- Podcast charts
-- Search
-- Categories
 
 ## Future Features
 
