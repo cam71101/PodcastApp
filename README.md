@@ -36,6 +36,8 @@ I've written a few blog posts about the making of the app <a  href="https://d-fi
 
 ## Technical details
 
+Custom Hook used for fetching data.
+
 ```javascript
 const useHttp = () => {
   const [httpState, dispathHttp] = React.useReducer(httpReducer, {
@@ -73,6 +75,49 @@ const useHttp = () => {
         });
       });
   }, []);
+```
+
+Full script <a href="https://github.com/cam71101/PodcastApp/blob/0e1afdeac7519d021d372b40f204b2c2fc752cd5/src/hooks/http.js#L1-L191">here</a>.
+
+Audio Context for passing down audio data to the media player.
+
+```javascript
+export const AudioContext = React.createContext({
+  audio: null,
+  image: null,
+  toggleAudio: () => {},
+  autoPlay: false,
+  trackName: null,
+  artistName: null,
+});
+
+const Audio = (props) => {
+  const [audio, setAudio] = React.useState(null);
+  const [image, setImage] = React.useState(null);
+  const [trackName, setTrackName] = React.useState(null);
+  const [artistName, setArtistkName] = React.useState(null);
+
+  const toggleAudio = (audioLink, audioImage, artistName, trackName) => {
+    setAudio(audioLink);
+    setImage(audioImage);
+    setArtistkName(artistName);
+    setTrackName(trackName);
+  };
+
+  return (
+    <AudioContext.Provider
+      value={{
+        audio: audio,
+        image: image,
+        setAudio: toggleAudio,
+        artistName: artistName,
+        trackName: trackName,
+      }}
+    >
+      {props.children}
+    </AudioContext.Provider>
+  );
+};
 ```
 
 This project was built with React and Material UI.
