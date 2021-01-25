@@ -139,7 +139,7 @@ const PodcastPage = (props) => {
     });
   };
 
-  const DOM = (
+  const dom = (
     <React.Fragment>
       <PodcastHeader podcast={podcast} genres={genres} />
       <PodcastsTable
@@ -200,7 +200,7 @@ const PodcastPage = (props) => {
           aria-label="loading-spinner"
         />
       ) : (
-        DOM
+        dom
       )}
     </div>
   );

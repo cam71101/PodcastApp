@@ -9,6 +9,9 @@ import useStyles from './rowStyles';
 
 const Row = ({ podcasts, large, setAudioHandler, modal, podcast }) => {
   const classes = useStyles();
+
+  console.log(podcasts);
+
   return (
     <TableBody>
       {podcasts
@@ -21,7 +24,7 @@ const Row = ({ podcasts, large, setAudioHandler, modal, podcast }) => {
                     onClick={() =>
                       modal(
                         row.title,
-                        podcast.image.url,
+                        podcast.itunes.image,
                         podcast.title,
                         row.pubDate,
                         row.itunes.duration,
@@ -37,7 +40,7 @@ const Row = ({ podcasts, large, setAudioHandler, modal, podcast }) => {
                     onClick={() =>
                       setAudioHandler(
                         row.enclosure.url,
-                        podcast.image.url,
+                        podcast.itunes.image,
                         podcast.title,
                         row.title
                       )
@@ -57,7 +60,7 @@ const Row = ({ podcasts, large, setAudioHandler, modal, podcast }) => {
                     onClick={() =>
                       modal(
                         row.title,
-                        podcast.image.url,
+                        podcast.itunes.image,
                         podcast.title,
                         row.pubDate,
                         row.itunes.duration,
@@ -75,7 +78,7 @@ const Row = ({ podcasts, large, setAudioHandler, modal, podcast }) => {
                     onClick={() =>
                       setAudioHandler(
                         row.enclosure.url,
-                        podcast.image.url,
+                        podcast.itunes.image,
                         podcast.title,
                         row.title
                       )

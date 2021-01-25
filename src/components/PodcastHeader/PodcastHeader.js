@@ -11,6 +11,8 @@ export const PodcastHeader = function MusicCard({ podcast, genres }) {
 
   let layout = null;
 
+  console.log(podcast);
+
   if (podcast) {
     layout = (
       <React.Fragment>

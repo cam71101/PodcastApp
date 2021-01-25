@@ -14,10 +14,15 @@ import Button from '@material-ui/core/Button';
 const Player = () => {
   const [autoPlay, setAutoPlay] = React.useState(false);
   const [isLoading, setIsLoading] = React.useState(false);
-  const audio = React.useContext(AudioContext).audio;
-  const image = React.useContext(AudioContext).image;
-  const artistName = React.useContext(AudioContext).artistName;
-  const trackName = React.useContext(AudioContext).trackName;
+
+  const audioContext = React.useContext(AudioContext);
+
+  const { audio, image, artistName, trackName } = audioContext;
+
+  // const audio = React.useContext(AudioContext).audio;
+  // const image = React.useContext(AudioContext).image;
+  // const artistName = React.useContext(AudioContext).artistName;
+  // const trackName = React.useContext(AudioContext).trackName;
   const classes = useStyles();
 
   React.useEffect(() => {

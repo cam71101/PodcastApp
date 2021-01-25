@@ -87,7 +87,6 @@ const useHttp = () => {
 ```
 
 Audio Context for passing down audio data to the media player. Full script <a href="https://github.com/cam71101/PodcastApp/blob/f6d09907bc2a1a214175486806292889b728a746/src/context/audio-context.js#L1-L40"> here </a>.
-
 ```javascript
 export const AudioContext = React.createContext({
   audio: null,
