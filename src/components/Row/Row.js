@@ -10,8 +10,6 @@ import useStyles from './rowStyles';
 const Row = ({ podcasts, large, setAudioHandler, modal, podcast }) => {
   const classes = useStyles();
 
-  console.log(podcasts);
-
   return (
     <TableBody>
       {podcasts
